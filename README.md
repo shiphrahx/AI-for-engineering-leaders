@@ -154,8 +154,8 @@ Every prompt in this library follows a consistent format:
 ## 🗺️ Roadmap
 
 - [x] V1: 36 prompts across comms, planning, and people management
-- [ ] V2: CLI tool via Claude Code (`ai-eng fetch postmortem --timeline "..."`)
 - [ ] V2: Additional categories (incident management, architecture, hiring pipelines)
+- [ ] V2: CLI tool via Claude Code (`ai-eng fetch postmortem --timeline "..."`)
 - [ ] V3: Prompt chaining (multi-step workflows)
 - [ ] V3: Org-size variants (startup, growth, enterprise)
 
