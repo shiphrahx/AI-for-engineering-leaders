@@ -4,7 +4,7 @@ Situation-specific prompts for engineering managers, directors, and VPs. Each pr
 
 ## Prompt Categories
 
-### [Weekly Comms](prompts/weekly-comms/) - 12 prompts
+### [Weekly Comms](prompts/weekly-comms/) - 15 prompts
 The communication layer of leadership. Status updates, stakeholder emails, launch announcements, incident comms, and more.
 
 | # | Prompt | When to Use |
@@ -21,8 +21,11 @@ The communication layer of leadership. Status updates, stakeholder emails, launc
 | 10 | [Meeting Recap & Action Items](prompts/weekly-comms/10-meeting-recap-action-items.md) | Turning messy meeting notes into clear follow-ups |
 | 11 | [Skip-Level Update](prompts/weekly-comms/11-skip-level-update.md) | Writing upward comms for your boss's boss |
 | 12 | [Board Engineering Summary](prompts/weekly-comms/12-board-engineering-summary.md) | Distilling engineering progress for board-level audiences |
+| 13 | [Engineering Newsletter](prompts/weekly-comms/13-engineering-newsletter.md) | Monthly or bi-weekly update for a non-technical company-wide audience |
+| 14 | [Vendor Escalation Email](prompts/weekly-comms/14-vendor-escalation-email.md) | Escalating a blocked vendor issue in writing |
+| 15 | [Engineering All-Hands Agenda](prompts/weekly-comms/15-engineering-all-hands-agenda.md) | Planning a quarterly or monthly all-hands meeting |
 
-### [Planning Artifacts](prompts/planning/) - 12 prompts
+### [Planning Artifacts](prompts/planning/) - 14 prompts
 The documents that shape what gets built and when. Roadmaps, RFCs, retros, decision records, and operational playbooks.
 
 | # | Prompt | When to Use |
@@ -39,8 +42,10 @@ The documents that shape what gets built and when. Roadmaps, RFCs, retros, decis
 | 10 | [Architecture Decision Record](prompts/planning/10-architecture-decision-record.md) | Documenting a technical decision with context and trade-offs |
 | 11 | [Incident Postmortem](prompts/planning/11-incident-postmortem.md) | Writing a blameless postmortem from timeline notes |
 | 12 | [Sprint Planning Breakdown](prompts/planning/12-sprint-planning-breakdown.md) | Breaking epics into well-scoped sprint tickets |
+| 13 | [Engineering Strategy One-Pager](prompts/planning/13-engineering-strategy-one-pager.md) | Communicating what you're optimising for and why, in one page |
+| 14 | [Team Offsite Agenda](prompts/planning/14-team-offsite-agenda.md) | Planning a substantive team offsite that produces real decisions |
 
-### [People Management](prompts/people-management/) - 12 prompts
+### [People Management](prompts/people-management/) - 16 prompts
 The human side of leadership. Reviews, career conversations, hiring, and the difficult moments.
 
 | # | Prompt | When to Use |
@@ -57,6 +62,10 @@ The human side of leadership. Reviews, career conversations, hiring, and the dif
 | 10 | [Onboarding Plan](prompts/people-management/10-onboarding-plan.md) | Creating a structured first 30/60/90 days for a new hire |
 | 11 | [Skip-Level Meeting Prep](prompts/people-management/11-skip-level-meeting-prep.md) | Preparing for 1:1s with your reports' reports |
 | 12 | [Difficult Conversation Prep](prompts/people-management/12-difficult-conversation-prep.md) | Structuring hard feedback or sensitive discussions |
+| 13 | [Manager README](prompts/people-management/13-manager-readme.md) | Writing a working guide to yourself for your direct reports |
+| 14 | [Layoff Communication](prompts/people-management/14-layoff-communication.md) | Individual and team messaging for a workforce reduction |
+| 15 | [Team Values Workshop](prompts/people-management/15-team-values-workshop.md) | Facilitating a session to define real, usable team values |
+| 16 | [Staff Engineer Scope Document](prompts/people-management/16-staff-engineer-scope-doc.md) | Defining what a staff engineer owns and how success is measured |
 
 ### [Incident Management](prompts/incident-management/) - 12 prompts
 The operational backbone of engineering reliability. From alert fires through to organisational learning.
