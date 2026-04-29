@@ -72,6 +72,60 @@ The human side of leadership. Reviews, career conversations, hiring, and the dif
 | 11 | [Skip-Level Meeting Prep](prompts/people-management/11-skip-level-meeting-prep.md) | Preparing for 1:1s with your reports' reports |
 | 12 | [Difficult Conversation Prep](prompts/people-management/12-difficult-conversation-prep.md) | Structuring hard feedback or sensitive discussions |
 
+### [Incident Management](prompts/incident-management/) — 12 prompts
+The operational backbone of engineering reliability. From alert fires through to organisational learning.
+
+| # | Prompt | When to Use |
+|---|--------|-------------|
+| 01 | [Incident Commander Runbook](prompts/incident-management/01-incident-commander-runbook.md) | You're IC for a live incident and need a structured framework |
+| 02 | [Real-Time Status Page Update](prompts/incident-management/02-real-time-status-page-update.md) | Writing public status updates during an active incident |
+| 03 | [Customer Apology Email](prompts/incident-management/03-customer-apology-email.md) | Post-incident customer communication that rebuilds trust |
+| 04 | [War Room Facilitation Guide](prompts/incident-management/04-war-room-facilitation-guide.md) | Running an effective incident response call |
+| 05 | [On-Call Handoff](prompts/incident-management/05-on-call-handoff.md) | Handing off context at the start/end of an on-call rotation |
+| 06 | [Runbook Generator](prompts/incident-management/06-runbook-generator.md) | Extracting operational knowledge into step-by-step runbooks |
+| 07 | [Incident Trend Analysis](prompts/incident-management/07-incident-trend-analysis.md) | Quarterly review of incident patterns and systemic issues |
+| 08 | [Remediation Tracker](prompts/incident-management/08-remediation-tracker.md) | Tracking postmortem action items to completion |
+| 09 | [Severity Classification Guide](prompts/incident-management/09-severity-classification-guide.md) | Defining P0-P3 severity levels for your organisation |
+| 10 | [Game Day Plan](prompts/incident-management/10-game-day-plan.md) | Planning a chaos engineering or incident simulation exercise |
+| 11 | [Escalation Policy Document](prompts/incident-management/11-escalation-policy-document.md) | Defining who to call, when, and through what channel |
+| 12 | [Incident Readiness Review](prompts/incident-management/12-incident-readiness-review.md) | Auditing preparedness before a launch or high-traffic event |
+
+### [Architecture](prompts/architecture/) — 12 prompts
+The technical decisions that shape your systems for years. Design, evaluate, document, and communicate architectural choices.
+
+| # | Prompt | When to Use |
+|---|--------|-------------|
+| 01 | [System Design Document](prompts/architecture/01-system-design-document.md) | Before building a new service or system |
+| 02 | [API Contract Design](prompts/architecture/02-api-contract-design.md) | Designing a new API (internal or external) |
+| 03 | [Scalability Assessment](prompts/architecture/03-scalability-assessment.md) | Evaluating whether a system can handle growth |
+| 04 | [Data Model Design](prompts/architecture/04-data-model-design.md) | Designing schemas for a new domain |
+| 05 | [Caching Strategy](prompts/architecture/05-caching-strategy.md) | Deciding what to cache, where, and how to invalidate |
+| 06 | [Observability Strategy](prompts/architecture/06-observability-strategy.md) | Designing monitoring, logging, and tracing for a system |
+| 07 | [SLO Definition](prompts/architecture/07-slo-definition.md) | Setting Service Level Objectives for your services |
+| 08 | [Architecture Review Prep](prompts/architecture/08-architecture-review-prep.md) | Preparing to present a design for peer review |
+| 09 | [Dependency Mapping](prompts/architecture/09-dependency-mapping.md) | Documenting service dependencies and blast radius |
+| 10 | [Technical Vision Document](prompts/architecture/10-technical-vision-document.md) | Writing a long-term technical strategy for your area |
+| 11 | [Technology Radar](prompts/architecture/11-technology-radar.md) | Evaluating and categorising technologies for your org |
+| 12 | [Database Selection Guide](prompts/architecture/12-database-selection-guide.md) | Choosing the right database for a workload |
+
+### [Hiring Pipelines](prompts/hiring-pipelines/) — 12 prompts
+The end-to-end process of finding, evaluating, and closing engineering candidates.
+
+| # | Prompt | When to Use |
+|---|--------|-------------|
+| 01 | [Hiring Plan](prompts/hiring-pipelines/01-hiring-plan.md) | Planning headcount and roles for a quarter |
+| 02 | [Recruiter Kickoff Brief](prompts/hiring-pipelines/02-recruiter-kickoff-brief.md) | Starting a search with a recruiter |
+| 03 | [Sourcing Outreach Message](prompts/hiring-pipelines/03-sourcing-outreach-message.md) | Cold outreach to potential candidates |
+| 04 | [Phone Screen Script](prompts/hiring-pipelines/04-phone-screen-script.md) | 30-minute initial candidate screen |
+| 05 | [Take-Home Exercise Design](prompts/hiring-pipelines/05-take-home-exercise-design.md) | Creating a fair, well-scoped assessment |
+| 06 | [Interview Debrief Facilitation](prompts/hiring-pipelines/06-interview-debrief-facilitation.md) | Running a structured hiring decision meeting |
+| 07 | [Candidate Evaluation Summary](prompts/hiring-pipelines/07-candidate-evaluation-summary.md) | Synthesising interview feedback into a decision |
+| 08 | [Offer Justification](prompts/hiring-pipelines/08-offer-justification.md) | Building the case for a specific comp package |
+| 09 | [Candidate Closing Pitch](prompts/hiring-pipelines/09-candidate-closing-pitch.md) | Selling the role to a finalist who's deliberating |
+| 10 | [Rejection Email](prompts/hiring-pipelines/10-rejection-email.md) | Delivering a respectful, useful no |
+| 11 | [Pipeline Analytics Review](prompts/hiring-pipelines/11-pipeline-analytics-review.md) | Analysing funnel metrics to improve hiring |
+| 12 | [Interviewer Calibration Guide](prompts/hiring-pipelines/12-interviewer-calibration-guide.md) | Training interviewers for consistency |
+
 ---
 
 ## 🧱 Prompt Structure
