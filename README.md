@@ -1,22 +1,8 @@
 # AI for Engineering Leaders — Prompt Library
 
-A curated collection of battle-tested prompts for engineering managers, directors, and VPs who use AI to move faster without losing quality.
+Situation-specific prompts for engineering managers, directors, and VPs. Each prompt covers a recurring leadership task — status updates, roadmaps, performance reviews, incident comms — with placeholders, an example, and tuning notes.
 
-## The Problem
-
-Engineering leaders spend 60%+ of their time on communication, planning, and people work — not building. Most of that work follows patterns: the weekly status update, the quarterly roadmap, the performance review. These patterns are perfect for AI augmentation, but generic prompts produce generic output.
-
-This library gives you **situation-specific prompts** designed for the way engineering leaders actually work.
-
-## Before & After
-
-**Without this library** — You open Claude, type "help me write a status update," get a vague template, spend 20 minutes re-editing it to match your org's expectations.
-
-**With this library** — You grab the exec status update prompt, paste in your team leads' raw updates, and get a draft that's structured for your VP audience with risks surfaced and metrics highlighted. Five minutes, done.
-
----
-
-## 📂 Prompt Categories
+## Prompt Categories
 
 ### [Weekly Comms](prompts/weekly-comms/) — 12 prompts
 The communication layer of leadership. Status updates, stakeholder emails, launch announcements, incident comms, and more.
@@ -128,30 +114,19 @@ The end-to-end process of finding, evaluating, and closing engineering candidate
 
 ---
 
-## 🧱 Prompt Structure
+## Prompt Structure
 
-Every prompt in this library follows a consistent format:
+Each file follows the same format:
 
 ```
-## Situation        — When you'd reach for this prompt
-## The Prompt       — Copy-paste ready, with [PLACEHOLDERS]
-## Example Input    — Realistic data you'd paste in
-## Example Output   — What the AI produces (so you can calibrate)
-## Tuning Notes     — How to adjust for your context
+## Situation    — When to use it
+## The Prompt   — Copy-paste ready, with [PLACEHOLDERS]
+## Example Input
+## Example Output
+## Tuning Notes
 ```
 
----
-
-## 🚀 Getting Started
-
-1. **Browse by situation** — scan the tables above, find what matches your current task
-2. **Copy the prompt** — each file has a ready-to-use prompt with clear placeholders
-3. **Paste your context** — replace `[PLACEHOLDERS]` with your real data
-4. **Review and adjust** — use the tuning notes to tailor the output
-
----
-
-## 🗺️ Roadmap
+## Roadmap
 
 - [x] V1: 36 prompts across comms, planning, and people management
 - [ ] V2: Additional categories (incident management, architecture, hiring pipelines)
