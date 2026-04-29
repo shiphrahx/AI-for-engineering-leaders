@@ -1,5 +1,7 @@
 # AI for Engineering Leaders — Prompt Library
 
+![Prompts](https://img.shields.io/badge/prompts-81-blue) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
 Situation-specific prompts for engineering managers, directors, and VPs. Each prompt covers a recurring leadership task (status updates, roadmaps, performance reviews, incident comms) with placeholders, an example, and tuning notes.
 
 ## Prompt Categories
