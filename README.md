@@ -1,5 +1,7 @@
 <div align="center">
-  
+
+<img src="assets/ai-robot.png" width="180" alt="AI for Engineering Leaders" />
+
 # AI for Engineering Leaders — Prompt Library
 
 ![Prompts](https://img.shields.io/badge/prompts-81-blue) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/git-tomato?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/git-tomato/commits/main)
