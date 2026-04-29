@@ -1,8 +1,12 @@
+<div align="center">
+  
 # AI for Engineering Leaders — Prompt Library
 
-![Prompts](https://img.shields.io/badge/prompts-81-blue) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey)
+![Prompts](https://img.shields.io/badge/prompts-81-blue) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/git-tomato?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/git-tomato/commits/main)
 
-Situation-specific prompts for engineering managers, directors, and VPs. Each prompt covers a recurring leadership task (status updates, roadmaps, performance reviews, incident comms) with placeholders, an example, and tuning notes.
+81 Situation-specific prompts for engineering managers, directors, and VPs. Each prompt covers a recurring leadership task (status updates, roadmaps, performance reviews, incident comms) with placeholders, an example, and tuning notes.
+
+</div>
 
 ## Prompt Categories
 
