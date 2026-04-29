@@ -1,10 +1,10 @@
 # AI for Engineering Leaders — Prompt Library
 
-Situation-specific prompts for engineering managers, directors, and VPs. Each prompt covers a recurring leadership task — status updates, roadmaps, performance reviews, incident comms — with placeholders, an example, and tuning notes.
+Situation-specific prompts for engineering managers, directors, and VPs. Each prompt covers a recurring leadership task (status updates, roadmaps, performance reviews, incident comms) with placeholders, an example, and tuning notes.
 
 ## Prompt Categories
 
-### [Weekly Comms](prompts/weekly-comms/) — 12 prompts
+### [Weekly Comms](prompts/weekly-comms/) - 12 prompts
 The communication layer of leadership. Status updates, stakeholder emails, launch announcements, incident comms, and more.
 
 | # | Prompt | When to Use |
@@ -22,7 +22,7 @@ The communication layer of leadership. Status updates, stakeholder emails, launc
 | 11 | [Skip-Level Update](prompts/weekly-comms/11-skip-level-update.md) | Writing upward comms for your boss's boss |
 | 12 | [Board Engineering Summary](prompts/weekly-comms/12-board-engineering-summary.md) | Distilling engineering progress for board-level audiences |
 
-### [Planning Artifacts](prompts/planning/) — 12 prompts
+### [Planning Artifacts](prompts/planning/) - 12 prompts
 The documents that shape what gets built and when. Roadmaps, RFCs, retros, decision records, and operational playbooks.
 
 | # | Prompt | When to Use |
@@ -40,7 +40,7 @@ The documents that shape what gets built and when. Roadmaps, RFCs, retros, decis
 | 11 | [Incident Postmortem](prompts/planning/11-incident-postmortem.md) | Writing a blameless postmortem from timeline notes |
 | 12 | [Sprint Planning Breakdown](prompts/planning/12-sprint-planning-breakdown.md) | Breaking epics into well-scoped sprint tickets |
 
-### [People Management](prompts/people-management/) — 12 prompts
+### [People Management](prompts/people-management/) - 12 prompts
 The human side of leadership. Reviews, career conversations, hiring, and the difficult moments.
 
 | # | Prompt | When to Use |
@@ -58,7 +58,7 @@ The human side of leadership. Reviews, career conversations, hiring, and the dif
 | 11 | [Skip-Level Meeting Prep](prompts/people-management/11-skip-level-meeting-prep.md) | Preparing for 1:1s with your reports' reports |
 | 12 | [Difficult Conversation Prep](prompts/people-management/12-difficult-conversation-prep.md) | Structuring hard feedback or sensitive discussions |
 
-### [Incident Management](prompts/incident-management/) — 12 prompts
+### [Incident Management](prompts/incident-management/) - 12 prompts
 The operational backbone of engineering reliability. From alert fires through to organisational learning.
 
 | # | Prompt | When to Use |
@@ -76,7 +76,7 @@ The operational backbone of engineering reliability. From alert fires through to
 | 11 | [Escalation Policy Document](prompts/incident-management/11-escalation-policy-document.md) | Defining who to call, when, and through what channel |
 | 12 | [Incident Readiness Review](prompts/incident-management/12-incident-readiness-review.md) | Auditing preparedness before a launch or high-traffic event |
 
-### [Architecture](prompts/architecture/) — 12 prompts
+### [Architecture](prompts/architecture/) - 12 prompts
 The technical decisions that shape your systems for years. Design, evaluate, document, and communicate architectural choices.
 
 | # | Prompt | When to Use |
@@ -94,7 +94,7 @@ The technical decisions that shape your systems for years. Design, evaluate, doc
 | 11 | [Technology Radar](prompts/architecture/11-technology-radar.md) | Evaluating and categorising technologies for your org |
 | 12 | [Database Selection Guide](prompts/architecture/12-database-selection-guide.md) | Choosing the right database for a workload |
 
-### [Hiring Pipelines](prompts/hiring-pipelines/) — 12 prompts
+### [Hiring Pipelines](prompts/hiring-pipelines/) - 12 prompts
 The end-to-end process of finding, evaluating, and closing engineering candidates.
 
 | # | Prompt | When to Use |
@@ -119,8 +119,8 @@ The end-to-end process of finding, evaluating, and closing engineering candidate
 Each file follows the same format:
 
 ```
-## Situation    — When to use it
-## The Prompt   — Copy-paste ready, with [PLACEHOLDERS]
+## Situation    - When to use it
+## The Prompt   - Copy-paste ready, with [PLACEHOLDERS]
 ## Example Input
 ## Example Output
 ## Tuning Notes
@@ -129,7 +129,7 @@ Each file follows the same format:
 ## Roadmap
 
 - [x] V1: 36 prompts across comms, planning, and people management
-- [ ] V2: Additional categories (incident management, architecture, hiring pipelines)
+- [x] V2: Additional categories (incident management, architecture, hiring pipelines)
 - [ ] V2: CLI tool via Claude Code (`ai-eng fetch postmortem --timeline "..."`)
 - [ ] V3: Prompt chaining (multi-step workflows)
 - [ ] V3: Org-size variants (startup, growth, enterprise)
