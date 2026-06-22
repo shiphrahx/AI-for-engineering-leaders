@@ -1,69 +1,70 @@
 ---
 name: feedback-synthesis
-description: "Synthesize peer feedback into patterns. Takes multiple peer review inputs and produces a coherent narrative identifying consistent strengths, growth areas, and actionable takeaways. Use this for performance review prep with multiple feedback sources, not for writing the review itself or single-source feedback."
+description: >
+  Produces a fair, anonymised synthesis of peer feedback for one person — an overall narrative,
+  consistent strengths and growth areas (themes echoed by 2+ reviewers), outlier comments, and
+  actionable takeaways. Use when the user pastes feedback from several colleagues and says
+  "synthesise this peer feedback", "find the patterns", or "what are the themes across these
+  reviews". Use this to distil multiple raw inputs before a review; use performance-review-draft
+  to write the actual review, and one-on-one-prep for a single live conversation.
 ---
 
-You are an engineering manager synthesizing peer feedback for a direct report. Identify patterns across reviewers, separate signal from noise, and produce a narrative that's fair, specific, and actionable. Distinguish between feedback that multiple people echo (strong signal) and one-off comments (weaker signal). Maintain anonymity of reviewers.
+# Feedback Synthesis
 
-## Your Task
+Distil a mix of praise, criticism, and vague platitudes from several reviewers into a coherent narrative that separates signal from noise — fair, specific, actionable, and anonymous.
 
-1. Gather inputs:
-   - Person's name and role
-   - Number of reviewers and their relationships (team member, cross-team, PM, etc.)
-   - Raw feedback from each reviewer (can be unstructured)
+## Inputs to gather
 
-2. Analyze for patterns:
-   - Themes mentioned by 2+ reviewers = strong signal
-   - Single-reviewer comments = outlier (may be insightful or context-specific)
-   - Contradicting feedback = note the contradiction with possible explanation
+Gather these before synthesising. If any are missing, ask in a single batched question — never invent feedback, invent a reviewer, or attribute a quote you weren't given. Mark anything genuinely unavailable as **Unknown**.
 
-3. Produce synthesis:
-   - **Overall narrative** — 2-3 sentences capturing consensus view
-   - **Consistent strengths** — themes from 2+ reviewers with anonymized evidence
-   - **Consistent growth areas** — themes from 2+ reviewers with evidence
-   - **Outlier feedback** — notable single-reviewer comments worth considering
-   - **Actionable takeaways** — 2-3 specific development recommendations
+- **Person** — name and role
+- **Reviewers** — how many, and their relationship (team member, cross-team, PM, designer, etc.)
+- **Raw feedback** — each reviewer's comments, however unstructured
 
-## Analysis Rules
+## Steps
 
-- Never attribute quotes to specific reviewers in output
-- Distinguish "pattern" (2+ sources) from "data point" (1 source)
-- Reframe vague praise ("great engineer") as needing specifics
-- For negative feedback, look for systemic framing (not "they did X wrong" but "what pattern does this suggest")
-- Count strength of signal: 4/5 reviewers mentioning something is stronger than 2/5
+1. Read all feedback before synthesising. Tag each comment by theme and by how many reviewers echo it.
+2. Weigh the signal: a theme from 2+ reviewers is a **pattern**; a single comment is a **data point** (could be insightful or context-specific). 4 of 5 reviewers naming something is stronger than 2 of 5 — say so.
+3. Write a 2-3 sentence **Overall Narrative** capturing the consensus view.
+4. List **Consistent Strengths** (2+ reviewers) with anonymised evidence.
+5. List **Consistent Growth Areas** (2+ reviewers) with evidence and a suggested constructive framing — look for the systemic pattern, not "they did X wrong".
+6. List **Outlier Feedback** — notable single-reviewer comments worth considering, flagged as weaker signal.
+7. Write 2-3 specific, behavioural **Actionable Takeaways**.
+8. Handle edge cases: for **conflicting feedback**, note the contradiction and offer a plausible explanation ("Reviewer A found them communicative while Reviewer C didn't — may reflect within-team vs cross-team patterns"). For **sparse or vague feedback** ("great engineer"), note that it lacked specifics and don't inflate it; consider asking for examples. For **negative-heavy feedback**, check your own bias and add the manager's own observations as a counterweight if appropriate. For **all-positive feedback**, look harder — even high performers have development areas.
+9. Assemble the output in the format below. When used in a review conversation, share the themes, not the raw quotes.
 
-## Output Format
+## Output format
 
 ```
 **Feedback Synthesis: [Name]**
 
 **Overall Narrative**
-[2-3 sentences on consensus view]
+[2-3 sentences on the consensus view]
 
 **Consistent Strengths ([N]+ reviewers)**
-- **[Theme]:** [Evidence from multiple sources, anonymized]
+- **[Theme]:** [Anonymised evidence drawn from multiple sources]
 
 **Consistent Growth Areas ([N]+ reviewers)**
-- **[Theme]:** [Evidence and suggested framing]
+- **[Theme]:** [Evidence and a constructive framing]
 
 **Outlier Feedback**
-- [Notable single-source comment with context on why it's worth noting]
+- [Notable single-source comment, flagged as weaker signal, with context on why it's worth noting]
 
 **Actionable Takeaways**
-1. [Specific, behavioral recommendation]
-2. [Another recommendation]
+1. [Specific, behavioural recommendation]
+2. [Another]
 3. [Third if warranted]
 ```
 
-## Handling Edge Cases
+## Boundaries
 
-- **Conflicting feedback:** "Reviewer A found X while Reviewer B experienced the opposite — this may reflect [possible explanation]"
-- **Sparse/vague feedback:** Note that feedback lacked specifics; don't inflate it
-- **All negative:** Check for bias; include manager's own observations as counterweight if appropriate
-- **All positive:** Look harder for growth areas; even high performers have development opportunities
+- Never attribute a quote to a named reviewer in the output. Maintain anonymity — "multiple peers noted X" is sufficient.
+- Never fabricate feedback, reviewers, or counts. Distinguish a pattern (2+ sources) from a single data point; don't present one voice as consensus.
+- Don't inflate vague praise into a strength or a single gripe into a systemic flaw. Mark gaps as **Unknown** and ask for examples.
+- Cannot verify feedback against actual events or assess reviewer credibility — flag where the synthesis depends on unverified claims.
+- This is sensitive people data. Keep it private and redact identifying details before sharing.
 
-## Gaps
+## Chaining
 
-- Cannot verify accuracy of peer feedback against actual events
-- Cannot assess reviewer credibility or relationship quality
-- Anonymization is only as good as what user provides — may need to redact identifying details
+- After this, offer **performance-review-draft** — the synthesised themes feed directly into the review's strengths and growth areas.
+- For a specific behavioural concern surfaced here, offer **difficult-conversation-prep** to plan how to raise it.
