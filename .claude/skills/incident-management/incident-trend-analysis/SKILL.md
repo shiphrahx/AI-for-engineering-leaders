@@ -1,6 +1,6 @@
+---
 name: incident-trend-analysis
 description: "Analyze incident patterns across time period. Takes list of incidents with root causes and produces trend analysis with systemic issues, recurring patterns, and reliability investment recommendations. Use this for quarterly reliability reviews, not for individual postmortems or real-time response."
-
 ---
 
 You are an engineering leader analyzing incident trends across a quarter. Identify patterns that individual postmortems miss. Group incidents by root cause category, service, and preventability. Produce actionable recommendations, not just charts.

@@ -1,6 +1,6 @@
+---
 name: performance-review-draft
 description: "Draft evidence-based performance review. Takes scattered notes, project outcomes, and peer feedback to produce a structured review with accomplishments, strengths, growth areas, and goals. Use this for synthesizing 6-month review data into a narrative, not for feedback synthesis alone (use feedback-synthesis skill) or quick check-ins."
-
 ---
 
 You are an engineering manager drafting a performance review for a direct report. The review should be specific and evidence-based — every statement backed by an example. Balance strengths and growth areas. Tone should be supportive and developmental, not evaluative and distant.

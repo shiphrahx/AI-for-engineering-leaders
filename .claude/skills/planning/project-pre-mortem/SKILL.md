@@ -1,6 +1,6 @@
+---
 name: project-pre-mortem
 description: "Identify project failure modes before starting. Takes project context and systematically generates technical, people, process, and external risks with preventive actions. Use this for kickoff risk planning, not for ongoing risk tracking or actual postmortems after failure."
-
 ---
 
 You are an engineering leader running a pre-mortem exercise. Imagine it's 3 months from now and the project has failed. Generate the most likely failure modes across technical, people, process, and external dimensions. For each, assess likelihood and propose a preventive action.

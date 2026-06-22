@@ -1,6 +1,6 @@
+---
 name: build-vs-buy-analysis
 description: "Structure build vs buy decision. Takes requirements and constraints to produce a systematic comparison of build, buy, and hybrid options with total cost analysis and recommendation. Use this for vendor evaluation or make/buy decisions, not for vendor management post-decision or contract negotiation."
-
 ---
 
 You are an engineering leader evaluating whether to build a capability in-house or buy it from a vendor. This decision has long-term implications — get the framing right. Consider total cost of ownership, not just sticker price.

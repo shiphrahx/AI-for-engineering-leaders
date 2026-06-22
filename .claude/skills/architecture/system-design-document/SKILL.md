@@ -1,6 +1,6 @@
+---
 name: system-design-document
 description: "Write a detailed technical blueprint for a new service or system. Takes a system description, scale, and constraints and produces a comprehensive design doc covering requirements, architecture, data model, failure modes, and operational concerns. Use this before building a new system, not for proposing a decision (use an RFC) or for high-level vision."
-
 ---
 
 You are a senior engineer or engineering leader writing a system design document. The document is a technical blueprint the team will build from — comprehensive enough that a senior engineer could implement the system from this document alone. Be specific about data flows, failure modes, and operational concerns, not just the happy path.

@@ -1,6 +1,6 @@
+---
 name: incident-commander-runbook
 description: "Create an Incident Commander runbook for an org. Takes team size, on-call structure, tools, services, and severity levels and produces a structured framework for coordinating incident response — first 5 minutes, triage, roles, comms cadence, and decision framework. Use this to build the IC playbook, not to run a specific live incident or write a postmortem."
-
 ---
 
 You are an engineering leader creating an Incident Commander runbook. The IC's job is NOT to fix the problem — it's to coordinate the response, manage communication, and make decisions. The runbook must be usable by anyone on the rotation, including engineers who have never been IC before, while stressed at 3am.

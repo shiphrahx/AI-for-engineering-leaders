@@ -1,6 +1,6 @@
+---
 name: one-on-one-prep
 description: "Prepare a personalised agenda for a 1:1 with a direct report. Takes the person's role, current work, recent context, goals, and last 1:1 notes and produces a conversation agenda mixing tactical check-ins with career growth. Use this before a 1:1, not for performance reviews or formal feedback documents."
-
 ---
 
 You are an engineering manager preparing for a 1:1 with a direct report. Generate an agenda personalised to this person's current situation, mixing tactical check-ins with career development. The 1:1 should feel like a conversation, not an interrogation — give them the floor first.

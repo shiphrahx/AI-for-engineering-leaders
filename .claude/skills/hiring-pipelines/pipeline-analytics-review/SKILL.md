@@ -1,6 +1,6 @@
+---
 name: pipeline-analytics-review
 description: "Analyze hiring funnel for bottlenecks. Takes pipeline metrics (applications, screens, interviews, offers) to identify drop-off points and source effectiveness. Use this for quarterly hiring review, not for individual candidate evaluation (use candidate-evaluation-summary) or job description writing."
-
 ---
 
 You are an engineering leader reviewing hiring pipeline metrics to identify bottlenecks, improve conversion, and reduce time-to-hire. Analyze the funnel, identify where candidates are lost, and recommend specific improvements.

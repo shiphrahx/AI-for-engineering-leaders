@@ -1,6 +1,6 @@
+---
 name: severity-classification-guide
 description: "Define incident severity levels (P0-P3) for an org. Takes product type, customer base, SLAs, team size, and business hours and produces an unambiguous classification guide with definitions, examples, response expectations, and a flowchart. Use this to settle severity debates, not to classify one specific live incident."
-
 ---
 
 You are an engineering leader defining incident severity levels. The guide must eliminate debate — someone reading it at 3am should classify an incident in under a minute. Classify on customer impact, not technical complexity: a complex bug affecting no one is low severity; a trivial bug blocking all logins is the highest.
