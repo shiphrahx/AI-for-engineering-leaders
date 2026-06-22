@@ -51,7 +51,7 @@ Postmortem action items from Q4: 28 items total. As of March 31: 14 completed, 8
 > **Incident Trend Analysis — Q1 2025**
 >
 > **Summary**
-> 13 incidents in Q1 (3 P0, 4 P1, 6 P2) compared to 18 in Q4 (3 P0, 7 P1, 8 P2). Total count is down 28%, but P0 count is unchanged. We're reducing minor incidents but not preventing the most severe ones. Total customer-facing downtime: approximately 6 hours across the quarter.
+> 13 incidents in Q1 (3 P0, 5 P1, 5 P2) compared to 18 in Q4 (3 P0, 7 P1, 8 P2). Total count is down 28%, but P0 count is unchanged. We're reducing minor incidents but not preventing the most severe ones. Total customer-facing downtime: approximately 6 hours across the quarter.
 >
 > **Pattern 1: Deploy Safety (3 incidents, including 2 P0s)**
 > Incidents #1, #7, and #10 were all caused by deploys or config changes without adequate safeguards. Two of the three P0s this quarter fall into this category. This is our highest-leverage area for improvement.
@@ -75,7 +75,7 @@ Postmortem action items from Q4: 28 items total. As of March 31: 14 completed, 8
 > |---------|-----------|----------|-------|
 > | API Gateway / Infra | 3 | 2× P0, 1× P1 | ⬆️ Worsening |
 > | Payments | 2 | 2× P1 | ➡️ Stable |
-> | Auth | 2 | 1× P1, 1× P1 | New this quarter |
+> | Auth | 2 | 2× P1 | New this quarter |
 > | Notifications | 2 | 2× P2 | ➡️ Stable |
 > | Search | 1 | P2 | ⬇️ Improving |
 > | Admin | 1 | P2 | New |
