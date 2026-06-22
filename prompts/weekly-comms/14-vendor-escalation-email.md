@@ -21,7 +21,7 @@ Tone: direct, factual, no emotional language. Short paragraphs.
 Context:
 - Vendor: [VENDOR_NAME]
 - Issue: [DESCRIBE_THE_PROBLEM]
-- Impact: [HOW_IT'S_AFFECTING_YOUR_TEAM_OR_BUSINESS]
+- Impact: [BUSINESS_OR_TEAM_IMPACT]
 - What's been tried: [PREVIOUS_ATTEMPTS — tickets, calls, account manager contacts]
 - What you need: [SPECIFIC_ASK]
 - Your deadline: [DATE_OR_TIMEFRAME]
