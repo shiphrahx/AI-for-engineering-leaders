@@ -1,68 +1,98 @@
 ---
 name: severity-classification-guide
-description: "Define incident severity levels (P0-P3) for an org. Takes product type, customer base, SLAs, team size, and business hours and produces an unambiguous classification guide with definitions, examples, response expectations, and a flowchart. Use this to settle severity debates, not to classify one specific live incident."
+description: >
+  Produces an unambiguous incident severity classification guide (P0–P3) — per-level
+  definitions, concrete examples, response/communication expectations, required roles,
+  and a 60-second classification flowchart. Use when the user says "define our severity
+  levels", "P0 vs P1 vs P2", "stop the severity debates", "incident severity matrix", or
+  pastes product/SLA/team context and asks how to classify incidents. Use this to author
+  the org-wide standard, not to coordinate a live response (incident-commander-runbook)
+  or to set who-gets-paged escalation tiers (escalation-policy-document).
 ---
 
-You are an engineering leader defining incident severity levels. The guide must eliminate debate — someone reading it at 3am should classify an incident in under a minute. Classify on customer impact, not technical complexity: a complex bug affecting no one is low severity; a trivial bug blocking all logins is the highest.
+# Severity Classification Guide
 
-## Your Task
+Produce a severity guide so unambiguous that an engineer reading it at 3am can classify any incident in under a minute — eliminating the war-room debate over "is this a P1 or a P2?"
 
-1. Gather inputs:
-   - Product type
-   - Customer base and scale
-   - SLAs, if any (contractual uptime, response times)
-   - Team size and on-call structure
-   - Business hours and customer geography
+## Inputs to gather
 
-2. For each severity level (P0-P3), produce:
-   - **Definition** — one unambiguous sentence
-   - **Examples** — 3-4 specific scenarios at this level
-   - **Response expectations** — time to acknowledge, assemble, target resolution
-   - **Communication** — who to notify, how often, what channel
-   - **Who's involved** — required roles
+Gather these before writing. If any are missing, ask for them in a SINGLE batched question — never invent SLAs, customer counts, or business hours. Mark anything genuinely unavailable as **Unknown** in the output rather than guessing.
 
-3. Add a **quick classification flowchart** and a **reclassification** note.
+- **Product type** — what the product is and how customers use it
+- **Customer base** — number of customers/users, tiers, and any contractual commitments
+- **SLAs** — uptime guarantees and response-time commitments, if any
+- **Team size** — engineering headcount and on-call structure (24/7 vs business hours)
+- **Business hours** — peak usage windows and customer time zones
 
-## Principles
+## Steps
 
-- Classify on customer impact, not technical complexity
-- When in doubt, classify high and downgrade — debating severity wastes incident time
-- If you've debated for 30+ seconds, it's the higher severity
-- Anyone, including a first-time on-call, must be able to apply it in under 60 seconds
-- The IC can re-classify up or down as information arrives
+1. Anchor the whole guide on one principle: **classify by customer impact, not technical complexity.** A complex bug affecting no customers is P3; a one-line bug blocking all logins is P0. State this rule of thumb at the top.
+2. For each level **P0, P1, P2, P3**, write all five fields: **Definition** (one unambiguous sentence), **Examples** (3–4 concrete, product-specific scenarios), **Response expectations** (time to acknowledge, time to assemble, target resolution), **Communication** (who to notify, how often, what channel), and **Who's involved** (required roles).
+3. Make examples specific to the user's actual product and services — not generic. Map them to the stated key features and known failure modes.
+4. Tune the thresholds to the product's risk profile: for payments, healthcare, or anything safety-critical, lower the P0/P1 bar so more things qualify as severe.
+5. If the org has contractual SLAs, add which severities count against SLA time (typically P0 and P1, not P2/P3).
+6. If the org runs reduced after-hours response, document it explicitly — and state that P0/P1 response never changes regardless of time; only P2 and below may relax.
+7. Add a **Quick Classification Flowchart**: a top-down decision tree that yields a level in four questions or fewer.
+8. Add a **Reclassification** note: the IC can upgrade or downgrade at any time; overclassify initially and downgrade rather than underclassify and scramble. If a debate runs past ~30 seconds, classify high.
+9. Assemble the output in the format below.
 
-## Output Format
+## Output format
 
 ```
 **Incident Severity Classification Guide**
-*Rule of thumb: classify on customer impact, not technical complexity.*
 
-**P0 — Critical: [one-line definition]**
-| Examples | [3-4 scenarios] |
-| Acknowledge | [time] |
-| Assemble | [time] |
-| Target resolution | [time] |
-| Communication | [who, how often, channel] |
-| Who's involved | [roles] |
+*Rule of thumb: classify based on customer impact, not technical complexity.*
 
-**P1 — Major: ...**
-**P2 — Minor: ...**
-**P3 — Low: ...**
+---
+
+**P0 — Critical: [one-sentence definition]**
+
+| | |
+|---|---|
+| **Examples** | [3–4 specific scenarios] |
+| **Acknowledge** | [time] |
+| **Assemble** | [time / mechanism] |
+| **Target resolution** | [time] |
+| **Communication** | [who, how often, what channel] |
+| **Who's involved** | [required roles] |
+
+---
+
+**P1 — Major: [definition]**
+[same table shape]
+
+**P2 — Minor: [definition]**
+[same table shape]
+
+**P3 — Low: [definition]**
+[same table shape]
+
+---
 
 **Quick Classification Flowchart**
-[Decision tree → severity]
+  Is the entire product down or is customer data at risk?  → YES → P0
+    → NO ↓
+  Is a core workflow broken or severely degraded for many users?  → YES → P1
+    → NO ↓
+  Is a secondary feature broken? Are there workarounds?  → YES → P2
+    → NO ↓
+  Is the impact cosmetic, internal, or edge-case only?  → YES → P3
 
-**Reclassification:** [IC can upgrade/downgrade; overclassify-and-downgrade beats the reverse]
+**Reclassification:** [IC can re-grade at any time; overclassify and downgrade.]
+
+[If SLAs apply: note which severities count against SLA time.]
+[If after-hours policy differs: state it explicitly; P0/P1 unchanged.]
 ```
 
-## Adapting by Context
+## Boundaries
 
-- **SLA-aware:** Add a column marking which levels count against SLA time (typically P0/P1).
-- **After-hours policy:** If P2 and below get relaxed response outside business hours, document it explicitly. P0/P1 response never changes.
-- **Safety-critical products:** Lower the P0/P1 threshold — more things should count as severe for payments, healthcare, or infrastructure.
+- Never fabricate SLAs, customer counts, uptime numbers, or business hours — mark them **Unknown** and write the guide around what is known.
+- Never classify by technical difficulty, effort, or who caused it — only by customer impact.
+- Never produce ambiguous definitions that leave a reader debating; if two levels could both apply, the guide has failed its purpose.
+- Never relax P0/P1 response expectations for after-hours; only P2 and below may differ.
+- This authors the standard — do not use it to make a live severity call on a specific incident in progress.
 
-## Gaps
+## Chaining
 
-- Examples must match the product — user maps scenarios to their real features
-- SLA thresholds are contractual — user supplies the actual commitments
-- Response-time targets must match team capacity — user calibrates against staffing
+- After this, offer **incident-commander-runbook** — the runbook references these severity levels to set response level and comms cadence.
+- The severity levels defined here also feed **escalation-policy-document** (which tiers engage at which severity).

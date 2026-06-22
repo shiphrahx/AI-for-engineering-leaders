@@ -1,84 +1,85 @@
 ---
 name: incident-trend-analysis
-description: "Analyze incident patterns across time period. Takes list of incidents with root causes and produces trend analysis with systemic issues, recurring patterns, and reliability investment recommendations. Use this for quarterly reliability reviews, not for individual postmortems or real-time response."
+description: >
+  Produces a cross-incident trend analysis for a time period — period summary vs prior
+  period, recurring root-cause patterns with evidence, a per-service fragility breakdown,
+  a preventability percentage, action-item follow-through, the top 3 systemic reliability
+  investments, and metrics to track next period. Use when the user says "analyze our
+  incidents this quarter", "incident trends", "reliability review", or pastes a list of
+  incidents with root causes. Use this for systemic patterns across many incidents, not
+  for a single incident's postmortem (planning/incident-postmortem) or live response.
 ---
 
-You are an engineering leader analyzing incident trends across a quarter. Identify patterns that individual postmortems miss. Group incidents by root cause category, service, and preventability. Produce actionable recommendations, not just charts.
+# Incident Trend Analysis
 
-## Your Task
+Find the patterns that individual postmortems miss — recurring root causes, fragile services, and whether reliability investments are working. Output actionable recommendations, not just charts. Frame as "here's how we get better," never as a punishment record.
 
-1. Gather inputs:
-   - Time period (quarter, half, year)
-   - List of incidents with: date, severity, service, root cause, duration
-   - Previous period data for comparison (if available)
-   - Status of postmortem action items (if available)
+## Inputs to gather
 
-2. Analyze patterns:
-   - Group by root cause category (deploy issues, resource exhaustion, config drift, third-party, etc.)
-   - Group by service (which services are fragile?)
-   - Assess preventability (what % could existing knowledge have prevented?)
-   - Track action item follow-through (are we fixing what we said we'd fix?)
+Gather these before writing. If any are missing, ask in a SINGLE batched question — never invent incidents, root causes, durations, or completion rates. Mark unavailable fields as **Unknown**.
 
-3. Produce analysis:
-   - **Period summary** — total incidents, severity breakdown, trend vs previous
-   - **Patterns** — 2-4 recurring themes with specific incidents as evidence
-   - **Service breakdown** — which services need investment
-   - **Prevention analysis** — what % preventable, how
-   - **Action item follow-through** — completion rate, impact of incomplete items
-   - **Top 3 recommendations** — highest-leverage reliability investments
-   - **Metrics to track** — what to measure next period
+- **Time period** — the quarter/half/year under review
+- **Incident list** — for each: date, severity, service, root cause, duration
+- **Previous-period data** — counts and severity breakdown for comparison, if available
+- **Action-item status** — completion state of prior postmortems' action items, if available
 
-## Pattern Recognition Rules
+## Steps
 
-- 3+ incidents with similar root cause = pattern worth addressing
-- Same service with multiple incidents = fragile system needing investment
-- Preventable incidents where we knew the fix = process failure, not technical failure
-- P0 patterns matter more than P2 patterns — weight by severity
+1. If the incident count is small (< ~5), say so and recommend deep per-incident review instead of trend analysis — patterns aren't meaningful at that volume.
+2. **Summary**: total incidents and severity breakdown, the trend vs the previous period (with the percentage change), and total customer-facing downtime. Note where counts move differently by severity (e.g. fewer total but unchanged P0s).
+3. **Patterns**: group incidents by root-cause category (deploy safety, resource exhaustion, configuration drift, third-party, code defect, etc.). A category is a pattern at 3+ incidents. Weight P0/P1 patterns over P2. For each pattern, cite the specific incidents as evidence and name the prevention mechanism.
+4. **Service Breakdown**: a table of service × incident count × severity mix × trend arrow (worsening/stable/improving/new). Services with repeated incidents are fragile systems needing investment.
+5. **Prevention Analysis**: state how many of N incidents were preventable with mechanisms the org either lacks or isn't using consistently, broken down by mechanism. Preventable incidents where the fix was already known are process failures, not technical ones.
+6. **Action Item Follow-Through**: completion rate of prior action items, and — critically — call out any incident this period that an already-known-but-unshipped action item would have prevented.
+7. **Top 3 Recommendations**: the highest-leverage systemic investments, each tagged with how many incidents (and which severities) it would prevent. Lead with the one preventing the most/worst.
+8. **Metrics to Track Next Period**: 3–5 measurable targets (e.g. % deploys using progressive rollout, MTTD, action-item completion rate, P0 count).
+9. Adapt the framing to audience as a sub-step: for executives, lead with the preventability headline ("9 of 13 were preventable") to justify reliability investment; for the board, foreground business impact (downtime hours, customers, revenue); pair with SLO burn data if available (fewer incidents but more burn means the ones that happen are worse). Keep it non-punitive and celebrate improvement over prior periods.
+10. Assemble the output in the format below.
 
-## Output Format
+## Output format
 
 ```
 **Incident Trend Analysis — [Period]**
 
 **Summary**
-[Total incidents, severity breakdown, comparison to previous period, total downtime]
+[Total + severity breakdown; trend vs previous period with %; total downtime]
 
-**Pattern 1: [Category] ([N] incidents, [severity distribution])**
-- [Incident examples]
-- Prevention mechanism: [what would have prevented these]
+**Pattern 1: [Category] ([N] incidents, [severity mix])**
+- [Incident date — root cause → severity]
+- Prevention: [mechanism]
 
-**Pattern 2: [Category]**
-...
+**Pattern 2 / 3: ...**
 
 **Service Breakdown**
 | Service | Incidents | Severity | Trend |
 |---------|-----------|----------|-------|
-| [name] | [count] | [breakdown] | [⬆️/➡️/⬇️] |
+| [name] | [n] | [mix] | [⬆️/➡️/⬇️/new] |
 
 **Prevention Analysis**
 Of [N] incidents, [X] were preventable:
-- [N] by [mechanism]
-- [N] by [mechanism]
+- [n] by [mechanism]
+- [n] by [mechanism]
 
 **Action Item Follow-Through**
-[Completion rate]. [Impact of incomplete items on this period's incidents]
+[Completion rate]. [Which incidents a known-but-unshipped item would have prevented.]
 
 **Top 3 Recommendations**
-1. **[Investment]** (prevents [N] incidents including [severity])
-   [Why this is high-leverage]
+1. **[Investment]** (prevents [N] incidents incl. [severities]) — [why high-leverage]
+2. ...
+3. ...
 
-**Metrics to Track Next Period**
+**Metrics to Track Next [Period]**
 - [Metric]: [target]
 ```
 
-## Adapting by Context
+## Boundaries
 
-- **Engineering team:** Focus on technical patterns and fixes
-- **Executives:** Lead with "X of Y incidents were preventable" — makes case for investment
-- **Board:** Business impact focus — downtime hours, customer impact, revenue implications
+- Never fabricate incidents, root causes, durations, downtime totals, or action-item completion figures — mark **Unknown** and analyze only what is provided.
+- Never name individuals as causes or make the analysis punitive; root causes are systemic.
+- Never assert a pattern from fewer than 3 incidents, or claim preventability without naming the specific mechanism that would have stopped it.
+- Trusts the inputs as given — flag that severity calibration and root-cause accuracy are the user's responsibility (garbage in, garbage out).
 
-## Gaps
+## Chaining
 
-- Cannot assess incident severity consistency — user ensures P0/P1/P2 calibration
-- Cannot verify root cause accuracy from postmortems — garbage in, garbage out
-- Recommendations prioritization depends on org capacity — user adjusts based on team bandwidth
+- After this, offer **remediation-tracker** to drive the top recommendations and any open action items to completion.
+- For a single incident rather than a trend, redirect to **planning/incident-postmortem**.
