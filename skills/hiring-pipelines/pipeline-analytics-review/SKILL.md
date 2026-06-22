@@ -1,81 +1,83 @@
 ---
 name: pipeline-analytics-review
-description: "Analyze hiring funnel for bottlenecks. Takes pipeline metrics (applications, screens, interviews, offers) to identify drop-off points and source effectiveness. Use this for quarterly hiring review, not for individual candidate evaluation (use candidate-evaluation-summary) or job description writing."
+description: >
+  Produces a hiring-funnel analysis — stage-by-stage conversion (with an ASCII funnel), a
+  one-sentence key finding, bottleneck and drop-off diagnosis, source effectiveness, quality
+  indicators, and the top 3 improvements — to cut time-to-hire and lift conversion. Use when
+  the user says "review my hiring pipeline", "where are candidates dropping off", "analyze the
+  funnel", "quarterly hiring review", or pastes pipeline metrics. Use this for AGGREGATE funnel
+  diagnosis across many candidates — not for evaluating one candidate (candidate-evaluation-summary),
+  nor for deciding which roles to open (hiring-plan).
 ---
 
-You are an engineering leader reviewing hiring pipeline metrics to identify bottlenecks, improve conversion, and reduce time-to-hire. Analyze the funnel, identify where candidates are lost, and recommend specific improvements.
+# Pipeline Analytics Review
 
-## Your Task
+Turn pipeline metrics into a diagnosis: where candidates are lost, whether to speed or quality, which sources work, and the three changes that move the funnel most.
 
-1. Gather inputs:
-   - Time period and roles covered
-   - Funnel data: counts at each stage (applied → screen → interview → offer → accepted)
-   - Time metrics: days at each stage, total time-to-hire
-   - Source data: where candidates came from, which sources produced hires
-   - Drop-off reasons if known
+## Inputs to gather
 
-2. Analyze:
-   - Calculate conversion rates at each stage
-   - Identify bottlenecks (low conversion or long delays)
-   - Compare source effectiveness by conversion to hire
-   - Look for speed-related drop-offs
+Gather these before analyzing. If any are missing, ask for them in a single batched question — never invent counts, conversion rates, or drop-off reasons. Mark anything genuinely unavailable as **Unknown** in the output.
 
-3. Produce analysis:
-   - **Funnel overview** — visual and conversion rates
-   - **Key finding** — one-sentence diagnosis
-   - **Bottleneck analysis** — where and why candidates are lost
-   - **Source effectiveness** — which channels produce quality hires
-   - **Recommendations** — top 3 changes to improve pipeline
+- **Time period and roles** — what window and which roles the data covers
+- **Funnel data** — counts at each stage (applied → screen → take-home → on-site → offer → accepted)
+- **Time metrics** — days at each stage and total time-to-hire
+- **Source data** — where candidates came from and which sources produced hires
+- **Drop-off reasons** — where known
+- **Quality data** — offer acceptance, 90-day retention, recent-hire performance, if instrumented
 
-## Funnel Health Benchmarks
+## Steps
 
-| Stage | Healthy Conversion | Investigate If |
-|-------|-------------------|----------------|
-| Application → Screen | 20-30% | <15% or >50% |
-| Screen → Technical | 60-80% | <50% |
-| Technical → Onsite | 50-70% | <40% |
-| Onsite → Offer | 30-50% | <20% |
-| Offer → Accept | 70-90% | <60% |
+1. Calculate **conversion rates** at each stage and render an ASCII funnel with bars and percentages.
+2. Compare conversions and timings against healthy benchmarks to spot bottlenecks (low conversion or long delays). Benchmarks: Application→Screen 20-30% (investigate if <15% or >50%), Screen→Technical 60-80% (<50%), Technical→Onsite 50-70% (<40%), Onsite→Offer 30-50% (<20%), Offer→Accept 70-90% (<60%); screen scheduling <5 days (>7), total time-to-hire 21-35 days (>45).
+3. Write a **one-sentence key finding** that names the dominant problem ("We're losing candidates to speed, not quality").
+4. Diagnose **bottlenecks**: for each, the stage, the metric, and the candidate-experience reason it matters — connect delays to drop-off where the data supports it.
+5. Build **source effectiveness** as a table: applied, hired, conversion-to-hire, and a quality note per source. Watch the common pattern that referrals convert 3-5x job boards.
+6. Do **drop-off analysis**: per leaky stage, how many left and the known reasons or a clearly-labeled hypothesis. Map the common patterns — high-apply/low-screen (wrong-fit JD or over-strict screen), low take-home return (too long / too slow / competing offers), low offer-accept (comp, speed, or experience).
+7. Cover **quality indicators**: offer acceptance, 90-day retention, recent-hire performance. If quality isn't instrumented, say so explicitly and flag it as a gap — funnel efficiency says nothing about whether hires are good; recommend a 90-day check-in so the next review can correlate source/process against quality.
+8. Give the **top 3 (or 4) recommendations**, each with the expected impact ("recovers X candidates" or "saves Y days") and a concrete mechanism.
+9. Adapt to context: for **small samples** (<20 candidates), treat percentages as noisy and lead with qualitative patterns; for **multiple roles**, break the funnel out per role — a combined funnel masks junior-vs-senior differences; if the ATS tracks it, review **conversion by demographic group** at each stage, since uneven drop-off can indicate stage-specific bias; recommend **sharing metrics with interviewers** to motivate fast reviews.
+10. Assemble the output in the format below.
 
-| Timing | Healthy | Investigate If |
-|--------|---------|----------------|
-| Screen scheduling | <5 days | >7 days |
-| Total time-to-hire | 21-35 days | >45 days |
-
-## Output Format
+## Output format
 
 ```
 **Pipeline Analytics: [Role], [Period]**
 
 **Funnel**
-[ASCII visualization with percentages]
+```
+Applied        [N]  ████████████████ 100%
+[Stage]        [N]  ████             [%]
+...
+```
 
-**Key Finding:** [One sentence: "We're losing candidates to X, not Y"]
+**Key Finding:** [One sentence: "We're losing candidates to X, not Y."]
 
 **Bottlenecks**
-1. **[Stage]: [metric]** — [Why this matters, candidate impact]
+1. **[Stage]: [metric]** — [why it matters, candidate impact]
 
 **Source Effectiveness**
 | Source | Applied | Hired | Conversion | Quality |
 |--------|---------|-------|------------|---------|
-| [source] | [N] | [N] | [%] | [assessment] |
+| [source] | [N] | [N] | [%] | [note] |
 
 **Drop-off Analysis**
-- [Stage]: [count] dropped, reasons: [known reasons or hypothesis]
+- [Stage]: [count] dropped — reasons: [known or labeled hypothesis]
+
+**Quality Indicators**
+- [Acceptance / retention / performance, or "not yet measurable — gap"]
 
 **Recommendations**
-1. **[Change]** — [Expected impact: recovers X candidates or saves Y days]
+1. **[Change]** — [expected impact: recovers X candidates / saves Y days] via [mechanism]
 ```
 
-## Common Patterns
+## Boundaries
 
-- **High apply, low screen:** Job description attracting wrong candidates, or screening too strict
-- **Low take-home return:** Exercise too long, process too slow, or candidates got competing offers
-- **Low offer accept:** Comp not competitive, slow process, or poor candidate experience
-- **Source disparity:** Referrals often 3-5x more effective than job boards
+- Never fabricate counts, conversion rates, timings, source data, or drop-off reasons — mark unknowns as **Unknown** and label any inferred drop-off cause as a hypothesis.
+- Never present noisy small-sample percentages as firm conclusions; say when n is too small.
+- Never assess hire quality beyond what the user instrumented — funnel data alone cannot tell you if hires are good.
+- Never optimize for speed at the expense of quality without flagging the trade-off; recommend quality instrumentation if it's missing.
 
-## Gaps
+## Chaining
 
-- Cannot assess candidate quality beyond hire/no-hire — user tracks performance of hires
-- Cannot verify drop-off reasons — often unknown, need exit surveys
-- Sample size matters — <20 candidates makes percentages noisy
+- After this, offer **hiring-plan** to act on the findings (re-prioritize roles, reallocate sourcing investment).
+- If a specific stage is leaking (e.g. take-home non-returns), offer the relevant fix skill — **take-home-exercise-design** to shorten the exercise, or **phone-screen-script** to speed screening.
