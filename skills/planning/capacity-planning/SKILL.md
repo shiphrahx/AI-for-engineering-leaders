@@ -1,89 +1,77 @@
 ---
 name: capacity-planning
-description: "Map team bandwidth against planned work. Takes headcount, commitments, and known absences to produce a realistic capacity picture with allocation recommendations. Use this for sprint or quarter planning, not for headcount/hiring planning or individual workload management."
+description: >
+  Produces a realistic capacity plan: net engineer-weeks after overhead deductions, committed
+  work mapped against it, the capacity gap or surplus stated plainly, trade-off options, and a
+  commit/push-back recommendation. Use when the user says "can we take this on", "what's our
+  capacity", "what do we have to drop to add X", or pastes team size, a period, absences, and
+  committed work. Use this for the bandwidth math behind a quarter or cycle — use
+  quarterly-roadmap for the full plan and sprint-planning-breakdown to slice an epic into tickets.
 ---
 
-You are an engineering leader mapping team capacity against planned work. The goal is a realistic picture of what the team can commit to — accounting for reality, not fantasy. Most teams overcommit by 30-40% because they don't account for interrupts, meetings, and unplanned work.
+# Capacity Planning
 
-## Your Task
+Map team bandwidth against committed work for an upcoming quarter or cycle using realistic availability — not idealistic "every engineer codes 40hrs/week" math — to answer "can we take this on?" and "what do we drop to add it?"
 
-1. Gather inputs:
-   - Team roster with levels/roles
-   - Planning period (sprint, month, quarter)
-   - Known absences (PTO, holidays, parental leave)
-   - Planned work (projects, features, maintenance)
-   - Historical data on unplanned work if available
+## Inputs to gather
 
-2. Calculate realistic capacity:
-   - Start with total available days
-   - Subtract absences
-   - Apply interrupt factor (typically 20-30% of time to meetings, oncall, support)
-   - Result = actual building capacity
+Gather these before calculating. If any are missing, ask for them in a single batched question — never invent absences, effort estimates, or velocity. Mark anything genuinely unavailable as **Unknown**.
 
-3. Produce plan:
-   - **Capacity summary** — total available vs. effective capacity
-   - **Work breakdown** — how capacity maps to planned work
-   - **Allocation recommendation** — suggested split across work types
-   - **Risk flags** — where you're overcommitted
-   - **Buffer** — explicit unallocated capacity for unknowns
+- **Team** — name and size (with seniority mix if individual-level planning is needed)
+- **Period** — the time window and number of weeks
+- **Planned absences** — PTO, holidays, company shutdowns, parental leave, on-call rotations
+- **Committed work** — already-agreed deliverables with effort estimates
+- **Requested additions** — new work being considered
 
-## Capacity Calculation
+## Steps
 
-```
-Gross capacity = (engineers × working days) - absences
-Effective capacity = Gross × (1 - interrupt factor)
-Interrupt factor typically:
-  - Senior engineers: 25-35% (more meetings, mentoring, reviews)
-  - Mid-level: 15-25%
-  - Junior: 10-15% (but need more support time from others)
-```
+1. Calculate **available capacity** transparently, line by line: gross capacity (engineers × weeks), then deduct shutdowns, individual absences, on-call overhead, and a meetings/review/support overhead factor. Show the math; land on net available engineer-weeks.
+2. Use a realistic overhead factor: ~20% for an established team; 30–40% for a new or volatile team (more process, learning, coordination). On-call ≈ 0.5 week per engineer per rotation; a full on-call week is roughly 50% reduced capacity. New hires ramp ~25% productive in month 1, ~50% month 2, ~75% month 3.
+3. List **committed work** with estimates and a confidence level each. Subtract from net capacity to show remaining.
+4. Test **requested additions** against remaining capacity, marking each as fitting or not, and state the **capacity gap or surplus** plainly.
+5. If overcommitted, lay out **trade-off options** — what could be cut, deferred, or descoped — and lead with the gap number to force the conversation.
+6. Write a **recommendation** — what to commit to, what to push back on, suggested sequencing (smaller/higher-confidence work first), and the caveats (e.g. "if X overruns by 3 weeks, Y slips"). Leave an explicit buffer (10–20%) for unplanned work rather than allocating to 100%.
+7. Adapt to context: for individual-level planning, break capacity down per engineer when work needs specific expertise ("only two engineers can do the API integration" changes the math). For stakeholder presentation, keep the math visible — accounting for holidays, overhead, and on-call earns more trust than pretending at 100% utilisation.
+8. Assemble the output in the format below.
 
-## Output Format
+## Output format
 
 ```
-**Capacity Plan — [Team] — [Period]**
+**[Team] — [Period] Capacity Plan**
 
-**Summary**
-- Team: [N] engineers ([breakdown by level])
-- Period: [dates] ([N] working days)
-- Gross capacity: [X] engineer-days
-- Effective capacity: [Y] engineer-days (after [Z]% interrupt factor — use 25% default if unknown)
+**Available Capacity**
+| Factor | Calculation | Engineer-Weeks |
+|--------|-------------|----------------|
+| Gross capacity | [engineers × weeks] | [N] |
+| [absence/shutdown] | [calc] | -[N] |
+| On-call overhead | [calc] | -[N] |
+| Meetings/review/support overhead | ~[X]% of remaining | -[N] |
+| **Net available capacity** | | **[N]** |
 
-**Absences**
-| Person | Dates | Days | Impact |
-|--------|-------|------|--------|
-| [name] | [dates] | [N] | [what work is affected] |
+**Committed Work**
+| Item | Estimate | Confidence |
+|------|----------|------------|
+| [item] | [N weeks] | [high/medium/low] |
+| **Total committed** | **[N weeks]** | |
 
-**Work Allocation**
-| Category | Allocation | Engineer-Days | Notes |
-|----------|------------|---------------|-------|
-| Feature work | [X]% | [N] | [key deliverables] |
-| Tech debt | [X]% | [N] | [priority items] |
-| Maintenance/support | [X]% | [N] | [expected load] |
-| Buffer (unplanned) | [X]% | [N] | [held for unknowns] |
+**Remaining Capacity:** [net] − [committed] = **[N] engineer-weeks**
 
-**Committed Deliverables**
-| Deliverable | Estimated Effort | Assigned | Risk |
-|-------------|------------------|----------|------|
-| [item] | [days] | [who] | [low/med/high] |
+**New Requests**
+| Request | Estimate | Fits? |
+|---------|----------|-------|
+| [request] | [N weeks] | [✅ Yes ([remaining] left) / ❌ No (gap of [N])] |
 
-**Risk Flags**
-- [Where capacity is tight or overcommitted]
-
-**Recommendations**
-- [Adjustments to make plan realistic]
+**Recommendation**
+[What to commit to, what to push back on, sequencing, and caveats. Buffer remaining: [N] (~[X]% of net).]
 ```
 
-## Common Mistakes to Avoid
+## Boundaries
 
-- **100% allocation:** Leave 10-20% buffer for unplanned work
-- **Ignoring seniority mix:** Junior engineers need support time from seniors
-- **Forgetting oncall:** Oncall week = ~50% reduced capacity
-- **Holiday math:** Account for holidays, not just PTO
-- **New hire ramp:** New engineers are ~25% productive month 1, ~50% month 2, ~75% month 3
+- Never invent absences, effort estimates, or historical velocity — mark them **Unknown** and use a stated default overhead (25%) only when flagged as an assumption.
+- Never plan to 100% utilisation — always reserve explicit buffer for unplanned work.
+- Never hide an overcommitment — when work exceeds capacity, state the gap first and force the trade-off conversation.
+- Effort estimates come from the user; individual velocity varies — say so rather than implying the math is exact.
 
-## Gaps
+## Chaining
 
-- Cannot predict unplanned work — use historical data or industry benchmarks
-- Cannot account for individual velocity differences — average across team
-- Effort estimates for work items come from user — garbage in, garbage out
+- After this, offer **sprint-planning-breakdown** to slice the committed epics into well-scoped, estimated tickets that fit the planned capacity.

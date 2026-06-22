@@ -1,85 +1,84 @@
 ---
 name: build-vs-buy-analysis
-description: "Structure build vs buy decision. Takes requirements and constraints to produce a systematic comparison of build, buy, and hybrid options with total cost analysis and recommendation. Use this for vendor evaluation or make/buy decisions, not for vendor management post-decision or contract negotiation."
+description: >
+  Produces a balanced build-vs-buy analysis over a 2-year total cost of ownership — build
+  option, vendor option(s), a comparison matrix, hidden costs, and a stated recommendation
+  with conditions that would reverse it. Use when the user says "should we build or buy X",
+  "evaluate these vendors", or pastes a capability need, vendor list, and team context. Use
+  this for the make-or-buy decision itself — once decided, use architecture-decision-record
+  to capture the choice durably; not for contract negotiation or post-purchase vendor management.
 ---
 
-You are an engineering leader evaluating whether to build a capability in-house or buy it from a vendor. This decision has long-term implications — get the framing right. Consider total cost of ownership, not just sticker price.
+# Build vs Buy Analysis
 
-## Your Task
+Weigh building a capability in-house against buying or adopting a vendor solution, on total cost of ownership, engineering opportunity cost, operational burden, and strategic fit — laid out honestly, without bias toward either side.
 
-1. Gather inputs:
-   - Capability needed (what problem are you solving?)
-   - Requirements (must-haves vs nice-to-haves)
-   - Constraints (timeline, budget, team skills)
-   - Vendor options considered (if any)
-   - Strategic context (is this core to your business?)
+## Inputs to gather
 
-2. Analyze options:
-   - **Build:** Development cost, maintenance cost, opportunity cost, time to value
-   - **Buy:** License cost, integration cost, switching cost, vendor risk
-   - **Hybrid:** Build core, buy edges (or vice versa)
+Gather these before analysing. If any are missing, ask for them in a single batched question — never invent vendor pricing, effort estimates, or team capacity. Mark anything genuinely unavailable as **Unknown**.
 
-3. Produce analysis:
-   - **Decision summary** — recommendation with confidence level
-   - **Requirements matrix** — how each option meets requirements
-   - **Total cost comparison** — 3-year TCO for each option
-   - **Risk analysis** — what could go wrong with each approach
-   - **Recommendation** — which option and why
+- **Capability needed** — the problem being solved, with must-haves vs nice-to-haves
+- **Business context** — why now (the triggering pain or opportunity)
+- **Vendors evaluated** — the candidate solutions, if any are named
+- **Team context** — skills, capacity, and whether they could realistically build it
+- **Constraints** — timeline, budget, compliance, data residency
 
-## Analysis Framework
+## Steps
 
-For each option, assess:
-- **Fit:** How well does it meet requirements? (score 1-5)
-- **Cost:** Total cost over 3 years (development + maintenance + opportunity)
-- **Time:** How fast can we get value?
-- **Risk:** What's the worst case?
-- **Reversibility:** How hard to change course later?
+1. State the **decision summary** upfront: what capability, why now, and your recommendation — do not bury the lede.
+2. Lay out the **build option**: estimated effort (MVP and full), ongoing maintenance burden, team expertise required, advantages, and the opportunity cost of what the team would not do instead.
+3. Lay out the **buy option(s)**: each vendor with pricing, integration effort, limitations, and advantages.
+4. Build a **comparison matrix** scoring options side-by-side on time to value, 2-year total cost, maintenance burden, customisation, vendor risk, and opportunity cost. Include the open-source/self-hosted option's ops overhead in its cost, not just its license.
+5. Surface **hidden costs** both options underestimate — build: edge cases and the management UI usually skimped on; buy: per-seat pricing scaling with headcount and SDK/vendor lock-in migration cost.
+6. State the **recommendation** with reasoning, and name the explicit conditions that would reverse it (e.g. "revisit if seat cost exceeds $X/yr or we need custom logic the vendor can't support").
+7. Adapt to context: cost-sensitive startup — weight toward cash cost and surface the open-source option prominently. Enterprise/regulated — add a Compliance & Security row (data residency, SOC 2, audit); these often eliminate options fast. Strong internal platform team with capacity and charter fit — build becomes more attractive; factor team morale. Non-technical audience — drop SDK/implementation detail, lead with cost, time-to-value, and risk.
+8. Assemble the output in the format below.
 
-## Output Format
+## Output format
 
 ```
-**Build vs Buy Analysis: [Capability]**
+**[Capability]: Build vs Buy Analysis**
 
-**Recommendation: [Build/Buy/Hybrid] (Confidence: [High/Medium/Low])**
-[2-3 sentence summary of why]
+**Recommendation:** [Build / Buy (vendor) / Hybrid] — [1–2 sentence why, stated upfront]
 
-**Requirements Assessment**
-| Requirement | Priority | Build | Buy | Hybrid |
-|-------------|----------|-------|-----|--------|
-| [req] | Must/Nice | [fit] | [fit] | [fit] |
+**Build Option**
+- *Effort:* [MVP and full estimate]
+- *Ongoing maintenance:* [burden]
+- *Advantages:* [...]
+- *Risks / opportunity cost:* [what the team won't do instead]
 
-**3-Year Total Cost of Ownership**
-| Cost Category | Build | Buy | Hybrid |
-|---------------|-------|-----|--------|
-| Initial development/setup | [eng-months × cost] | [setup fee] | [mix] |
-| Annual maintenance/license | [X% of build cost/yr] | [license × 3] | [mix] |
-| Integration effort | [lower] | [higher] | [medium] |
-| Opportunity cost | [eng-months not on product] | [lower] | [medium] |
-| **Total** | [sum] | [sum] | [sum] |
+**Buy Options**
+| | [Vendor A] | [Vendor B] | [Vendor C] |
+|---|---|---|---|
+| Cost (annual) | [...] | [...] | [...] |
+| Integration effort | [...] | [...] | [...] |
+| [key capability] | [...] | [...] | [...] |
 
-**Risk Analysis**
-- **Build risks:** [technical, timeline, maintenance burden]
-- **Buy risks:** [vendor lock-in, feature gaps, price increases]
-- **Hybrid risks:** [complexity, integration surface]
+**Comparison Matrix**
+| Dimension | Build | [Vendor A] | [Vendor B] |
+|-----------|-------|-----------|-----------|
+| Time to first value | [...] | [...] | [...] |
+| 2-year total cost | [...] | [...] | [...] |
+| Maintenance burden | [...] | [...] | [...] |
+| Customisation | [...] | [...] | [...] |
+| Vendor risk | [...] | [...] | [...] |
+| Opportunity cost | [...] | [...] | [...] |
 
-**Decision Factors**
-- **Favor Build when:** [conditions that make build attractive]
-- **Favor Buy when:** [conditions that make buy attractive]
-- **Our situation:** [which factors apply to us]
+**Hidden Costs**
+- *Build:* [underestimated complexity]
+- *Buy:* [scaling cost, lock-in]
 
-**Recommendation Details**
-[Detailed reasoning for the recommendation]
+**Recommendation: [Choice]**
+[Reasoning. Revisit if: (a) [condition], (b) [condition].]
 ```
 
-## Strategic Considerations
+## Boundaries
 
-- **Core vs Context:** Build core differentiators, buy commodity capabilities
-- **Team growth:** Building develops skills; buying frees capacity for other work
-- **Vendor health:** Evaluate vendor stability, roadmap alignment, exit options
-- **Integration depth:** Deep integrations favor build; shallow integrations favor buy
+- Never invent vendor pricing, build effort, or reliability claims — mark them **Unknown**; vendor quotes and reference checks are the user's to obtain.
+- Never write a one-sided analysis — be genuinely generous to the option you don't recommend, especially for a controversial or contested decision.
+- Never present opportunity-cost or TCO figures as precise — use ranges and state the assumptions.
+- Never reduce TCO to sticker price — include maintenance, integration, ops overhead, and opportunity cost.
 
-## Gaps
+## Chaining
 
-- Cannot verify vendor pricing — user obtains quotes
-- Cannot assess vendor reliability from outside — user does reference checks
-- Opportunity cost estimates are inherently uncertain — use ranges, not point estimates
+- After the decision is made, offer **architecture-decision-record** to capture the choice, alternatives, and reversal conditions durably for future engineers.

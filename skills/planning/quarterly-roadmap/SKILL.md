@@ -1,44 +1,48 @@
 ---
 name: quarterly-roadmap
-description: "Build a quarterly engineering roadmap. Takes team context, business objectives, backlog, and tech debt and produces a roadmap balancing features, platform, and reliability with committed work, an explicit not-doing list, investment mix, dependencies, and risks. Use this at quarter planning, not for sprint planning or long-term vision."
+description: >
+  Produces a defensible quarterly engineering roadmap balancing customer-facing features,
+  platform investment, tech debt, and reliability — every item tied to a business outcome
+  or risk it mitigates. Use when the user says "build a roadmap", "plan the quarter",
+  "what should we commit to this quarter", or pastes business objectives, a backlog, and
+  known tech debt. Use this for the whole-quarter plan across all work types — use
+  okr-drafting for the measurable goals themselves, capacity-planning for the
+  bandwidth math, and tech-debt-prioritisation for ranking debt items alone.
 ---
 
-You are a senior engineering leader creating a quarterly roadmap. Balance customer-facing features, platform investment, and tech debt. Every item must connect to a business outcome or risk mitigation — and the plan must be defensible to stakeholders.
+# Quarterly Roadmap
 
-## Your Task
+Turn vague business goals, a backlog, and lingering tech debt into a structured quarterly roadmap that balances feature, platform, debt, and reliability work — defensible to stakeholders.
 
-1. Gather inputs:
-   - Team name and size
-   - Quarter
-   - Business objectives
-   - Backlog / requests
-   - Known tech debt
-   - Constraints (leave, audits, hiring, dependencies)
+## Inputs to gather
 
-2. Produce the roadmap with these sections:
-   - **Quarter theme** — one sentence framing what this quarter is about
-   - **Goals** — 3-5 measurable goals tied to business objectives
-   - **Committed work** — high-confidence deliverables with target dates and owners
-   - **Stretch goals** — items to tackle if committed work finishes early
-   - **Explicitly not doing** — requested items being deferred, with reasoning
-   - **Investment mix** — % split across feature / platform / tech debt / reliability
-   - **Key dependencies** — what's needed from other teams
-   - **Risks** — what could derail the plan
+Gather these before drafting. If any are missing, ask for them in a single batched question — never invent objectives, dates, owners, or constraints. Mark anything genuinely unavailable as **Unknown** in the output.
 
-## Principles
+- **Team** — name and number of engineers
+- **Quarter** — which quarter/cycle this covers
+- **Business objectives** — what the business needs this quarter
+- **Backlog / requests** — the candidate work items
+- **Known tech debt** — outstanding debt competing for capacity
+- **Constraints** — leave, audits, freezes, dependencies, hiring/headcount changes
 
-- Every roadmap item connects to a business outcome or a named risk
-- The "explicitly not doing" section is the most important — it protects the team from scope creep
-- Build in capacity buffer for known constraints (leave, audits, new-vendor uncertainty)
-- Owners and target dates make commitments real; vague items aren't committed
-- Be honest about risk — a roadmap that hides risk fails loudly later
+## Steps
 
-## Output Format
+1. Read the objectives, backlog, and tech debt fully. Every roadmap item must connect to a business outcome or a named risk it mitigates — flag anything that does not.
+2. Write a one-sentence **quarter theme** framing what the quarter is about.
+3. Define **3–5 measurable goals** tied to the business objectives.
+4. Sort candidate work into **committed work** (high-confidence, with target dates, owners, and business impact) and **stretch goals** (tackled only if committed work finishes early).
+5. Write **explicitly not doing**: things stakeholders asked for that are intentionally deferred, each with reasoning. This is the section that protects the team from scope creep — do not omit it.
+6. State the **investment mix** as a percentage split across feature / platform / tech debt / reliability, grounded in the listed work.
+7. List **key dependencies** (what's needed from other teams, by when) and **risks** (what could derail the plan, and the trigger).
+8. Adapt to context: for a small/startup team, cap commitments at 2–3 and keep it to one page — "explicitly not doing" matters most. For a large org, add a RACI matrix for cross-team dependencies and a roadmap-review cadence. For an executive audience, lead with business outcomes and strip technical detail (e.g. version migrations). Under high uncertainty, replace dates with "early/mid/late quarter" and add confidence levels (high/medium/low) per committed item.
+9. Assemble the output in the format below.
+
+## Output format
 
 ```
 **[Team] — [Quarter] Roadmap**
 
-**Theme:** [One sentence]
+**Theme:** [One sentence framing the quarter]
 
 **Goals**
 1. [Measurable goal] — [business tie]
@@ -46,31 +50,33 @@ You are a senior engineering leader creating a quarterly roadmap. Balance custom
 **Committed Work**
 | Deliverable | Target | Owner | Business Impact |
 |-------------|--------|-------|-----------------|
+| [item] | [date or early/mid/late quarter] | [owner or Unknown] | [outcome/risk] |
 
 **Stretch Goals**
-- [Item]
+- [Item tackled only if committed work finishes early]
 
 **Explicitly Not Doing**
-- **[Item]:** [Why deferred, when revisited]
+- **[Request]:** [Why it's being deferred and to when]
 
-**Investment Mix:** [%] features / [%] platform / [%] tech debt / [%] reliability
+**Investment Mix:** [X]% features / [X]% platform / [X]% tech debt / [X]% reliability
 
 **Dependencies**
-- [Team]: [What's needed by when]
+- [Team/function]: [what's needed] (needed by [date])
 
 **Risks**
-- [Risk and its impact on the plan]
+- [What could derail the plan and its trigger]
 ```
 
-## Adapting by Context
+## Boundaries
 
-- **Startup / small team:** Max 2-3 commitments; fit on one page. The not-doing list matters most.
-- **Large org:** Add a RACI matrix for cross-team dependencies and a roadmap review cadence.
-- **Executive presentation:** Lead with business outcomes; cut technical detail like version migrations.
-- **High uncertainty:** Replace dates with early/mid/late-quarter and add confidence levels per item.
+- Never invent business objectives, target dates, owners, or constraints — mark them **Unknown**.
+- Never include a roadmap item that lacks a stated business outcome or risk it mitigates.
+- Never drop the "explicitly not doing" section — deferred work with reasoning is what makes a roadmap a plan and not a wishlist.
+- Never present aspirational percentages as the investment mix without grounding them in the listed work.
+- Capacity estimates depend on real velocity; dependency commitments need confirmation from the other teams — flag both for the user to validate, do not assert them as certain.
 
-## Gaps
+## Chaining
 
-- Cannot prioritize without business context — user supplies what the company actually values this quarter
-- Capacity estimates depend on team specifics — user validates dates against real velocity
-- Dependency commitments need confirmation — user secures buy-in from the other teams
+- After this, offer **capacity-planning** to check the committed work fits the team's real bandwidth.
+- Offer **okr-drafting** to turn the goals into measurable, verifiable Key Results.
+- For ranking the tech debt that feeds the investment mix, offer **tech-debt-prioritisation**.
