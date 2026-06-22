@@ -145,13 +145,14 @@ Environment: AWS ECS, SQS queue "email-outbound", SendGrid API, PostgreSQL on RD
 >    - **Database connection refused:** Go to Scenario D.
 >    - **Template rendering error:** A malformed email in the queue is crashing the worker. See Step 4.
 >
-> 4. If a bad message is crashing the worker, move it to the dead letter queue:
+> 4. If a bad ("poison") message is crashing the worker before it reaches the retry threshold, remove that one message from the main queue so the worker can recover. Receive it to capture its receipt handle, confirm it's the offending message, then delete only that message:
 >    ```
->    # The DLQ is configured automatically after 3 retries.
->    # If the worker crashes before retrying, manually redrive:
->    aws sqs purge-queue --queue-url https://sqs.eu-west-1.amazonaws.com/ACCOUNT/email-outbound-dlq
+>    # Receive one message to inspect its body and get the ReceiptHandle
+>    aws sqs receive-message --queue-url https://sqs.eu-west-1.amazonaws.com/ACCOUNT/email-outbound --max-number-of-messages 1
+>    # Delete ONLY that message, by its receipt handle
+>    aws sqs delete-message --queue-url https://sqs.eu-west-1.amazonaws.com/ACCOUNT/email-outbound --receipt-handle "<RECEIPT_HANDLE>"
 >    ```
->    **Warning:** This discards the messages. Check the DLQ contents first if you need to recover them.
+>    **Warning:** Delete only the confirmed poison message. Never run `purge-queue` here — it discards *every* message in the queue. Once the worker is healthy, redrive any messages parked in the DLQ with `aws sqs start-message-move-task --source-arn <DLQ_ARN>`.
 >
 > ---
 >
