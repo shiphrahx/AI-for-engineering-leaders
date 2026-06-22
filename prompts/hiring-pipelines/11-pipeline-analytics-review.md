@@ -76,6 +76,10 @@ Drop-off reasons (where known): 8 candidates withdrew citing "process too slow,"
 >
 > Referrals convert at 9.1% (2 of 22) — roughly 4x the rate of LinkedIn outreach (2.2%). Job boards produced zero hires from 60 applicants despite being 42% of the pipeline, and the careers page produced none from 15.
 >
+> **Quality Indicators**
+> - **Offer acceptance rate: 60% (3 of 5).** Healthy but not strong — losing 2 of 5 offers is worth understanding. Combined with the "process too slow" withdrawals, the likely story is candidates accepting faster competing offers, not declining on comp or role. Track decline reasons explicitly going forward.
+> - **90-day retention & recent-hire performance: not yet measurable.** These 3 hires are too recent to assess, and we aren't currently instrumenting either. **This is a gap:** funnel efficiency tells us nothing about whether we're hiring *well*. Add a 90-day check-in (retention + hiring-manager quality rating) so next quarter's review can correlate source and process against actual hire quality — otherwise we risk optimising for speed at the expense of quality.
+>
 > **Recommendations**
 > 1. **Cut phone screen scheduling to < 3 days.** Block dedicated screening slots on Monday/Wednesday. Offer self-scheduling via Calendly. This alone could recover 4-6 candidates who drop off waiting.
 > 2. **Reduce take-home scope or offer alternatives.** Either shorten the exercise to 2 hours (with a clear timer) or offer a 90-minute pair programming session as an alternative. Completion rate should target >80%.
