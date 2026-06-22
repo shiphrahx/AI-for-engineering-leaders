@@ -75,7 +75,7 @@ Budget: Approved for 4 headcount this year.
 > | Role | Comp Range | Total Annual Cost (with benefits) |
 > |------|-----------|----------------------------------|
 > | Senior SRE | £90K-£115K | ~£125K-£155K |
-> | Senior Backend | £95K-£120K | ~£130K-£160K |
+> | Senior Backend | £95K-£125K | ~£130K-£165K |
 > | Mid Data Engineer | £70K-£90K | ~£95K-£120K |
 > | Mid Backend | £65K-£85K | ~£90K-£115K |
 > | **Total** | | **~£440K-£550K annual** |
