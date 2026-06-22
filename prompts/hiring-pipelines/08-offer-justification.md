@@ -32,7 +32,7 @@ Candidate: Jordan
 Role: Senior Backend Engineer, Payments
 Proposed level: L5 (Senior)
 Interview outcome: Hire (3 Hire, 1 Strong Hire). Strong code quality, good system design, relevant domain experience.
-Comp proposal: £110K base + standard equity package
+Comp proposal: £113K base + standard equity package
 Market data: Jordan's current comp is £95K. They mentioned having a verbal offer from Stripe at approximately £115K-£120K.
 ```
 
@@ -49,14 +49,14 @@ Market data: Jordan's current comp is £95K. They mentioned having a verbal offe
 > **Compensation Proposal**
 > | Component | Proposed | Band (L5) | Position in Band |
 > |-----------|---------|-----------|-----------------|
-> | Base salary | £110,000 | £95K-£125K | 60th percentile |
+> | Base salary | £113,000 | £95K-£125K | 60th percentile |
 > | Equity | Standard L5 grant | Per equity grid | Midpoint |
 > | Sign-on bonus | £5,000 | Discretionary | To offset unvested equity at current employer |
 >
-> **Rationale:** £110K base sits at the 60th percentile of our L5 band. This is above midpoint because: (a) Jordan has directly relevant payments domain experience that reduces our ramp-up time, (b) we need to be competitive against the Stripe offer, and (c) the payments team urgently needs senior capacity following a recent departure.
+> **Rationale:** £113K base sits at the 60th percentile of our L5 band, above the £110K midpoint. We're going above midpoint because: (a) Jordan has directly relevant payments domain experience that reduces our ramp-up time, (b) we need to be competitive against the Stripe offer, and (c) the payments team urgently needs senior capacity following a recent departure.
 >
 > **Market Context**
-> Jordan's current base is £95K. They have a verbal offer from Stripe at approximately £115-120K (we have not verified this). Our offer at £110K + equity + sign-on represents a meaningful increase over current comp and positions us competitively against Stripe when total compensation is considered (our equity upside at Series B is arguably stronger than Stripe's public stock at this stage).
+> Jordan's current base is £95K. They have a verbal offer from Stripe at approximately £115-120K (we have not verified this). Our offer at £113K + equity + sign-on represents a meaningful increase over current comp and positions us competitively against Stripe when total compensation is considered (our equity upside at Series B is arguably stronger than Stripe's public stock at this stage).
 >
 > **Risk**
 > If we lose Jordan, the payments team remains understaffed at a critical time. The usage-based billing project (Q3 target) is at risk without another senior engineer. Our pipeline for this role has been open for 6 weeks with only 2 other candidates reaching the final stage, neither as strong. Losing Jordan likely means 8+ additional weeks to find a comparable candidate.
@@ -67,3 +67,4 @@ Market data: Jordan's current comp is £95K. They mentioned having a verbal offe
 - **Competing offer you can't match:** Don't try. Explain what you offer that the other company doesn't (equity upside, team culture, role scope, growth trajectory). If you can't compete on total comp, compete on opportunity.
 - **No competing offer:** Don't anchor to the bottom of the band just because there's no pressure. Pay fairly for the level and experience. Underpaying creates retention risk.
 - **Counter-offer risk:** If the candidate might use your offer to negotiate at their current company, address this in the justification. "We recommend extending the offer with a 48-hour decision window to reduce counter-offer risk."
+- **Salary-history laws:** Anchoring the offer on the candidate's *current* salary is legally restricted in many US jurisdictions (CA, NYC, CO, WA, MA, and others) and discouraged elsewhere as it perpetuates pay gaps. Justify on the level band and market data, not on what they earn today. Use current comp only as context the candidate volunteers, never as the basis.
