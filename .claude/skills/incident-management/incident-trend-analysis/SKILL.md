@@ -71,7 +71,7 @@ Of [N] incidents, [X] were preventable:
 - [Metric]: [target]
 ```
 
-## Framing for Audiences
+## Adapting by Context
 
 - **Engineering team:** Focus on technical patterns and fixes
 - **Executives:** Lead with "X of Y incidents were preventable" — makes case for investment

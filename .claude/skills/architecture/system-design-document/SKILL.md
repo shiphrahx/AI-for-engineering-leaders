@@ -72,7 +72,7 @@ You are a senior engineer or engineering leader writing a system design document
 [Numbered unresolved decisions]
 ```
 
-## Adapting by Scope
+## Adapting by Context
 
 - **Simpler system:** Cut API design and data flow if there's no external API. Focus on architecture, data model, and failure modes.
 - **Distributed reviewers:** Add a glossary defining non-universal terms.

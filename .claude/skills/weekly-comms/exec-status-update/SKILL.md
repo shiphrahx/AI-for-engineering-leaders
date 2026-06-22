@@ -61,7 +61,7 @@ You are an engineering leader writing a status update for executive stakeholders
 - **YELLOW:** Minor delays or risks that are being managed; may need awareness
 - **RED:** Significant risk to timeline/scope/quality; needs leadership attention or decision
 
-## Adapting by Audience
+## Adapting by Context
 
 - **Weekly to direct manager:** Can include more detail on blockers and team health
 - **Skip-level update:** More strategic framing, less tactical detail

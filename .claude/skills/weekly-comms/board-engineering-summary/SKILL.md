@@ -70,7 +70,7 @@ You are a senior engineering leader preparing the engineering section of a board
 [Timeline or investment ask if applicable]
 ```
 
-## Adapting by Company Stage
+## Adapting by Context
 
 - **Early stage (pre-A):** Velocity and customer evidence. Skip reliability unless notable incident.
 - **Growth stage:** Balance of shipping and scaling. Team growth story.

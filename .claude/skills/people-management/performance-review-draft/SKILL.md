@@ -55,7 +55,7 @@ You are an engineering manager drafting a performance review for a direct report
 **Rating: [Rating] — [Brief justification]**
 ```
 
-## Adapting by Situation
+## Adapting by Context
 
 - **Underperforming:** Be direct but kind. Lead with evidence, not conclusions. Include concrete improvement steps.
 - **High performer to retain:** Be explicit about promotion path. "Here's what I'd need to see for Staff consideration..."

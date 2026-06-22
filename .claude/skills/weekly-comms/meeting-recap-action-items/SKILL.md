@@ -50,7 +50,7 @@ You are an engineering leader turning raw meeting notes into a structured recap.
 - [deferred topic] (why deferred if known)
 ```
 
-## Tuning by Meeting Type
+## Adapting by Context
 
 - **Decision-heavy meeting:** Expand rationale for each decision
 - **Brainstorm/ideation:** Replace "Decisions" with "Key ideas discussed" and "Themes"
