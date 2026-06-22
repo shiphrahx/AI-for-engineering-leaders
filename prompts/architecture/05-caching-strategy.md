@@ -70,7 +70,7 @@ Infrastructure: Redis cluster available (ElastiCache), CloudFront CDN in front o
 > | Failure | Impact | Handling |
 > |---------|--------|----------|
 > | Redis unavailable | All cache misses, DB takes full load | Circuit breaker: if Redis is down, bypass cache entirely. DB can handle 100% load for short periods (tested at 2x). Alert immediately. |
-> | Cache stampede (popular product expires, 1000 concurrent requests hit DB) | DB overload on expiration | Implement lock-based cache refresh: first request acquires a lock, refreshes cache; other requests serve stale data until refresh completes. |
+> | Cache stampede (popular product expires, 1000 concurrent requests hit DB) | DB overload on expiration | Use a soft-TTL / stale-while-revalidate scheme: keep entries with a soft expiry shorter than the hard expiry. After soft expiry, the first request acquires a refresh lock and repopulates while everyone else serves the still-valid stale value. The hard TTL is the real eviction bound. |
 > | Stale price served after price change | Customer sees wrong price | Write-through invalidation on price change + 30-sec max TTL = maximum staleness of 30 seconds. Price at checkout is always read from DB (never cached). |
 > | Cold start (empty cache after deploy/restart) | Burst of DB queries | Cache warming: on deploy, pre-populate top 1,000 products (covers 40% of traffic). Remaining cache fills organically. |
 >
@@ -80,6 +80,13 @@ Infrastructure: Redis cluster available (ElastiCache), CloudFront CDN in front o
 > - Cache invalidation lag (time from write to cache eviction)
 > - Redis memory utilisation and eviction rate
 > - DB query rate (should drop proportionally to cache hit rate)
+>
+> **Cold Start Plan**
+> The cache is empty after any deploy, Redis restart, or failover. Plan for it explicitly rather than hoping traffic refills it gracefully:
+> - **Warm the hot set on startup:** a post-deploy job pre-populates the top 1,000 products (≈40% of traffic) before the instance takes traffic. This caps the initial DB burst.
+> - **Stagger, don't thunder:** warm in batches with jitter so warming itself doesn't stampede the DB.
+> - **Protect the DB during fill:** keep the circuit breaker and per-key refresh locks active so the organic fill of the long tail can't overload the DB.
+> - **Expected behaviour:** elevated p99 and DB load for the first 1–2 minutes after a cold start, returning to >95% hit rate as the tail fills. Alert only if it persists beyond ~5 minutes (signals warming failed).
 
 ## Tuning Notes
 
