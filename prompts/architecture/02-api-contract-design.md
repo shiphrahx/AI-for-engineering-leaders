@@ -98,12 +98,15 @@ Constraints: RESTful, JSON, must support both API key auth (external) and sessio
 > ```
 > Error codes are stable (machine-readable), messages are human-readable and may change.
 >
-> **Authentication**
+> **Authentication & Authorisation**
+> *Authentication (who you are):*
 > - External: `Authorization: Bearer <api_key>` header
 > - Internal: Session cookie (set by auth service)
 > - Both methods are accepted on all endpoints. The auth middleware resolves the caller identity regardless of method.
 >
-> **Pagination**
+> *Authorisation (what you can do):* role-based, scoped per team. Each membership carries a role (`owner` > `admin` > `member`) and the required role is shown in the Auth column of the endpoint table. The middleware checks team membership first (404 if the caller isn't a member, to avoid leaking team existence), then role (403 if the member's role is insufficient). API keys are scoped to a single customer and cannot act across customers.
+>
+> **Pagination & Filtering**
 > All list endpoints use cursor-based pagination:
 > ```
 > GET /v1/teams?limit=20&cursor=eyJpZCI6InRlYW1fYWJjMTIzIn0=
@@ -117,6 +120,8 @@ Constraints: RESTful, JSON, must support both API key auth (external) and sessio
 > }
 > ```
 > Default limit: 20. Maximum limit: 100.
+>
+> *Filtering:* list endpoints accept a documented allow-list of query filters (e.g. `GET /v1/teams/{id}/members?role=admin`). Unknown filter parameters return `400` rather than being silently ignored, so typos surface immediately. Filters combine with `AND`; the cursor encodes the active filter set so pagination stays consistent across pages.
 >
 > **Versioning**
 > URL-based: `/v1/teams`. Backward-incompatible changes require a new version (`/v2/`). Additive changes (new fields, new optional parameters) ship without version bumps. Deprecated fields are marked in documentation for 2 major versions before removal.
