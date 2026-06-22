@@ -67,14 +67,14 @@ Drop-off reasons (where known): 8 candidates withdrew citing "process too slow,"
 > 3. **Take-home review: 6 days.** Candidates who complete the exercise wait nearly a week for feedback. Fast competitors close in this window.
 >
 > **Source Effectiveness**
-> | Source | Applied | Hired | Cost per Hire | Quality Signal |
-> |--------|---------|-------|--------------|----------------|
-> | Referrals | 22 (15%) | 2 (67% of hires) | Low | ⭐ Best |
-> | LinkedIn outreach | 45 (32%) | 1 (33% of hires) | Medium | Good |
-> | Job boards | 60 (42%) | 0 | High | Poor |
-> | Careers page | 15 (11%) | 0 | Low | Mixed |
+> | Source | Applied | Hired | Hire Rate |
+> |--------|---------|-------|-----------|
+> | Referrals | 22 (15%) | 2 (67% of hires) | 9.1% |
+> | LinkedIn outreach | 45 (32%) | 1 (33% of hires) | 2.2% |
+> | Job boards | 60 (42%) | 0 | 0% |
+> | Careers page | 15 (11%) | 0 | 0% |
 >
-> Referrals are 5x more effective than job boards by conversion rate. Job boards produced zero hires from 60 applicants.
+> Referrals convert at 9.1% (2 of 22) — roughly 4x the rate of LinkedIn outreach (2.2%). Job boards produced zero hires from 60 applicants despite being 42% of the pipeline, and the careers page produced none from 15.
 >
 > **Recommendations**
 > 1. **Cut phone screen scheduling to < 3 days.** Block dedicated screening slots on Monday/Wednesday. Offer self-scheduling via Calendly. This alone could recover 4-6 candidates who drop off waiting.
