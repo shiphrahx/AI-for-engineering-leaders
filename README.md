@@ -4,9 +4,12 @@
 
 # AI for Engineering Leaders — Prompt Library
 
-![Prompts](https://img.shields.io/badge/prompts-81-blue) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/AI-for-engineering-leaders?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/AI-for-engineering-leaders/commits/main)
+![Prompts](https://img.shields.io/badge/prompts-81-blue) ![Skills](https://img.shields.io/badge/skills-69-orange) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/AI-for-engineering-leaders?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/AI-for-engineering-leaders/commits/main)
 
-81 Situation-specific prompts for engineering managers, directors, and VPs. Each prompt covers a recurring leadership task (status updates, roadmaps, performance reviews, incident comms) with placeholders, an example, and tuning notes.
+81 situation-specific **prompts** and 69 agent-ready **skills** for engineering managers, directors, and VPs.
+
+- **[Prompts](prompts/)** — copy-paste-and-fill templates for recurring leadership tasks (status updates, roadmaps, reviews, incident comms), each with placeholders, an example, and tuning notes.
+- **[Skills](skills/)** — the same expertise packaged so an agent (Claude Code, Copilot, Cursor, or any LLM) can *act*: gather inputs, apply structure, and produce the finished artifact. Portable plain-markdown files with a small YAML header.
 
 </div>
 
@@ -143,11 +146,136 @@ Each file follows the same format:
 ## Tuning Notes
 ```
 
+## Skills
+
+Agent-ready versions of the highest-leverage prompts — for when you want the agent to *do the task*, not just draft text. Each skill lives at `skills/<category>/<name>/SKILL.md` and follows a portable spec (folded trigger description, Inputs to gather, Steps, Output format, Boundaries, Chaining). See [`SKILL_TEMPLATE.md`](SKILL_TEMPLATE.md) to contribute one.
+
+### [Weekly Comms](skills/weekly-comms/) — 8 skills
+| Skill | What it produces |
+|-------|------------------|
+| [exec-status-update](skills/weekly-comms/exec-status-update/SKILL.md) | Synthesise messy team-lead updates into a crisp leadership update an exec reads in two minutes |
+| [team-weekly-summary](skills/weekly-comms/team-weekly-summary/SKILL.md) | A Friday wrap-up for your own engineers: what shipped, what's stuck, what's next |
+| [stakeholder-project-update](skills/weekly-comms/stakeholder-project-update/SKILL.md) | Update non-engineering stakeholders on a project without jargon or false reassurance |
+| [cross-team-dependency-update](skills/weekly-comms/cross-team-dependency-update/SKILL.md) | Surface cross-team blockers and handoffs collaboratively, with clear asks and owners |
+| [meeting-recap-action-items](skills/weekly-comms/meeting-recap-action-items/SKILL.md) | Turn messy meeting notes into decisions and owned, dated action items |
+| [board-engineering-summary](skills/weekly-comms/board-engineering-summary/SKILL.md) | Translate a quarter of engineering progress into board-level language and outcomes |
+| [engineering-newsletter](skills/weekly-comms/engineering-newsletter/SKILL.md) | Turn raw updates into a company-wide newsletter product, design, and sales actually read |
+| [engineering-all-hands-agenda](skills/weekly-comms/engineering-all-hands-agenda/SKILL.md) | A tight all-hands agenda that respects people's time and drives real discussion |
+
+### [Planning](skills/planning/) — 14 skills
+| Skill | What it produces |
+|-------|------------------|
+| [quarterly-roadmap](skills/planning/quarterly-roadmap/SKILL.md) | Goals, backlog, and tech debt into a defensible quarterly roadmap with an explicit not-doing list |
+| [rfc-outline](skills/planning/rfc-outline/SKILL.md) | A proposed technical change into an RFC thorough enough to decide on |
+| [sprint-retro-summary](skills/planning/sprint-retro-summary/SKILL.md) | Raw retro feedback distilled into actionable themes with owners |
+| [tech-debt-prioritisation](skills/planning/tech-debt-prioritisation/SKILL.md) | A tech-debt list into a prioritised backlog that quantifies the cost of inaction |
+| [build-vs-buy-analysis](skills/planning/build-vs-buy-analysis/SKILL.md) | Building in-house vs buying, weighed on total cost and strategic fit |
+| [project-pre-mortem](skills/planning/project-pre-mortem/SKILL.md) | Imagine the project failed, then work backward to the likeliest risks and mitigations |
+| [capacity-planning](skills/planning/capacity-planning/SKILL.md) | Team bandwidth mapped against committed work using realistic, not theoretical, capacity |
+| [migration-plan](skills/planning/migration-plan/SKILL.md) | A System A → System B move phased for safety, with rollback at every step |
+| [okr-drafting](skills/planning/okr-drafting/SKILL.md) | Vague goals into measurable team OKRs with real key results |
+| [architecture-decision-record](skills/planning/architecture-decision-record/SKILL.md) | A technical decision captured so future engineers understand the why, not just the what |
+| [incident-postmortem](skills/planning/incident-postmortem/SKILL.md) | A blameless postmortem with systemic root cause and prioritised action items |
+| [sprint-planning-breakdown](skills/planning/sprint-planning-breakdown/SKILL.md) | An epic broken into independently deliverable, well-scoped sprint tickets |
+| [engineering-strategy-one-pager](skills/planning/engineering-strategy-one-pager/SKILL.md) | What engineering is optimising for, and why, on one page |
+| [team-offsite-agenda](skills/planning/team-offsite-agenda/SKILL.md) | A substantive offsite that produces real decisions, not forced fun |
+
+### [People Management](skills/people-management/) — 16 skills
+| Skill | What it produces |
+|-------|------------------|
+| [performance-review-draft](skills/people-management/performance-review-draft/SKILL.md) | Scattered observations into a fair, evidence-based review |
+| [one-on-one-prep](skills/people-management/one-on-one-prep/SKILL.md) | A personalised 1:1 agenda mixing tactical check-ins with career growth |
+| [feedback-synthesis](skills/people-management/feedback-synthesis/SKILL.md) | Multi-reviewer feedback distilled into a coherent, fair narrative |
+| [career-ladder-draft](skills/people-management/career-ladder-draft/SKILL.md) | Engineering levels defined with clear, observable expectations |
+| [job-description](skills/people-management/job-description/SKILL.md) | A JD that sells the role honestly and filters effectively |
+| [interview-rubric](skills/people-management/interview-rubric/SKILL.md) | Consistent, bias-resistant evaluation criteria across an interview loop |
+| [pip-documentation](skills/people-management/pip-documentation/SKILL.md) | A fair, evidence-based PIP draft (HR-reviewed) that gives a genuine chance to succeed |
+| [promotion-case](skills/people-management/promotion-case/SKILL.md) | A case showing the person is already operating at the next level, with evidence |
+| [onboarding-plan](skills/people-management/onboarding-plan/SKILL.md) | A 30/60/90 path to a new hire's first meaningful contribution |
+| [skip-level-meeting-prep](skills/people-management/skip-level-meeting-prep/SKILL.md) | A skip-level that surfaces unfiltered signal and builds trust |
+| [difficult-conversation-prep](skills/people-management/difficult-conversation-prep/SKILL.md) | Talking points so hard feedback lands clearly and kindly |
+| [manager-readme](skills/people-management/manager-readme/SKILL.md) | A head start for reports on your working style and expectations |
+| [layoff-communication](skills/people-management/layoff-communication/SKILL.md) | Coordinated, humane layoff communications for the individual and the team (legal-reviewed) |
+| [team-values-workshop](skills/people-management/team-values-workshop/SKILL.md) | A workshop that produces real, usable working principles |
+| [staff-engineer-scope-doc](skills/people-management/staff-engineer-scope-doc/SKILL.md) | What a staff engineer owns, decides, and is measured on |
+| [team-health-survey-analysis](skills/people-management/team-health-survey-analysis/SKILL.md) | Survey themes connected to root causes and concrete actions |
+
+### [Incident Management](skills/incident-management/) — 10 skills
+| Skill | What it produces |
+|-------|------------------|
+| [incident-commander-runbook](skills/incident-management/incident-commander-runbook/SKILL.md) | A coordination playbook so anyone on rotation can run an incident calmly |
+| [severity-classification-guide](skills/incident-management/severity-classification-guide/SKILL.md) | An unambiguous P0–P3 guide an engineer can apply at 3am in under a minute |
+| [war-room-facilitation-guide](skills/incident-management/war-room-facilitation-guide/SKILL.md) | A script and structure for the IC to run a live war room |
+| [on-call-handoff](skills/incident-management/on-call-handoff/SKILL.md) | Exactly what the incoming on-call needs to not be blindsided |
+| [runbook-generator](skills/incident-management/runbook-generator/SKILL.md) | Tribal knowledge into a runbook any on-call can follow at 3am |
+| [incident-trend-analysis](skills/incident-management/incident-trend-analysis/SKILL.md) | The patterns individual postmortems miss across a quarter |
+| [remediation-tracker](skills/incident-management/remediation-tracker/SKILL.md) | Scattered postmortem action items tracked to completion with clear ownership |
+| [game-day-plan](skills/incident-management/game-day-plan/SKILL.md) | An incident simulation realistic enough to surface real gaps |
+| [escalation-policy-document](skills/incident-management/escalation-policy-document/SKILL.md) | A one-page reference that kills "who do I call next?" ambiguity |
+| [incident-readiness-review](skills/incident-management/incident-readiness-review/SKILL.md) | An audit of whether the team can handle incidents before a high-risk event |
+
+### [Architecture](skills/architecture/) — 12 skills
+| Skill | What it produces |
+|-------|------------------|
+| [system-design-document](skills/architecture/system-design-document/SKILL.md) | A blueprint detailed enough that a senior engineer could build from it |
+| [api-contract-design](skills/architecture/api-contract-design/SKILL.md) | The API contract right before building, with versioning and errors from day one |
+| [scalability-assessment](skills/architecture/scalability-assessment/SKILL.md) | Whether the architecture survives 5–10x load, and where the bottlenecks are |
+| [data-model-design](skills/architecture/data-model-design/SKILL.md) | A schema designed for actual query patterns, not theoretical purity |
+| [caching-strategy](skills/architecture/caching-strategy/SKILL.md) | What to cache, where, how to invalidate, and what happens when the cache is down |
+| [observability-strategy](skills/architecture/observability-strategy/SKILL.md) | The information architecture to go from "it's broken" to "here's the line" fast |
+| [slo-definition](skills/architecture/slo-definition/SKILL.md) | Reliability targets that are measurable, meaningful, and have an error-budget policy |
+| [architecture-review-prep](skills/architecture/architecture-review-prep/SKILL.md) | The design — and you — prepared for the tough questions reviewers will ask |
+| [dependency-mapping](skills/architecture/dependency-mapping/SKILL.md) | Who depends on what, failure behaviour, and blast radius |
+| [technical-vision-document](skills/architecture/technical-vision-document/SKILL.md) | An opinionated 12–24 month vision for where the architecture should head |
+| [technology-radar](skills/architecture/technology-radar/SKILL.md) | Technologies sorted into Adopt / Trial / Assess / Hold with rationale |
+| [database-selection-guide](skills/architecture/database-selection-guide/SKILL.md) | A datastore chosen from the workload, not the marketing |
+
+### [Hiring Pipelines](skills/hiring-pipelines/) — 9 skills
+| Skill | What it produces |
+|-------|------------------|
+| [hiring-plan](skills/hiring-pipelines/hiring-plan/SKILL.md) | Goals, team, and budget into a defensible hiring plan |
+| [recruiter-kickoff-brief](skills/hiring-pipelines/recruiter-kickoff-brief/SKILL.md) | The insider context a JD leaves out, handed to a recruiter |
+| [phone-screen-script](skills/hiring-pipelines/phone-screen-script/SKILL.md) | A 30-minute screen that assesses fit and sells the role |
+| [take-home-exercise-design](skills/hiring-pipelines/take-home-exercise-design/SKILL.md) | A take-home that shows real skill, completable in 2–3 hours, fairly scored |
+| [interview-debrief-facilitation](skills/hiring-pipelines/interview-debrief-facilitation/SKILL.md) | A debrief plan that forces an evidence-based, anchoring-resistant decision |
+| [candidate-evaluation-summary](skills/hiring-pipelines/candidate-evaluation-summary/SKILL.md) | All interview feedback synthesised into one evidence-based evaluation |
+| [offer-justification](skills/hiring-pipelines/offer-justification/SKILL.md) | Interview performance connected to a specific level and comp, defensibly |
+| [interviewer-calibration-guide](skills/hiring-pipelines/interviewer-calibration-guide/SKILL.md) | A hands-on session that aligns interviewers and reduces bias |
+| [pipeline-analytics-review](skills/hiring-pipelines/pipeline-analytics-review/SKILL.md) | A diagnosis of where candidates are lost and whether to fix speed or quality |
+
+## Installation
+
+Skills are plain markdown with a small YAML header, so any LLM agent can read them. Point your agent at the file and it works.
+
+**Claude Code**
+Add to your `CLAUDE.md`:
+```
+skillsDir: skills/
+```
+
+**GitHub Copilot**
+Copy the relevant skill folder into `.github/copilot-instructions/`.
+
+**Cursor**
+Reference a skill inline via `@skills/<name>/SKILL.md`, or add the path to your `.cursorrules`.
+
+**Any agent**
+Point your agent at `skills/<category>/<name>/SKILL.md` — plain markdown with a small YAML header, readable by any LLM.
+
+## Prompts vs Skills
+
+Both cover the same engineering-leadership tasks — they differ in how you use them:
+
+- **[`prompts/`](prompts/)** is the companion resource for **paste-and-fill** workflows: copy the prompt, replace the `[PLACEHOLDERS]`, and run it. Best when you want to drive the output yourself.
+- **[`skills/`](skills/)** is for when you want the **agent to act** — gather the inputs (asking for what's missing instead of guessing), apply the structure, and produce the finished artifact, then offer the natural next step.
+
+Not every prompt became a skill. Thin, transactional one-offs (rejection emails, outreach messages, celebration posts, single announcements) stay as prompts — a template beats an agent there. Substantial, multi-part artifacts became skills.
+
 ## Roadmap
 
 - [x] V1: 36 prompts across comms, planning, and people management
 - [x] V2: Additional categories (incident management, architecture, hiring pipelines)
-- [ ] V2: CLI tool via Claude Code (`ai-eng fetch postmortem --timeline "..."`)
-- [ ] V3: Prompt chaining (multi-step workflows)
+- [x] V3: Agent-ready skill pack (69 skills, portable across Claude Code / Copilot / Cursor / any LLM)
 - [ ] V3: Org-size variants (startup, growth, enterprise)
+- [ ] V4: CLI tool to fetch and run skills from the terminal
 
