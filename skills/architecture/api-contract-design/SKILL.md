@@ -1,38 +1,42 @@
 ---
 name: api-contract-design
-description: "Design an API contract before building it. Takes the API purpose, consumers, and constraints and produces resource model, endpoint catalogue, error contract, auth, pagination, and versioning strategy. Use this when designing a new internal or external API, not for documenting an already-built API."
+description: >
+  Produces an API contract before any code is written — overview, design principles, resource model,
+  endpoint catalogue, error contract, auth, pagination/filtering, versioning, and rate limiting. Use
+  when the user says "design an API", "API contract/spec", "endpoints for [feature]", or describes a
+  new internal or external API. Use this for the API surface in isolation; use system-design-document
+  for the whole system including the data flows behind the API, and data-model-design for the storage
+  schema rather than the request/response shapes.
 ---
 
-You are a senior engineer designing an API contract. Prioritise developer experience, consistency, and evolvability. The API should be intuitive to use without reading documentation — but the documentation should be excellent anyway. Think about versioning, error handling, and pagination from day one, because they are painful to retrofit.
+# API Contract Design
 
-## Your Task
+Get the contract right before building — intuitive enough to use without docs, with versioning, errors, and pagination designed in from day one because they are painful to retrofit.
 
-1. Gather inputs:
-   - API purpose — what it does
-   - Consumers — internal, external, or both; human or machine
-   - Constraints — REST/GraphQL, auth methods, pagination style, existing conventions
+## Inputs to gather
 
-2. Produce the contract with these sections:
-   - **Overview** — what it does, who calls it, interaction model
-   - **Design principles** — naming, casing, timestamps, pagination, errors
-   - **Resource model** — core resources and relationships
-   - **Endpoint catalogue** — every endpoint with method, path, request/response, status codes, auth
-   - **Error contract** — consistent format with stable machine-readable codes
-   - **Authentication & authorisation** — how consumers authenticate and what they can access
-   - **Pagination & filtering** — how large collections are handled
-   - **Versioning strategy** — how the API evolves without breaking consumers
-   - **Rate limiting** — limits and how they're communicated
+Gather these before designing. If any are missing, ask in a single batched question — never invent consumer needs, auth rules, or rate limits. Mark anything genuinely unavailable as **Unknown** in the output.
 
-## Design Principles
+- **API purpose** — what it does
+- **Consumers** — internal, external, or both; human or machine
+- **Constraints** — REST/GraphQL, auth methods, pagination style, existing conventions
 
-- Resource-oriented: nouns, not verbs (`/teams`, not `/createTeam`)
-- Consistent casing and pluralisation across every endpoint
-- ISO 8601 timestamps everywhere
-- Error codes are stable (machine-readable); messages are human-readable and may change
-- Additive changes ship without a version bump; breaking changes require a new version
-- Design pagination and errors before the first endpoint — they touch everything
+## Steps
 
-## Output Format
+1. Confirm the inputs. If consumer type, auth model, or pagination style is unstated, ask — these shape every endpoint. Mark unresolved items **Unknown**.
+2. Write the **Overview** — what the API does, who calls it, the interaction model, and the base path.
+3. State **Design principles** — resource-oriented nouns not verbs (`/teams`, not `/createTeam`); consistent casing and pluralisation; ISO 8601 timestamps; one pagination style chosen once; a single error format. Decide pagination and errors before the first endpoint — they touch everything.
+4. Define the **Resource model** — core resources and their relationships with cardinality.
+5. Build the **Endpoint catalogue** — every endpoint as a table (method, path, description, auth), plus 1-2 full request/response examples with status codes.
+6. Specify the **Error contract** — one consistent shape; error `code`s are stable and machine-readable, `message`s are human-readable and may change.
+7. Define **Authentication & authorisation** — how each consumer type authenticates, and how identity and permission resolve (e.g. check membership before role; 404 vs 403 to avoid leaking existence). Additive changes ship without a bump; breaking changes need a new version.
+8. Define **Pagination & filtering** — style, example, default and max limits; whether unknown filter params 400 or are silently ignored.
+9. Define the **Versioning strategy** — how the API evolves without breaking consumers, plus the deprecation policy.
+10. Define **Rate limiting** — limits per consumer tier, the headers returned, and 429 behaviour.
+11. Adapt to context: for an internal-only API, relax versioning/error rigor (coordinated deploys) but still document it. For GraphQL, replace the endpoint catalogue with schema definitions and resolver descriptions and add query-complexity limits. For an API-first company, add an SDK design section mapping the API to client libraries in 2-3 languages. For a legacy redesign, add a migration guide mapping old endpoints to new ones with a deprecation timeline.
+12. Assemble the output in the format below.
+
+## Output format
 
 ```
 **API Contract: [Name]**
@@ -50,16 +54,16 @@ You are a senior engineer designing an API contract. Prioritise developer experi
 | Method | Path | Description | Auth |
 |--------|------|-------------|------|
 
-[1-2 full request/response examples]
+[1-2 full request/response examples with status codes]
 
 **Error Contract**
 [Standard error shape + example]
 
-**Authentication**
-[Methods and how identity resolves]
+**Authentication & Authorisation**
+[Methods, how identity resolves, how permission resolves]
 
-**Pagination**
-[Style, example, default/max limits]
+**Pagination & Filtering**
+[Style, example, default/max limits, unknown-filter behaviour]
 
 **Versioning**
 [Strategy and deprecation policy]
@@ -68,15 +72,14 @@ You are a senior engineer designing an API contract. Prioritise developer experi
 [Limits, headers, 429 behaviour]
 ```
 
-## Adapting by Context
+## Boundaries
 
-- **Internal-only API:** Relax versioning and error contract rigor — internal APIs change with coordinated deploys. Still document them.
-- **GraphQL:** Replace the endpoint catalogue with schema definitions and resolver descriptions; add query-complexity limits.
-- **API-first company:** Add an SDK design section mapping the API to client libraries in 2-3 languages.
-- **Legacy redesign:** Add a migration guide mapping old endpoints to new ones with a deprecation timeline.
+- Never fabricate consumer needs, authorization roles, or rate limits — these come from the user. Mark them **Unknown**.
+- Never leave error format, pagination, or versioning undesigned — these are the expensive-to-retrofit decisions and the whole point of doing this up front.
+- Never use verbs in resource paths or mix casing/pluralisation conventions across endpoints.
+- This designs a contract, not an implementation — do not specify storage, indexes, or internal data flow here.
 
-## Gaps
+## Chaining
 
-- Cannot know consumer needs without input — user describes who calls the API and how
-- Authorization model depends on the domain's permission rules — user supplies roles and access boundaries
-- Rate limits should be based on real usage data — user provides expected traffic
+- This commonly follows **system-design-document** (which names the endpoints this skill fleshes out).
+- After this, offer **data-model-design** to design the storage behind these resources.

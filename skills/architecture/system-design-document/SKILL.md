@@ -1,86 +1,98 @@
 ---
 name: system-design-document
-description: "Write a detailed technical blueprint for a new service or system. Takes a system description, scale, and constraints and produces a comprehensive design doc covering requirements, architecture, data model, failure modes, and operational concerns. Use this before building a new system, not for proposing a decision (use an RFC) or for high-level vision."
+description: >
+  Produces a comprehensive system design document — a buildable technical blueprint covering
+  requirements, architecture, data model, API, data flows, failure modes, operational and security
+  concerns, and open questions. Use when the user says "write a system design", "design doc",
+  "technical design for [system]", or describes a new service they need to document before coding.
+  Use this for the full build-from blueprint of one system; use api-contract-design for the API
+  surface in isolation, data-model-design for the schema in isolation, and technical-vision-document
+  for multi-system 12-24 month direction rather than one implementation.
 ---
 
-You are a senior engineer or engineering leader writing a system design document. The document is a technical blueprint the team will build from — comprehensive enough that a senior engineer could implement the system from this document alone. Be specific about data flows, failure modes, and operational concerns, not just the happy path.
+# System Design Document
 
-## Your Task
+Turn a system description into a blueprint detailed enough that a senior engineer could build from it alone — specific about data flows, failure modes, and operations, not just the happy path.
 
-1. Gather inputs:
-   - System description — what it does
-   - Context — why you're building it
-   - Expected scale — volume, growth, latency targets
-   - Constraints — tech stack, team size, timeline
-   - Team context — experience, headcount
+## Inputs to gather
 
-2. Produce the design document with these sections:
-   - **Overview** — what the system does and why (2-3 sentences)
-   - **Requirements** — functional and non-functional (performance, reliability, security)
-   - **Architecture** — component diagram and how parts interact
-   - **Data model** — key entities, relationships, storage choices
-   - **API design** — key endpoints/interfaces with request/response shapes
-   - **Data flow** — step-by-step for primary use cases, including failure handling
-   - **Failure modes** — what can go wrong and how the system handles each
-   - **Operational concerns** — deploy, monitoring, alerting, on-call implications
-   - **Security considerations** — auth, data protection, threat model highlights
-   - **Open questions** — unresolved decisions for team discussion
+Gather these before writing. If any are missing, ask in a single batched question — never invent scale numbers, constraints, or team facts. Mark anything genuinely unavailable as **Unknown** in the output.
 
-## Design Principles
+- **System description** — what it does
+- **Context** — why it's being built; what it replaces
+- **Expected scale** — volume, growth, latency/reliability targets
+- **Constraints** — tech stack, regulatory, multi-tenancy, integration requirements
+- **Team context** — size, skills, timeline to MVP
 
-- Design for failure: every external dependency can be slow, down, or duplicate-deliver
-- Make the data model explicit — schemas, indexes, and the source of truth
-- Quantify non-functional requirements: "p95 < 30s," not "fast"
-- Idempotency and retries are first-class, not afterthoughts
-- Every component you add is something to monitor, deploy, and debug at 3am — justify it
+## Steps
 
-## Output Format
+1. Read all inputs first. List any gap as **Unknown** rather than guessing a number or constraint.
+2. Write the **Overview** — what the system does and why, in 2-3 sentences.
+3. Capture **Requirements** split into functional (what it does) and non-functional (performance, reliability, security, retention, isolation). Quantify non-functional targets ("p95 < 30s", not "fast") and tie them to the stated scale.
+4. Design the **Architecture** — a high-level diagram (ASCII is fine), the components, and how they interact. Name the technology for each component, justified by the constraints/team. Every component you add is something to monitor, deploy, and debug at 3am — justify it.
+5. Specify the **Data model** — key entities, fields, types, relationships, indexes, and the source of truth.
+6. Define the **API design** — key endpoints/interfaces with request/response shapes and status codes.
+7. Walk the **Data flow** step-by-step for each primary use case, including the failure path, not only success. Treat idempotency and retries as first-class.
+8. Enumerate **Failure modes** as a table: failure, impact, handling. Assume every external dependency can be slow, down, or duplicate-deliver; cover backlogs and idempotency.
+9. Cover **Operational concerns** — deployment, monitoring, alerting thresholds, on-call implications and runbook topics.
+10. Cover **Security considerations** — auth, data protection/encryption, PII and retention, rate limits, threat-model highlights.
+11. List **Open questions** — unresolved design decisions for the team to discuss.
+12. Adapt to context: for a system with no external API, cut API design and data flow and lead with architecture/data model/failure modes. For a distributed team review, add a glossary of non-universal terms. For a non-engineer audience, extract architecture diagram + requirements into a one-page summary. For a living document, add a "deviations from design" section to track where implementation diverged and why.
+13. Assemble the output in the format below.
+
+## Output format
 
 ```
-**System Design: [Name]**
+**System Design: [System Name]**
 
 **Overview**
-[2-3 sentences]
+[What it does and why — 2-3 sentences]
 
 **Requirements**
-*Functional:* [bullets]
-*Non-functional:* [bullets with numbers]
+*Functional:*
+- [What it does]
+*Non-functional:*
+- [Performance / reliability / security / retention target, quantified]
 
 **Architecture**
-[ASCII diagram + component list]
+[Diagram]
+Components:
+- **[Component]:** [technology — responsibility]
 
 **Data Model**
-[Tables/entities with fields, types, indexes]
+[Entities with fields, types, keys, indexes]
 
 **API Design**
-[Key endpoints with request/response examples]
+[Key endpoints with request/response shapes and status codes]
 
-**Data Flow: [Primary Case]**
-[Numbered steps]
+**Data Flow: [Primary Use Case]**
+1. [Step]
+**Data Flow: [Failure Path]**
+[Steps]
 
 **Failure Modes**
 | Failure | Impact | Handling |
 |---------|--------|----------|
+| [failure] | [impact] | [handling] |
 
 **Operational Concerns**
-[Deploy, monitoring, alerting, on-call]
+- Deploy / Monitoring / Alerting / On-call: [...]
 
 **Security Considerations**
-[Auth, encryption, PII, threat model]
+- [Auth / encryption / PII / rate limits]
 
 **Open Questions**
-[Numbered unresolved decisions]
+1. [Unresolved decision]
 ```
 
-## Adapting by Context
+## Boundaries
 
-- **Simpler system:** Cut API design and data flow if there's no external API. Focus on architecture, data model, and failure modes.
-- **Distributed reviewers:** Add a glossary defining non-universal terms.
-- **Non-engineer audience:** Extract architecture diagram and requirements into a one-page summary; the rest is for engineers.
-- **Living document:** Add a "deviations from design" section to capture where implementation diverged and why.
+- Never fabricate scale numbers, constraints, team facts, or targets. Mark them **Unknown** and flag them as inputs to confirm.
+- Never document only the happy path — every primary flow must have its failure path, and the failure-modes table is mandatory.
+- Never pick a technology the team can't operate without flagging the operational cost and skill gap.
+- This is a blueprint, not a decision proposal — document how to build it, not whether to.
 
-## Gaps
+## Chaining
 
-- Cannot validate scale assumptions — user provides realistic volume and growth numbers
-- Cannot choose the right tech stack without team context — user supplies expertise and constraints
-- Failure mode coverage depends on domain knowledge — user reviews for missing scenarios
+- After this, offer **api-contract-design** to flesh out the API surface and **data-model-design** to detail the schema and indexes.
+- Before a review board, offer **architecture-review-prep** to prepare the presentation and anticipated questions.

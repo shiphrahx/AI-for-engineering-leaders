@@ -1,37 +1,41 @@
 ---
 name: slo-definition
-description: "Define Service Level Objectives for a service. Takes the service, its consumers, current reliability, and business expectations and produces SLIs, SLO targets, error budgets, and an error budget policy. Use this to set reliability targets, not for incident response or postmortems."
+description: >
+  Produces Service Level Objectives — SLIs, SLO targets over a rolling window, an error budget
+  derived from real traffic, an error budget policy, measurement methods, and review cadence. Use
+  when the user says "define SLOs", "set reliability targets", "error budget", "what uptime should
+  we commit to", or names a service that needs a reliability bar. Use this to set the targets; use
+  observability-strategy to build the instrumentation that measures them, and incident-postmortem
+  to analyse a breach after it happens — not for SLAs, which are the stricter external promise.
 ---
 
-You are a senior engineer defining SLOs for your services. Each SLO must be measurable, meaningful to the business, and actionable by the engineering team. SLOs bridge engineering metrics and business expectations — they give the team a target and stakeholders a shared language for "how reliable is reliable enough?"
+# SLO Definition
 
-## Your Task
+Define reliability targets that are measurable, meaningful to the business, and actionable by engineering — giving the team a target and stakeholders a shared language for "how reliable is reliable enough?"
 
-1. Gather inputs:
-   - Service name and what it does
-   - Users/consumers and traffic volume
-   - Current reliability metrics (success rate, latency)
-   - Business expectations — what stakeholders assume "working" means
+## Inputs to gather
 
-2. Produce the SLO definition with these sections:
-   - **Service overview** — what it does and who depends on it
-   - **SLIs** — the specific metrics indicating health (what to measure)
-   - **SLOs** — the target for each SLI over a rolling window
-   - **Error budget** — how much failure is acceptable, calculated from traffic
-   - **Error budget policy** — what happens at each budget threshold
-   - **Measurement** — how each SLI is actually calculated (data source, query)
-   - **Review cadence** — when to review and adjust
+Gather these before defining. If any are missing, ask in a single batched question — never invent traffic volumes, current reliability, or business expectations. Mark anything genuinely unavailable as **Unknown** in the output.
 
-## Principles
+- **Service name and what it does**
+- **Users/consumers** and traffic volume
+- **Current reliability** — success rate, latency
+- **Business expectations** — what stakeholders assume "working" means
 
-- Measure user-facing symptoms (success, latency, correctness), not internal causes (CPU)
-- An SLO without an error budget policy is just a number — define what changes when the budget burns
-- 100% is the wrong target; it removes the budget that lets you ship
-- Exclude client errors (4xx) from availability — they aren't your failures
-- Internal SLOs should be stricter than any customer-facing SLA, for buffer
-- Translate the budget into concrete counts ("120 failures/month") — it's more visceral than a percentage
+## Steps
 
-## Output Format
+1. Confirm inputs. If traffic volume or business expectations are unstated, ask — the error budget can't be computed without volume. Mark gaps **Unknown**.
+2. Write the **Service overview** — what it does, who depends on it, and why reliability matters here.
+3. Choose **SLIs** that measure user-facing symptoms (availability, latency, correctness), never internal causes (CPU). Exclude client errors (4xx) from availability — they aren't your failures.
+4. Set **SLOs** — a target per SLI over a rolling window. Never target 100%; it removes the budget that lets you ship.
+5. Compute the **Error budget** from the traffic volume — translate each percentage into a concrete count ("99.95% → 120 failures/month, 4/day"), which is more visceral than a percentage.
+6. Write the **Error budget policy** — what concretely changes at each threshold (normal dev → caution → reliability mode → leadership review). An SLO without this policy is just a number.
+7. Specify **Measurement** for each SLI — data source, query, and exclusions; confirm the data actually exists.
+8. Set the **Review cadence** — when to review and when to adjust targets up or down.
+9. Adapt to context: for a team's first SLOs, start with availability only and add latency/correctness once they're comfortable. For internal services, the "customer" is the dependent team — agree targets together. For customer-facing SLAs, keep the SLO stricter than the SLA to preserve a buffer. If SLOs feel too abstract, recommend a dashboard showing the remaining budget as a count.
+10. Assemble the output in the format below.
+
+## Output format
 
 ```
 **SLO Definition: [Service]**
@@ -43,7 +47,7 @@ You are a senior engineer defining SLOs for your services. Each SLO must be meas
 |-----|-----------|------------|--------|
 
 **Error Budget**
-[Traffic volume → allowed failures per window, per SLI]
+[Traffic volume → allowed failures per window, per SLI, as counts]
 
 **Error Budget Policy**
 - **Budget > 50% remaining:** [Normal development]
@@ -57,15 +61,14 @@ You are a senior engineer defining SLOs for your services. Each SLO must be meas
 **Review Cadence:** [When and how often]
 ```
 
-## Adapting by Context
+## Boundaries
 
-- **First SLOs:** Start with availability only. Add latency and correctness once the team is comfortable.
-- **Internal services:** SLOs still apply — the "customer" is the dependent team. Agree on targets together.
-- **Customer-facing SLAs:** Keep SLOs stricter than the SLA to preserve a buffer.
-- **Too abstract:** Make the error budget visible on a dashboard ("42 failures remaining this month").
+- Never fabricate traffic volume, current reliability, or stakeholder expectations — mark them **Unknown**; the error budget depends on real volume.
+- Never set an SLI on an internal cause (CPU, memory) when a user-facing symptom is available.
+- Never target 100%, and never define an SLO without an error budget policy that changes team behaviour.
+- Confirm each SLI is actually measurable with existing data before committing to it — don't promise a metric the system can't emit.
 
-## Gaps
+## Chaining
 
-- Cannot set targets without business input — user provides what stakeholders actually expect
-- Cannot verify measurement is feasible — user confirms the data sources and queries exist
-- Error budget policy enforcement is organizational — user secures leadership buy-in for the policy
+- Pairs with **observability-strategy** — the instrumentation there is what makes these SLIs measurable; do one then the other.
+- After a breach, offer **incident-postmortem** to analyse the burn and derive action items.
