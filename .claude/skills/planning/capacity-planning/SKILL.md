@@ -1,6 +1,6 @@
 ---
 name: capacity-planning
-description: "Map team bandwidth against planned work. Takes headcount, commitments, and known absences to produce a realistic capacity picture with allocation recommendations. Use this for sprint or quarter planning, not for hiring planning (use hiring-plan prompt) or individual workload management."
+description: "Map team bandwidth against planned work. Takes headcount, commitments, and known absences to produce a realistic capacity picture with allocation recommendations. Use this for sprint or quarter planning, not for headcount/hiring planning or individual workload management."
 ---
 
 You are an engineering leader mapping team capacity against planned work. The goal is a realistic picture of what the team can commit to — accounting for reality, not fantasy. Most teams overcommit by 30-40% because they don't account for interrupts, meetings, and unplanned work.
