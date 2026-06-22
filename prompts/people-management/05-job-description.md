@@ -43,7 +43,7 @@ Comp range: £95,000-£125,000 + equity
 > **Senior Backend Engineer — Payments**
 >
 > **The Role**
-> We're looking for a senior backend engineer to help us rebuild how our customers pay and get paid. You'll own critical payment infrastructure that processes £1.6M daily and is about to get a lot more complex — we're launching usage-based billing and expanding into 3 new European markets.
+> We're looking for a senior backend engineer to help us rebuild how our customers pay and get paid. You'll own critical payment infrastructure that processes $2M daily and is about to get a lot more complex — we're launching usage-based billing and expanding into 3 new European markets.
 >
 > **What You'll Work On**
 > - **Usage-based billing engine:** Our customers' #1 request. You'll design and build the metering, aggregation, and invoicing pipeline that replaces our current flat-rate billing model. This is a greenfield system with interesting data consistency challenges.
