@@ -26,6 +26,10 @@ The human side of engineering leadership. These prompts help with the conversati
 | 10 | Onboarding Plan | Before a new hire starts |
 | 11 | Skip-Level Meeting Prep | Before 1:1s with your reports' reports |
 | 12 | Difficult Conversation Prep | Before delivering hard feedback |
+| 13 | Manager README | When joining a new team or defining how you work |
+| 14 | Layoff Communication | During a workforce reduction |
+| 15 | Team Values Workshop | When defining real, usable team values |
+| 16 | Staff Engineer Scope Document | When defining a staff engineer's ownership |
 
 ## ⚠️ A Note on Privacy
 

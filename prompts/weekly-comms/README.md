@@ -25,3 +25,6 @@ The communication layer of engineering leadership. These prompts cover the recur
 | 10 | Meeting Recap & Action Items | Per meeting |
 | 11 | Skip-Level Update | Bi-weekly / monthly |
 | 12 | Board Engineering Summary | Monthly / quarterly |
+| 13 | Engineering Newsletter | Monthly / bi-weekly |
+| 14 | Vendor Escalation Email | As needed |
+| 15 | Engineering All-Hands Agenda | Quarterly / monthly |

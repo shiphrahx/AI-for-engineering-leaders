@@ -26,3 +26,5 @@ The documents that shape what gets built and when. These prompts help you produc
 | 10 | Architecture Decision Record | After making a significant technical decision |
 | 11 | Incident Postmortem | After an incident is fully resolved |
 | 12 | Sprint Planning Breakdown | Start of sprint, breaking epics into tickets |
+| 13 | Engineering Strategy One-Pager | When defining what you're optimising for and why |
+| 14 | Team Offsite Agenda | Before planning a team offsite |
