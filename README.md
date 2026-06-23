@@ -264,6 +264,22 @@ Reference a skill inline via `@skills/<name>/SKILL.md`, or add the path to your 
 **Any agent**
 Point your agent at `skills/<category>/<name>/SKILL.md` — plain markdown with a small YAML header, readable by any LLM.
 
+## Tooling
+
+Stdlib-only Python helpers in [`tools/`](tools/) — no third-party deps, no API keys, runnable under any agent:
+
+| Command | Does |
+|---------|------|
+| `python tools/skills_cli.py list \| search \| show \| cat` | Browse and emit skills/prompts to stdout |
+| `python tools/gen_manifest.py` | Regenerate [`manifest.json`](manifest.json) (machine-readable index) |
+| `python tools/gen_crossmap.py` | Regenerate [`docs/prompt-skill-map.md`](docs/prompt-skill-map.md) |
+| `python tools/gen_integrations.py` | Regenerate [`docs/INTEGRATIONS.md`](docs/INTEGRATIONS.md) |
+| `python tools/lint_skills.py` | Lint every SKILL.md against the spec |
+| `python tools/check_repo.py` | Verify links, counts, and generated-doc freshness |
+| `python tools/run_script_tests.py` | Run skill-script golden fixtures |
+
+See [`docs/INTEGRATIONS.md`](docs/INTEGRATIONS.md) for per-runtime setup and [`docs/VARIANTS.md`](docs/VARIANTS.md) for org-size tuning. CI runs the checks on every push and PR.
+
 ## Prompts vs Skills
 
 Both cover the same engineering-leadership tasks — they differ in how you use them:
@@ -278,6 +294,7 @@ Not every prompt became a skill. Thin, transactional one-offs (rejection emails,
 - [x] V1: 36 prompts across comms, planning, and people management
 - [x] V2: Additional categories (incident management, architecture, hiring pipelines)
 - [x] V3: Agent-ready skill pack (69 skills, portable across Claude Code / Copilot / Cursor / any LLM)
-- [ ] V3: Org-size variants (startup, growth, enterprise)
-- [ ] V4: CLI tool to fetch and run skills from the terminal
+- [x] V3: Org-size variants convention ([`docs/VARIANTS.md`](docs/VARIANTS.md)) — seeded on capacity-planning, rolling out across skills
+- [x] V4: CLI to list/search/emit skills from the terminal ([`tools/skills_cli.py`](tools/skills_cli.py))
+- [x] V4: Machine-readable manifest, structure linter, and agnostic CI
 
