@@ -35,6 +35,13 @@ Gather these before drafting. If any are missing, ask for them in a single batch
 7. Assign an **Overall Rating** on the org's scale with a brief, evidence-grounded justification. Even high performers have a growth area; even struggling engineers have a strength.
 8. Adapt to context: for an **underperformer**, be direct but kind, lead with evidence not conclusions, include concrete improvement steps. For a **high performer to retain**, name the promotion path explicitly ("here's what I'd need to see to advocate for [level]"). For a **first review** of this person, caveat the shorter observation window and ask them to self-review first as input. If the **company's format differs**, adapt the content to fit but keep the principle: every claim backed by evidence, every growth area paired with a suggestion.
 9. Assemble the output in the format below.
+10. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
