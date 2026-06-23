@@ -4,7 +4,7 @@
     "skills": 71,
     "prompts": 87,
     "categories": 6,
-    "skills_with_scripts": 17
+    "skills_with_scripts": 23
   },
   "categories": [
     "architecture",
@@ -119,7 +119,7 @@
       "name": "slo-definition",
       "path": "skills/architecture/slo-definition/SKILL.md",
       "description": "Produces Service Level Objectives — SLIs, SLO targets over a rolling window, an error budget derived from real traffic, an error budget policy, measurement methods, and review cadence. Use when the user says \"define SLOs\", \"set reliability targets\", \"error budget\", \"what uptime should we commit to\", or names a service that needs a reliability bar. Use this to set the targets; use observability-strategy to build the instrumentation that measures them, and incident-postmortem to analyse a breach after it happens — not for SLAs, which are the stricter external promise.",
-      "script": null,
+      "script": "validate",
       "chains_to": [
         "observability-strategy",
         "incident-postmortem"
@@ -238,7 +238,7 @@
       "name": "pipeline-analytics-review",
       "path": "skills/hiring-pipelines/pipeline-analytics-review/SKILL.md",
       "description": "Produces a hiring-funnel analysis — stage-by-stage conversion (with an ASCII funnel), a one-sentence key finding, bottleneck and drop-off diagnosis, source effectiveness, quality indicators, and the top 3 improvements — to cut time-to-hire and lift conversion. Use when the user says \"review my hiring pipeline\", \"where are candidates dropping off\", \"analyze the funnel\", \"quarterly hiring review\", or pastes pipeline metrics. Use this for AGGREGATE funnel diagnosis across many candidates — not for evaluating one candidate (candidate-evaluation-summary), nor for deciding which roles to open (hiring-plan).",
-      "script": null,
+      "script": "validate",
       "chains_to": [
         "hiring-plan",
         "take-home-exercise-design",
@@ -275,7 +275,7 @@
       "name": "escalation-policy-document",
       "path": "skills/incident-management/escalation-policy-document/SKILL.md",
       "description": "Produces a single-page escalation policy — escalation tiers with contact methods, trigger criteria for moving between tiers, decision authority per tier (rollbacks, customer comms, spending, vendor contacts), an after-hours policy, cross-team paging, and external vendor support contacts. Use when the user says \"write our escalation policy\", \"who do I call at 3am\", \"escalation tiers\", \"on-call escalation path\", or pastes org structure and on-call setup. Use this to define who-gets-paged-and-when, not to define severity levels (severity-classification-guide) or the IC's coordination steps (incident-commander-runbook).",
-      "script": null,
+      "script": "validate",
       "chains_to": [
         "incident-commander-runbook",
         "severity-classification-guide"
@@ -381,7 +381,7 @@
       "name": "severity-classification-guide",
       "path": "skills/incident-management/severity-classification-guide/SKILL.md",
       "description": "Produces an unambiguous incident severity classification guide (P0–P3) — per-level definitions, concrete examples, response/communication expectations, required roles, and a 60-second classification flowchart. Use when the user says \"define our severity levels\", \"P0 vs P1 vs P2\", \"stop the severity debates\", \"incident severity matrix\", or pastes product/SLA/team context and asks how to classify incidents. Use this to author the org-wide standard, not to coordinate a live response (incident-commander-runbook) or to set who-gets-paged escalation tiers (escalation-policy-document).",
-      "script": null,
+      "script": "validate",
       "chains_to": [
         "incident-commander-runbook",
         "escalation-policy-document"
@@ -453,7 +453,7 @@
       "name": "interview-rubric",
       "path": "skills/people-management/interview-rubric/SKILL.md",
       "description": "Produces a structured interview rubric for a role — a loop overview, per-stage rubrics with competencies and observable behaviours at each rating level (strong no hire → strong hire), and a debrief/decision guide. Use when the user says \"create an interview rubric\", \"scorecard for [role]\", \"structure our interview loop\", or pastes a role, competencies, and interview stages. Use this to design how candidates are evaluated; use job-description to attract them, and hiring-pipelines/candidate-evaluation-summary to synthesise a completed loop into a decision.",
-      "script": null,
+      "script": "validate",
       "chains_to": [
         "job-description"
       ]
@@ -753,7 +753,7 @@
       "name": "tech-debt-prioritisation",
       "path": "skills/planning/tech-debt-prioritisation/SKILL.md",
       "description": "Produces a prioritised tech debt backlog with a business case for each item — cost of inaction, benefit of resolution, effort, and recommended priority — presentable to product and business stakeholders. Use when the user says \"prioritise our tech debt\", \"make the case for paying down debt\", or pastes a list of debt items with a velocity-impact note. Use this for ranking and justifying known debt — use quarterly-roadmap to fold the result into the quarter's plan, not for discovering debt or tracking paydown progress.",
-      "script": null,
+      "script": "validate",
       "chains_to": [
         "quarterly-roadmap"
       ]
