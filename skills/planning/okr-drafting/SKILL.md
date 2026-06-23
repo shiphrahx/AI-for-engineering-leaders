@@ -33,6 +33,13 @@ Gather these before drafting. If any are missing, ask for them in a single batch
 6. Flag any KR that **depends on another team** (e.g. legal sign-off, a platform capability) so the dependency gets coordinated early.
 7. Adapt to context: for a first-time OKR team, start with 2 Objectives and 2 KRs each — fewer and clearer beats a long list no one tracks. For inherited/mandated KRs handed down from above, keep the "what" but have the team own the "how".
 8. Assemble the output in the format below.
+9. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
