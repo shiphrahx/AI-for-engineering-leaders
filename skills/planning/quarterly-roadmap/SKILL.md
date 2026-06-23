@@ -36,6 +36,13 @@ Gather these before drafting. If any are missing, ask for them in a single batch
 7. List **key dependencies** (what's needed from other teams, by when) and **risks** (what could derail the plan, and the trigger).
 8. Adapt to context: for a small/startup team, cap commitments at 2–3 and keep it to one page — "explicitly not doing" matters most. For a large org, add a RACI matrix for cross-team dependencies and a roadmap-review cadence. For an executive audience, lead with business outcomes and strip technical detail (e.g. version migrations). Under high uncertainty, replace dates with "early/mid/late quarter" and add confidence levels (high/medium/low) per committed item.
 9. Assemble the output in the format below.
+10. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
