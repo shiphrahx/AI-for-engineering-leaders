@@ -34,6 +34,13 @@ Gather these before defining. If any are missing, ask in a single batched questi
 8. Set the **Review cadence** — when to review and when to adjust targets up or down.
 9. Adapt to context: for a team's first SLOs, start with availability only and add latency/correctness once they're comfortable. For internal services, the "customer" is the dependent team — agree targets together. For customer-facing SLAs, keep the SLO stricter than the SLA to preserve a buffer. If SLOs feel too abstract, recommend a dashboard showing the remaining budget as a count.
 10. Assemble the output in the format below.
+11. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
