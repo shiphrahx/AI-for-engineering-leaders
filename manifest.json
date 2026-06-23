@@ -1,0 +1,1462 @@
+{
+  "schema": "ai-for-engineering-leaders/manifest@1",
+  "counts": {
+    "skills": 71,
+    "prompts": 87,
+    "categories": 6,
+    "skills_with_scripts": 17
+  },
+  "categories": [
+    "architecture",
+    "hiring-pipelines",
+    "incident-management",
+    "people-management",
+    "planning",
+    "weekly-comms"
+  ],
+  "skills": [
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "api-contract-design",
+      "path": "skills/architecture/api-contract-design/SKILL.md",
+      "description": "Produces an API contract before any code is written — overview, design principles, resource model, endpoint catalogue, error contract, auth, pagination/filtering, versioning, and rate limiting. Use when the user says \"design an API\", \"API contract/spec\", \"endpoints for [feature]\", or describes a new internal or external API. Use this for the API surface in isolation; use system-design-document for the whole system including the data flows behind the API, and data-model-design for the storage schema rather than the request/response shapes.",
+      "script": null,
+      "chains_to": [
+        "system-design-document",
+        "data-model-design"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "architecture-review-prep",
+      "path": "skills/architecture/architecture-review-prep/SKILL.md",
+      "description": "Produces a review-ready package for presenting a technical design — a timed presentation outline, the key decisions to highlight, 10-15 anticipated tough questions with prepared answers, an honest \"I don't know yet\" list, and the specific feedback to ask reviewers for. Use when the user says \"prep for an architecture review\", \"present my design to staff/the board\", \"what will they ask\", or has a design to defend. Use this to PREPARE the defence of an existing design; use system-design-document to write the design itself first.",
+      "script": null,
+      "chains_to": [
+        "system-design-document"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "caching-strategy",
+      "path": "skills/architecture/caching-strategy/SKILL.md",
+      "description": "Produces a caching strategy for a system — goals, what to cache ranked by impact, cache layers, a per-resource strategy (TTL, invalidation, key pattern), failure modes including stampede and staleness, monitoring, and a cold-start plan. Use when the user says \"caching strategy\", \"what should we cache\", \"reads are slow\", \"add Redis/CDN\", or describes read-latency pain. Use this to fix read latency with caching; use scalability-assessment to find which component is the bottleneck first, and database-selection-guide when the real fix is a different datastore.",
+      "script": null,
+      "chains_to": [
+        "scalability-assessment",
+        "observability-strategy"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "data-model-design",
+      "path": "skills/architecture/data-model-design/SKILL.md",
+      "description": "Produces a data model for a new domain — access patterns, entity definitions with fields and constraints, relationships and cardinality, indexes tied to access patterns, evolution considerations, and explicit trade-offs. Use when the user says \"design the schema/data model\", \"tables for [feature]\", \"how should I model X\", or describes a domain needing storage. Use this to design the schema for a chosen database; use database-selection-guide to choose the database first, and api-contract-design for the request/response shapes rather than the storage layout.",
+      "script": null,
+      "chains_to": [
+        "database-selection-guide",
+        "api-contract-design"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "database-selection-guide",
+      "path": "skills/architecture/database-selection-guide/SKILL.md",
+      "description": "Produces a database recommendation for a specific workload — workload analysis, a 3-4 candidate comparison matrix, operational considerations, a justified recommendation with reconsider-if conditions, and an anti-recommendation. Use when the user says \"which database should I use\", \"Postgres vs Dynamo vs ...\", \"pick a datastore for [workload]\", or describes a new workload needing storage. Use this to CHOOSE the database; use data-model-design to design the schema once chosen, and caching-strategy when the read-latency answer is a cache rather than a new datastore.",
+      "script": null,
+      "chains_to": [
+        "data-model-design",
+        "caching-strategy"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "dependency-mapping",
+      "path": "skills/architecture/dependency-mapping/SKILL.md",
+      "description": "Produces a dependency map for a service architecture — a dependency matrix (who calls whom, sync/async, hard/soft), a blast-radius analysis per service, single points of failure, a graceful- degradation inventory, and recommendations to reduce blast radius. Use when the user says \"map our dependencies\", \"if X goes down what breaks\", \"find our SPOFs\", \"blast radius\", or lists services and their connections. Use this to understand failure propagation across services; use scalability-assessment for capacity-under-load rather than failure-propagation.",
+      "script": null,
+      "chains_to": [
+        "runbook-generator",
+        "incident-commander-runbook",
+        "system-design-document"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "observability-strategy",
+      "path": "skills/architecture/observability-strategy/SKILL.md",
+      "description": "Produces an observability strategy across the three pillars — metrics, logs, traces — plus correlation, alerting philosophy, and tooling, framed around the questions the team must answer during an incident. Use when the user says \"observability strategy\", \"instrumentation plan\", \"we can't debug X\", \"set up tracing/structured logging\", or describes slow cross-service debugging. Use this to design how to SEE the system; use slo-definition to set the reliability targets the alerts defend, and incident-postmortem to analyse an incident after the fact.",
+      "script": null,
+      "chains_to": [
+        "slo-definition",
+        "caching-strategy",
+        "scalability-assessment"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "scalability-assessment",
+      "path": "skills/architecture/scalability-assessment/SKILL.md",
+      "description": "Produces a scalability assessment of an existing system — current state, growth scenario, a component-by-component breaking-point analysis, a bottleneck ranking by what breaks first, a phased investment roadmap, and quick wins. Use when the user says \"can we handle 5x/10x\", \"scalability assessment\", \"where will this break under load\", \"prep for Black Friday / a big customer\", or describes anticipated growth. Use this to find what breaks first under growth; use caching-strategy to fix a read-latency bottleneck and database-selection-guide when the bottleneck is the datastore choice itself.",
+      "script": null,
+      "chains_to": [
+        "caching-strategy",
+        "database-selection-guide",
+        "observability-strategy"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "slo-definition",
+      "path": "skills/architecture/slo-definition/SKILL.md",
+      "description": "Produces Service Level Objectives — SLIs, SLO targets over a rolling window, an error budget derived from real traffic, an error budget policy, measurement methods, and review cadence. Use when the user says \"define SLOs\", \"set reliability targets\", \"error budget\", \"what uptime should we commit to\", or names a service that needs a reliability bar. Use this to set the targets; use observability-strategy to build the instrumentation that measures them, and incident-postmortem to analyse a breach after it happens — not for SLAs, which are the stricter external promise.",
+      "script": null,
+      "chains_to": [
+        "observability-strategy",
+        "incident-postmortem"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "system-design-document",
+      "path": "skills/architecture/system-design-document/SKILL.md",
+      "description": "Produces a comprehensive system design document — a buildable technical blueprint covering requirements, architecture, data model, API, data flows, failure modes, operational and security concerns, and open questions. Use when the user says \"write a system design\", \"design doc\", \"technical design for [system]\", or describes a new service they need to document before coding. Use this for the full build-from blueprint of one system; use api-contract-design for the API surface in isolation, data-model-design for the schema in isolation, and technical-vision-document for multi-system 12-24 month direction rather than one implementation.",
+      "script": null,
+      "chains_to": [
+        "api-contract-design",
+        "data-model-design",
+        "architecture-review-prep"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "technical-vision-document",
+      "path": "skills/architecture/technical-vision-document/SKILL.md",
+      "description": "Produces an opinionated 12-24 month technical vision for a domain — honest current state, business context, a concrete vision, 3-5 architectural principles, 4-6 key initiatives, what to stop doing, success metrics, and risks. Use when the user says \"write a technical vision/strategy\", \"where should our architecture go\", \"north star for [domain]\", or asks for multi-year engineering direction. Use this for the multi-year direction across systems; use system-design-document for one system's blueprint, technology-radar for the adopt/hold tooling calls, and a roadmap for quarterly execution rather than direction.",
+      "script": null,
+      "chains_to": [
+        "technology-radar",
+        "system-design-document"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "architecture",
+      "name": "technology-radar",
+      "path": "skills/architecture/technology-radar/SKILL.md",
+      "description": "Produces an opinionated technology radar — technologies sorted into Adopt / Trial / Assess / Hold rings, each with a rationale (and a migration path for Hold), plus a recently-changed section and review cadence. Use when the user says \"build a tech radar\", \"what should we standardise on\", \"adopt/trial/assess/hold\", \"we have four web frameworks in prod\", or asks for guidance on what technology to use or stop using. Use this for the catalogue of tooling decisions; use technical-vision-document for the multi-year direction the radar serves, and database-selection-guide for a single deep datastore choice.",
+      "script": null,
+      "chains_to": [
+        "technical-vision-document",
+        "database-selection-guide"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "hiring-pipelines",
+      "name": "candidate-evaluation-summary",
+      "path": "skills/hiring-pipelines/candidate-evaluation-summary/SKILL.md",
+      "description": "Produces a fair, evidence-based candidate evaluation summary — snapshot, strengths and concerns each tied to a specific interview observation, level assessment, team fit, and a hire/no-hire recommendation with confidence and conditions — useful to someone who wasn't in the interviews and fit for the candidate's file. Use when the user says \"write up the evaluation\", \"candidate summary\", \"synthesize the interview feedback\", or pastes feedback from multiple interviewers. Use this to WRITE the evaluation document — not to facilitate the decision meeting (interview-debrief-facilitation), nor to justify comp to HR (offer-justification).",
+      "script": null,
+      "chains_to": [
+        "offer-justification",
+        "interview-debrief-facilitation"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "hiring-pipelines",
+      "name": "hiring-plan",
+      "path": "skills/hiring-pipelines/hiring-plan/SKILL.md",
+      "description": "Produces a structured engineering hiring plan that justifies headcount against business need, defines and prioritizes roles, and sets a realistic timeline, sourcing strategy, budget, and 6-month success criteria. Use when the user says \"build a hiring plan\", \"plan headcount\", \"what roles should I hire\", \"justify these hires\", or pastes a current team makeup plus business goals and budget. Use this for deciding WHICH roles to open and in what order — not for briefing a recruiter on a single already-decided role (recruiter-kickoff-brief), nor for diagnosing an existing funnel (pipeline-analytics-review).",
+      "script": "calculate",
+      "chains_to": [
+        "recruiter-kickoff-brief",
+        "pipeline-analytics-review"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "hiring-pipelines",
+      "name": "interview-debrief-facilitation",
+      "path": "skills/hiring-pipelines/interview-debrief-facilitation/SKILL.md",
+      "description": "Produces a structured interview-debrief facilitation plan — pre-debrief prep, opening rules, anchoring-proof round-robin, evidence-based discussion, a decision rule, and post-debrief next steps — to reach a clear hire/no-hire without loudest-voice-wins dynamics. Use when the user says \"run the debrief\", \"facilitate the hiring decision meeting\", \"how do I structure the debrief\", or gives a candidate, role, and interviewer/stage list. Use this to run the decision MEETING — not to write the resulting evaluation document (candidate-evaluation-summary), nor to align interviewers before any candidate (interviewer-calibration-guide).",
+      "script": null,
+      "chains_to": [
+        "candidate-evaluation-summary",
+        "offer-justification",
+        "interviewer-calibration-guide"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "hiring-pipelines",
+      "name": "interviewer-calibration-guide",
+      "path": "skills/hiring-pipelines/interviewer-calibration-guide/SKILL.md",
+      "description": "Produces a practical interviewer calibration session plan — format, a rate-the-same-candidate exercise, a rubric defining each rating level with concrete signals, the common interview biases and counters, a practice debrief, and an ongoing-calibration plan — to align a panel so a \"Hire\" means the same thing for everyone. Use when the user says \"calibrate my interviewers\", \"ratings are inconsistent\", \"design a calibration session\", \"align the panel\", or describes rating variance. Use this to align the panel BEFORE candidates — not to run one candidate's decision meeting (interview-debrief-facilitation).",
+      "script": null,
+      "chains_to": [
+        "interview-debrief-facilitation",
+        "pipeline-analytics-review"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "hiring-pipelines",
+      "name": "offer-justification",
+      "path": "skills/hiring-pipelines/offer-justification/SKILL.md",
+      "description": "Produces an offer justification for HR or a compensation committee — candidate summary, debrief outcome, level justification mapped to level expectations, a comp proposal (base, equity, bonus, sign-on) positioned against the band, market context, and the risk of losing the candidate. Use when the user says \"justify this offer\", \"write the comp justification\", \"make the case for this level/package\", or gives a candidate, proposed level, comp, and market data. Use this to justify level and PACKAGE internally — not to write the candidate-facing evaluation (candidate-evaluation-summary), nor to pitch the candidate to accept.",
+      "script": "calculate",
+      "chains_to": []
+    },
+    {
+      "type": "skill",
+      "category": "hiring-pipelines",
+      "name": "phone-screen-script",
+      "path": "skills/hiring-pipelines/phone-screen-script/SKILL.md",
+      "description": "Produces a timed 30-minute phone-screen script that balances evaluation with selling — opening, candidate story, technical calibration questions (with what each probes), role-fit questions, their-questions slot, and a post-call evaluation checklist. Use when the user says \"write a phone screen\", \"screening script\", \"30-minute screen questions\", or gives a role plus the technical areas to probe and selling points. Use this for the early hiring-manager screen that decides loop advancement — not for designing a coding take-home (take-home-exercise-design), nor for the full-loop debrief (interview-debrief-facilitation).",
+      "script": null,
+      "chains_to": [
+        "take-home-exercise-design",
+        "interview-debrief-facilitation"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "hiring-pipelines",
+      "name": "pipeline-analytics-review",
+      "path": "skills/hiring-pipelines/pipeline-analytics-review/SKILL.md",
+      "description": "Produces a hiring-funnel analysis — stage-by-stage conversion (with an ASCII funnel), a one-sentence key finding, bottleneck and drop-off diagnosis, source effectiveness, quality indicators, and the top 3 improvements — to cut time-to-hire and lift conversion. Use when the user says \"review my hiring pipeline\", \"where are candidates dropping off\", \"analyze the funnel\", \"quarterly hiring review\", or pastes pipeline metrics. Use this for AGGREGATE funnel diagnosis across many candidates — not for evaluating one candidate (candidate-evaluation-summary), nor for deciding which roles to open (hiring-plan).",
+      "script": null,
+      "chains_to": [
+        "hiring-plan",
+        "take-home-exercise-design",
+        "phone-screen-script"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "hiring-pipelines",
+      "name": "recruiter-kickoff-brief",
+      "path": "skills/hiring-pipelines/recruiter-kickoff-brief/SKILL.md",
+      "description": "Produces a recruiter kickoff brief that goes beyond the JD — day-to-day reality of the role, ideal-candidate profile, anti-patterns, selling points, objection handling, sourcing guidance, and process overview — so an internal or external recruiter can source and pitch effectively. Use when the user says \"brief my recruiter\", \"kickoff brief\", \"help the recruiter source this role\", or pastes a role plus team context and urgency. Use this to equip a recruiter for ONE already-decided role — not to decide which roles to open (hiring-plan), nor to run the candidate conversation itself (phone-screen-script).",
+      "script": null,
+      "chains_to": [
+        "phone-screen-script",
+        "hiring-plan"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "hiring-pipelines",
+      "name": "take-home-exercise-design",
+      "path": "skills/hiring-pipelines/take-home-exercise-design/SKILL.md",
+      "description": "Produces a fair, 2-3-hour take-home exercise: a realistic brief, an explicit and enforced time cap, what you ARE and are NOT evaluating, a strong-hire/hire/no-hire rubric, and candidate submission instructions. Use when the user says \"design a take-home\", \"coding exercise for candidates\", \"build an evaluation rubric for a take-home\", or gives a role plus the skills and domain to assess. Use this to create the exercise and rubric — not to score a returned submission or synthesize loop feedback (candidate-evaluation-summary), nor to run the live screen (phone-screen-script).",
+      "script": null,
+      "chains_to": [
+        "interviewer-calibration-guide",
+        "candidate-evaluation-summary"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "escalation-policy-document",
+      "path": "skills/incident-management/escalation-policy-document/SKILL.md",
+      "description": "Produces a single-page escalation policy — escalation tiers with contact methods, trigger criteria for moving between tiers, decision authority per tier (rollbacks, customer comms, spending, vendor contacts), an after-hours policy, cross-team paging, and external vendor support contacts. Use when the user says \"write our escalation policy\", \"who do I call at 3am\", \"escalation tiers\", \"on-call escalation path\", or pastes org structure and on-call setup. Use this to define who-gets-paged-and-when, not to define severity levels (severity-classification-guide) or the IC's coordination steps (incident-commander-runbook).",
+      "script": null,
+      "chains_to": [
+        "incident-commander-runbook",
+        "severity-classification-guide"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "game-day-plan",
+      "path": "skills/incident-management/game-day-plan/SKILL.md",
+      "description": "Produces a game day (incident-response simulation / chaos exercise) plan — objective, the simulated scenario and safe injection method, rules of engagement and blast-radius limits, participant roles, a T-minus/T-plus timeline, measurable evaluation criteria, and a debrief plan. Use when the user says \"plan a game day\", \"chaos engineering exercise\", \"incident simulation\", \"fire drill for on-call\", or describes systems and suspected weaknesses they want to stress-test. Use this to design a controlled practice exercise, not to audit readiness for a real upcoming event (incident-readiness-review) or to facilitate a real live incident.",
+      "script": null,
+      "chains_to": [
+        "incident-readiness-review",
+        "remediation-tracker"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "incident-commander-runbook",
+      "path": "skills/incident-management/incident-commander-runbook/SKILL.md",
+      "description": "Produces a reusable Incident Commander (IC) runbook — first-5-minutes actions, triage, role assignment, communication cadence, decision framework, and post-incident handoff — usable by anyone on the rotation, including a first-time IC at 3am. Use when the user says \"create an IC runbook\", \"incident commander playbook\", \"how should we run incidents\", or pastes org/on-call/tooling context and asks for a coordination framework. Use this to build the standing playbook, not to define severity tiers (severity-classification-guide), not to facilitate a specific live war room (war-room-facilitation-guide), and not to write a postmortem afterward.",
+      "script": null,
+      "chains_to": [
+        "severity-classification-guide",
+        "war-room-facilitation-guide"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "incident-readiness-review",
+      "path": "skills/incident-management/incident-readiness-review/SKILL.md",
+      "description": "Produces a pre-event incident readiness review — event context, pass/fail checklists for monitoring, runbook, on-call, rollback, and communication readiness, each with a verdict, and an overall Go / Conditional-Go / No-Go recommendation with blocking must-dos and an owner. Use when the user says \"are we ready for the launch\", \"Black Friday readiness\", \"pre-launch incident review\", \"readiness checklist\", or describes an upcoming high-risk event and its affected systems. Use this to audit readiness for a real upcoming event, not to design a practice simulation (game-day-plan) or run a real incident.",
+      "script": null,
+      "chains_to": [
+        "game-day-plan",
+        "remediation-tracker",
+        "runbook-generator"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "incident-stakeholder-comms",
+      "path": "skills/incident-management/incident-stakeholder-comms/SKILL.md",
+      "description": "Produces a short, plain-language incident update for executives and non-technical stakeholders — what happened, who is affected, current status, and the committed time for the next update. Use when the user says \"draft a stakeholder update\", \"write the exec comms for this incident\", or pastes incident facts mid-incident. Use this for the audience-facing status note — use incident-postmortem for the after-the-fact analysis and remediation-tracker for the action list.",
+      "script": "validate",
+      "chains_to": [
+        "incident-postmortem",
+        "remediation-tracker"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "incident-trend-analysis",
+      "path": "skills/incident-management/incident-trend-analysis/SKILL.md",
+      "description": "Produces a cross-incident trend analysis for a time period — period summary vs prior period, recurring root-cause patterns with evidence, a per-service fragility breakdown, a preventability percentage, action-item follow-through, the top 3 systemic reliability investments, and metrics to track next period. Use when the user says \"analyze our incidents this quarter\", \"incident trends\", \"reliability review\", or pastes a list of incidents with root causes. Use this for systemic patterns across many incidents, not for a single incident's postmortem (planning/incident-postmortem) or live response.",
+      "script": null,
+      "chains_to": [
+        "remediation-tracker"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "on-call-handoff",
+      "path": "skills/incident-management/on-call-handoff/SKILL.md",
+      "description": "Produces an on-call handoff note for the incoming engineer — rotation summary, active issues that might page, recent changes (last ~7 days), things to watch that haven't yet alerted, useful context, and escalation contacts — readable in 5 minutes so the next person knows what's fragile and who to call. Use when the user says \"write my on-call handoff\", \"end-of-rotation note\", \"shift handover\", or pastes their rotation's incidents and changes. Use this for the rotation-boundary handover, not for live incident coordination (incident-commander-runbook) or a post-incident postmortem.",
+      "script": null,
+      "chains_to": [
+        "incident-commander-runbook"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "remediation-tracker",
+      "path": "skills/incident-management/remediation-tracker/SKILL.md",
+      "description": "Produces a living remediation tracker from postmortem action items — a summary dashboard (totals, completion rate, overdue/at-risk counts), items grouped by status and theme with owner/due/blocker, a thematic view, a review cadence, escalation criteria, and a bottleneck recommendation. Use when the user says \"track our action items\", \"remediation tracker\", \"are our postmortem follow-ups getting done\", or pastes a list of action items with owners and due dates. Use this to drive open items to completion, not to write the postmortem itself (planning/incident-postmortem) or to find cross-incident patterns (incident-trend-analysis).",
+      "script": "validate",
+      "chains_to": [
+        "incident-trend-analysis"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "runbook-generator",
+      "path": "skills/incident-management/runbook-generator/SKILL.md",
+      "description": "Produces a step-by-step operational runbook for a single service — service overview, trigger alerts, prerequisites, diagnostic steps with expected outputs, per-scenario resolution with copy-pasteable commands, verification, escalation, and appendix — followable by an on-call engineer at 3am with no prior context. Use when the user says \"write a runbook\", \"turn tribal knowledge into a runbook\", \"document how to fix X\", or pastes notes from the person who knows a service. Use this for a single service's operational fix procedure, not for the cross-incident IC coordination playbook (incident-commander-runbook). Requires real operational knowledge as input — it structures expertise, it cannot invent commands or thresholds.",
+      "script": null,
+      "chains_to": [
+        "on-call-handoff",
+        "incident-readiness-review"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "severity-classification-guide",
+      "path": "skills/incident-management/severity-classification-guide/SKILL.md",
+      "description": "Produces an unambiguous incident severity classification guide (P0–P3) — per-level definitions, concrete examples, response/communication expectations, required roles, and a 60-second classification flowchart. Use when the user says \"define our severity levels\", \"P0 vs P1 vs P2\", \"stop the severity debates\", \"incident severity matrix\", or pastes product/SLA/team context and asks how to classify incidents. Use this to author the org-wide standard, not to coordinate a live response (incident-commander-runbook) or to set who-gets-paged escalation tiers (escalation-policy-document).",
+      "script": null,
+      "chains_to": [
+        "incident-commander-runbook",
+        "escalation-policy-document"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "incident-management",
+      "name": "war-room-facilitation-guide",
+      "path": "skills/incident-management/war-room-facilitation-guide/SKILL.md",
+      "description": "Produces a war-room facilitation guide for a live incident — room setup, a verbatim first-5-minutes opening script, the check-in cadence for running parallel workstreams, decision templates (roll back / escalate / risky fix), facilitator anti-patterns, and a closing script. Use when the user says \"I'm facilitating a war room\", \"running a P0 call\", \"how do I keep the war room focused\", or pastes live incident context (severity, service, who's on the call, what's known). Use this for facilitating one specific live call, not for the standing IC playbook (incident-commander-runbook) or severity definitions (severity-classification-guide).",
+      "script": null,
+      "chains_to": [
+        "incident-commander-runbook"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "career-ladder-draft",
+      "path": "skills/people-management/career-ladder-draft/SKILL.md",
+      "description": "Produces a concrete engineering career ladder — per-level descriptions covering scope, technical expectations, collaboration, leadership, and observable example behaviours, plus the distinguishing behaviours between adjacent levels. Use when the user says \"draft a career ladder\", \"define our engineering levels\", \"our level expectations are too vague\", or pastes org context and a list of levels. Use this for the org-wide framework that defines levels; use promotion-case to argue one person fits a level, and staff-engineer-scope-doc to define a single staff role's concrete remit.",
+      "script": null,
+      "chains_to": [
+        "performance-review-draft",
+        "promotion-case",
+        "staff-engineer-scope-doc"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "compensation-review",
+      "path": "skills/people-management/compensation-review/SKILL.md",
+      "description": "Produces a defensible compensation review for a direct report — the proposed increase, the new salary positioned against the band, the compa ratio, and any approval flags. Use when the user says \"review [name]'s comp\", \"model this raise\", \"what does an X% increase look like\", or pastes a current salary, a proposed increase, and the level band. Use this for the band-and-compa math behind a single person's raise — use promotion-case to argue a level change and offer-justification for a new-hire package.",
+      "script": "calculate",
+      "chains_to": [
+        "promotion-case"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "difficult-conversation-prep",
+      "path": "skills/people-management/difficult-conversation-prep/SKILL.md",
+      "description": "Produces talking points for a hard conversation with a direct report — an opening frame, a direct evidence-based core message (no sandwich method), an impact statement, space to listen, a path forward with specific expectations, a support offer, and a relationship-affirming close. Use when the user says \"help me prep a hard conversation\", \"I need to give tough feedback\", \"address a conflict\", or describes a behavioural concern. Use this to plan delivery of feedback; use pip-documentation when it escalates to a formal plan and performance-review-draft for the routine review.",
+      "script": null,
+      "chains_to": [
+        "pip-documentation",
+        "performance-review-draft",
+        "one-on-one-prep"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "feedback-synthesis",
+      "path": "skills/people-management/feedback-synthesis/SKILL.md",
+      "description": "Produces a fair, anonymised synthesis of peer feedback for one person — an overall narrative, consistent strengths and growth areas (themes echoed by 2+ reviewers), outlier comments, and actionable takeaways. Use when the user pastes feedback from several colleagues and says \"synthesise this peer feedback\", \"find the patterns\", or \"what are the themes across these reviews\". Use this to distil multiple raw inputs before a review; use performance-review-draft to write the actual review, and one-on-one-prep for a single live conversation.",
+      "script": null,
+      "chains_to": [
+        "performance-review-draft",
+        "difficult-conversation-prep"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "interview-rubric",
+      "path": "skills/people-management/interview-rubric/SKILL.md",
+      "description": "Produces a structured interview rubric for a role — a loop overview, per-stage rubrics with competencies and observable behaviours at each rating level (strong no hire → strong hire), and a debrief/decision guide. Use when the user says \"create an interview rubric\", \"scorecard for [role]\", \"structure our interview loop\", or pastes a role, competencies, and interview stages. Use this to design how candidates are evaluated; use job-description to attract them, and hiring-pipelines/candidate-evaluation-summary to synthesise a completed loop into a decision.",
+      "script": null,
+      "chains_to": [
+        "job-description"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "job-description",
+      "path": "skills/people-management/job-description/SKILL.md",
+      "description": "Produces an honest, specific engineering job description that attracts strong candidates — role in one line, what they'll actually work on, must-haves vs nice-to-haves, what the team offers, who they'll work with, and the hiring process. Use when the user says \"write a job description\", \"draft a JD for [role]\", or pastes a role title, team context, key projects, and requirements. Use this to attract and filter candidates for an open role; use interview-rubric to design how you'll evaluate them, and career-ladder-draft for internal level definitions rather than an external posting.",
+      "script": "validate",
+      "chains_to": [
+        "interview-rubric"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "layoff-communication",
+      "path": "skills/people-management/layoff-communication/SKILL.md",
+      "description": "Produces two layoff communications — a spoken individual-notification script for the 1:1, and a written team message for after notifications are complete — both humane, honest, and free of corporate euphemism. Use when the user says \"help me communicate a layoff\", \"draft what to say to someone being let go\", or \"message to the remaining team\", and provides the reduction details. Use this only for non-performance workforce reductions; use pip-documentation and difficult-conversation-prep for performance separations. Always run through HR/Legal first.",
+      "script": null,
+      "chains_to": [
+        "one-on-one-prep",
+        "team-health-survey-analysis"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "manager-readme",
+      "path": "skills/people-management/manager-readme/SKILL.md",
+      "description": "Produces a first-person manager README for direct reports — how I work, what I care about, how to get the best from me, how I give feedback, what I struggle with, and things I probably won't change. Use when the user says \"write my manager README\", \"working-with-me doc\", or pastes notes about their working style and preferences. Use this for a manager's own self-disclosure doc; use staff-engineer-scope-doc to define a role's remit and team-values-workshop to define shared team principles.",
+      "script": null,
+      "chains_to": [
+        "team-values-workshop"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "onboarding-plan",
+      "path": "skills/people-management/onboarding-plan/SKILL.md",
+      "description": "Produces a 30/60/90-day onboarding plan for a new engineering hire — pre-day-one checklist, week-by-week goals balancing learning and shipping, success criteria at each milestone, and ongoing support. Use when the user says \"create an onboarding plan\", \"30/60/90 for a new hire\", or pastes a new hire's role, team, key systems, buddy, and first project. Use this for a person joining the team; use job-description and interview-rubric for hiring them, and one-on-one-prep for the recurring check-ins once they've started.",
+      "script": null,
+      "chains_to": [
+        "one-on-one-prep",
+        "performance-review-draft"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "one-on-one-prep",
+      "path": "skills/people-management/one-on-one-prep/SKILL.md",
+      "description": "Produces a personalised 1:1 agenda for a direct report — a specific opener, space for their topics, an unblocking work check-in, a growth question, a team check-in, and FYIs. Use when the user says \"prep my 1:1 with [name]\", \"I have a one-on-one in 30 minutes\", or pastes a person's role, current work, recent context, goals, and last 1:1 notes. Use this for a single recurring conversation; use performance-review-draft for the formal periodic review, difficult-conversation-prep for a hard feedback talk, and skip-level-meeting-prep when the person reports to one of your reports rather than directly to you.",
+      "script": null,
+      "chains_to": [
+        "performance-review-draft",
+        "difficult-conversation-prep"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "performance-review-draft",
+      "path": "skills/people-management/performance-review-draft/SKILL.md",
+      "description": "Produces an evidence-based, developmental performance review for a direct report — summary, accomplishments, strengths, growth areas, forward goals, and an overall rating. Use when the user says \"write a performance review\", \"draft my review for [name]\", \"review cycle\", or pastes 1:1 notes, peer feedback, and project outcomes for an engineer. Use this for the full periodic review of one person; use feedback-synthesis to first distil raw peer input into themes, promotion-case to argue for a level change, and pip-documentation when the person is underperforming and needs a formal improvement plan rather than a review.",
+      "script": "validate",
+      "chains_to": [
+        "promotion-case",
+        "pip-documentation",
+        "difficult-conversation-prep",
+        "feedback-synthesis"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "pip-documentation",
+      "path": "skills/people-management/pip-documentation/SKILL.md",
+      "description": "Produces a fair, evidence-based Performance Improvement Plan draft — purpose, dated performance gaps, expected standards, measurable improvement goals with deadlines, support provided, check-in schedule, and timeline/outcomes. Use when the user says \"draft a PIP\", \"performance improvement plan for [name]\", or describes documented underperformance after coaching has failed. Use this only when prior coaching is documented; use difficult-conversation-prep to plan delivery, performance-review-draft for routine reviews, and layoff-communication for non-performance separations. Always involve HR before finalising.",
+      "script": "validate",
+      "chains_to": [
+        "difficult-conversation-prep",
+        "performance-review-draft",
+        "one-on-one-prep"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "promotion-case",
+      "path": "skills/people-management/promotion-case/SKILL.md",
+      "description": "Produces a committee-ready promotion case for a direct report — a summary recommendation, evidence of next-level performance mapped to the target level, peer perspective, growth trajectory, readiness (\"why now\"), and pre-empted concerns. Use when the user says \"build a promotion case\", \"write up [name] for promo\", or pastes accomplishments and target-level expectations. Use this to argue one person is already operating at the next level; use career-ladder-draft to define the levels themselves, and performance-review-draft for the routine periodic review.",
+      "script": "validate",
+      "chains_to": [
+        "staff-engineer-scope-doc",
+        "difficult-conversation-prep",
+        "performance-review-draft"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "skip-level-meeting-prep",
+      "path": "skills/people-management/skip-level-meeting-prep/SKILL.md",
+      "description": "Produces a skip-level 1:1 prep guide for someone who reports to one of your reports — a warm specific opener, team-perspective questions, a broader career conversation, gently-phrased signal questions, and a close that sets expectations. Use when the user says \"prep a skip-level\", \"I'm meeting my report's report\", or pastes the person's role, their manager, and context. Use this for a skip-level relationship; use one-on-one-prep for your own direct report and difficult-conversation-prep for a hard message.",
+      "script": "validate",
+      "chains_to": [
+        "one-on-one-prep",
+        "team-health-survey-analysis"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "staff-engineer-scope-doc",
+      "path": "skills/people-management/staff-engineer-scope-doc/SKILL.md",
+      "description": "Produces a 1-2 page staff engineer scope document — role context, primary responsibilities (ongoing accountabilities, not tasks), decision authority (unilateral / consult / escalate), success measures over 6-12 months, working relationships, and an explicit \"what this role is not\". Use when the user says \"write a staff engineer scope doc\", \"define this staff role\", or provides the area, team structure, and the engineer's strengths and growth areas. Use this to define one staff IC's concrete remit; use career-ladder-draft for the org-wide level definitions and promotion-case to argue someone should reach the level.",
+      "script": null,
+      "chains_to": [
+        "promotion-case",
+        "career-ladder-draft"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "team-health-survey-analysis",
+      "path": "skills/people-management/team-health-survey-analysis/SKILL.md",
+      "description": "Produces a root-cause analysis and action plan from team health or engagement survey results — executive summary, scored overview with trends, qualitative themes, root causes for the lowest scores, owned actions, and a transparent share-back plan. Use when the user pastes survey scores and free-text comments and says \"analyse our pulse survey\", \"what's the action plan from these results\", or \"find the themes\". Use this for interpreting results and acting on them, not for designing the survey or tracking action items over time.",
+      "script": null,
+      "chains_to": [
+        "one-on-one-prep",
+        "team-values-workshop"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "people-management",
+      "name": "team-values-workshop",
+      "path": "skills/people-management/team-values-workshop/SKILL.md",
+      "description": "Produces a facilitation plan for a team values workshop — pre-work, a timed agenda with facilitation notes, the core value-generating exercise, a synthesis method, an output template for each value, and follow-through. Use when the user says \"plan a team values workshop\", \"facilitate defining our team values\", or provides team, duration, format, and why-now. Use this to design a workshop that produces real working principles; use manager-readme for a manager's personal doc and team-health-survey-analysis to diagnose team issues.",
+      "script": null,
+      "chains_to": [
+        "team-health-survey-analysis"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "architecture-decision-record",
+      "path": "skills/planning/architecture-decision-record/SKILL.md",
+      "description": "Produces an Architecture Decision Record (ADR) capturing a significant technical decision: title, status, context and forces, the decision and why, alternatives considered with pros/cons, positive and negative consequences, and revisit triggers. Use when the user says \"write an ADR\", \"document this decision\", or describes a database/framework/architecture choice already made and wants the rationale recorded. Use this to record a decision already taken — use rfc-outline to propose one not yet decided, or build-vs-buy-analysis to make a make/buy call.",
+      "script": "validate",
+      "chains_to": []
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "build-vs-buy-analysis",
+      "path": "skills/planning/build-vs-buy-analysis/SKILL.md",
+      "description": "Produces a balanced build-vs-buy analysis over a 2-year total cost of ownership — build option, vendor option(s), a comparison matrix, hidden costs, and a stated recommendation with conditions that would reverse it. Use when the user says \"should we build or buy X\", \"evaluate these vendors\", or pastes a capability need, vendor list, and team context. Use this for the make-or-buy decision itself — once decided, use architecture-decision-record to capture the choice durably; not for contract negotiation or post-purchase vendor management.",
+      "script": null,
+      "chains_to": [
+        "architecture-decision-record"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "capacity-planning",
+      "path": "skills/planning/capacity-planning/SKILL.md",
+      "description": "Produces a realistic capacity plan: net engineer-weeks after overhead deductions, committed work mapped against it, the capacity gap or surplus stated plainly, trade-off options, and a commit/push-back recommendation. Use when the user says \"can we take this on\", \"what's our capacity\", \"what do we have to drop to add X\", or pastes team size, a period, absences, and committed work. Use this for the bandwidth math behind a quarter or cycle — use quarterly-roadmap for the full plan and sprint-planning-breakdown to slice an epic into tickets.",
+      "script": "calculate",
+      "chains_to": [
+        "sprint-planning-breakdown"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "engineering-strategy-one-pager",
+      "path": "skills/planning/engineering-strategy-one-pager/SKILL.md",
+      "description": "Produces a one-page engineering strategy: context, what you're optimising for (the tradeoffs being consciously made), what you're explicitly not doing, leading/lagging indicators of success, and implications for teams. Use when the user says \"write our engineering strategy\", \"strategy one-pager\", or wants to communicate direction and tradeoffs to a mixed audience on a single page. Use this for the why-and-tradeoffs direction layer — use quarterly-roadmap for the concrete work and okr-drafting for measurable goals.",
+      "script": null,
+      "chains_to": [
+        "quarterly-roadmap"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "incident-postmortem",
+      "path": "skills/planning/incident-postmortem/SKILL.md",
+      "description": "Produces a blameless, structured incident postmortem with root-cause analysis, contributing factors, and prioritized action items. Use when the user says \"write a postmortem\", \"post-incident review\", \"RCA\", or pastes an incident timeline, Slack logs, or impact data after an incident is resolved. Use this for internal, learning-focused documentation — not for real-time incident comms (incident-commander-runbook) or customer-facing explanations (a status update or apology email).",
+      "script": "validate",
+      "chains_to": [
+        "remediation-tracker",
+        "incident-trend-analysis"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "migration-plan",
+      "path": "skills/planning/migration-plan/SKILL.md",
+      "description": "Produces a phased, reversible migration plan from System A to System B: overview, measurable success criteria, phases (each with scope, duration, rollback, go/no-go gates, and owner), a risk register, a communication plan, and resource requirements. Use when the user says \"plan a migration\", \"migrate from X to Y\", or describes a database migration, framework upgrade, service decomposition, or cloud switch. Use this for the execution plan of a decided move — use rfc-outline to propose it and project-pre-mortem to stress-test it.",
+      "script": null,
+      "chains_to": [
+        "project-pre-mortem"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "okr-drafting",
+      "path": "skills/planning/okr-drafting/SKILL.md",
+      "description": "Produces team-level OKRs — 2-3 ambitious qualitative Objectives, each with 2-4 specific, measurable Key Results (metric, baseline, target, measurement method), with cross-team dependencies flagged. Use when the user says \"draft OKRs\", \"turn these company goals into team OKRs\", or pastes vague department goals plus current baselines. Use this for the measurable goal-setting layer — use quarterly-roadmap for the work that delivers the goals, and engineering-strategy-one-pager for the higher-level direction behind them.",
+      "script": "validate",
+      "chains_to": [
+        "quarterly-roadmap"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "project-pre-mortem",
+      "path": "skills/planning/project-pre-mortem/SKILL.md",
+      "description": "Produces a project pre-mortem: failure modes across technical, people, process, and external dimensions — each with likelihood, impact, and a preventive action — plus the top kill risks and a before-we-start action plan. Use when the user says \"run a pre-mortem\", \"what could go wrong with this project\", \"how could this fail\", or pastes a project description, timeline, and team before kickoff. Use this prospectively before a project starts — use incident-postmortem for analysing a failure that already happened.",
+      "script": null,
+      "chains_to": [
+        "incident-postmortem"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "quarterly-roadmap",
+      "path": "skills/planning/quarterly-roadmap/SKILL.md",
+      "description": "Produces a defensible quarterly engineering roadmap balancing customer-facing features, platform investment, tech debt, and reliability — every item tied to a business outcome or risk it mitigates. Use when the user says \"build a roadmap\", \"plan the quarter\", \"what should we commit to this quarter\", or pastes business objectives, a backlog, and known tech debt. Use this for the whole-quarter plan across all work types — use okr-drafting for the measurable goals themselves, capacity-planning for the bandwidth math, and tech-debt-prioritisation for ranking debt items alone.",
+      "script": "validate",
+      "chains_to": [
+        "capacity-planning",
+        "okr-drafting",
+        "tech-debt-prioritisation"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "rfc-outline",
+      "path": "skills/planning/rfc-outline/SKILL.md",
+      "description": "Produces a reviewer-ready RFC (Request for Comments) for a proposed technical change: summary, motivation with data, proposed solution, alternatives considered, risks and mitigations, rollout plan, open questions, and measurable success criteria. Use when the user says \"write an RFC\", \"draft a design doc\", \"technical proposal\", or describes a change needing cross-team buy-in. Use this to propose and socialise a decision before committing engineering time — use architecture-decision-record to record a decision already made.",
+      "script": "validate",
+      "chains_to": [
+        "architecture-decision-record",
+        "system-design-document"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "sprint-planning-breakdown",
+      "path": "skills/planning/sprint-planning-breakdown/SKILL.md",
+      "description": "Produces a sprint-ready breakdown of an epic: well-scoped tickets (each with description, acceptance criteria, day estimate, dependencies, and suggested assignee level), a dependency graph, a sprint allocation across the team, and risk flags. Use when the user says \"break this epic into tickets\", \"split this into stories\", or pastes an epic with a definition of done, team makeup, and sprint length. Use this for slicing one epic into tickets — use capacity-planning for cross-project bandwidth and quarterly-roadmap for the quarter's plan.",
+      "script": null,
+      "chains_to": []
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "sprint-retro-summary",
+      "path": "skills/planning/sprint-retro-summary/SKILL.md",
+      "description": "Produces an actionable sprint retrospective summary: grouped themes, root causes for the top issues, owned action items, and a trend read versus prior retros. Use when the user says \"summarise the retro\", \"synthesise this retro feedback\", or pastes raw sticky notes, retro comments, or vote counts after a retrospective. Use this for distilling completed retro feedback into change — use sprint-planning-breakdown to break the next epic into tickets, not to run or facilitate the retro session itself.",
+      "script": null,
+      "chains_to": [
+        "sprint-planning-breakdown"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "team-offsite-agenda",
+      "path": "skills/planning/team-offsite-agenda/SKILL.md",
+      "description": "Produces a structured team offsite agenda — a timed session schedule (each with format, facilitator, and desired output) plus a facilitation guide for the most important session. Use when the user says \"plan an offsite\", \"build an offsite agenda\", \"team away day\", or describes a half-/full-/multi-day gathering with goals, topics, and team dynamics. Use this for designing the offsite itself — use sprint-retro-summary to synthesise feedback and quarterly-roadmap for the roadmap work an offsite might produce.",
+      "script": null,
+      "chains_to": [
+        "quarterly-roadmap",
+        "sprint-retro-summary"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "planning",
+      "name": "tech-debt-prioritisation",
+      "path": "skills/planning/tech-debt-prioritisation/SKILL.md",
+      "description": "Produces a prioritised tech debt backlog with a business case for each item — cost of inaction, benefit of resolution, effort, and recommended priority — presentable to product and business stakeholders. Use when the user says \"prioritise our tech debt\", \"make the case for paying down debt\", or pastes a list of debt items with a velocity-impact note. Use this for ranking and justifying known debt — use quarterly-roadmap to fold the result into the quarter's plan, not for discovering debt or tracking paydown progress.",
+      "script": null,
+      "chains_to": [
+        "quarterly-roadmap"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "weekly-comms",
+      "name": "board-engineering-summary",
+      "path": "skills/weekly-comms/board-engineering-summary/SKILL.md",
+      "description": "Produces the engineering section of a board update — a business-language summary translating delivery, reliability, team/talent, investment mix, and strategic risk into the terms investors and operators care about (revenue, retention, efficiency, risk). Use when the user says \"board engineering summary\", \"engineering section for the board deck\", \"quarterly board prep\", or pastes delivery highlights, uptime/incident data, headcount and business metrics. Use this for investor-level board reporting — use exec-status-update for weekly leadership-up updates, not detailed technical reports.",
+      "script": null,
+      "chains_to": [
+        "exec-status-update"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "weekly-comms",
+      "name": "cross-team-dependency-update",
+      "path": "skills/weekly-comms/cross-team-dependency-update/SKILL.md",
+      "description": "Produces a collaborative, blame-free dependency status update shared across engineering teams — a dependency-map summary, \"on track\" vs. \"needs attention\" (with impact-if-delayed and a proposed path forward), and a per-team asks table with dates. Use when the user says \"dependency update\", \"we're blocked on another team\", \"cross-team status\", or pastes notes about handoffs and what teams owe each other. Use this when the audience is other engineering teams you depend on (or that depend on you) — use stakeholder-project-update for business/PM/design audiences and exec-status-update for leadership-up org status.",
+      "script": null,
+      "chains_to": [
+        "stakeholder-project-update"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "weekly-comms",
+      "name": "engineering-all-hands-agenda",
+      "path": "skills/weekly-comms/engineering-all-hands-agenda/SKILL.md",
+      "description": "Produces a tight engineering all-hands agenda — a timed table (time / item / owner / format / one-line goal), draftable opening remarks to set the tone, and facilitator notes — built so every item justifies being live and synchronous, with reserved open Q&A. Use when the user says \"plan my all-hands\", \"draft an all-hands agenda\", \"engineering town hall agenda\", or gives topics, duration, and audience. Use this for planning a future synchronous meeting — use meeting-recap-action-items to write up a meeting that already happened.",
+      "script": null,
+      "chains_to": [
+        "meeting-recap-action-items"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "weekly-comms",
+      "name": "engineering-newsletter",
+      "path": "skills/weekly-comms/engineering-newsletter/SKILL.md",
+      "description": "Produces a readable, jargon-free internal engineering newsletter for a company-wide non-technical audience — what we shipped (in plain user/business terms), what we're building next (as outcomes), a \"behind the scenes\" paragraph making one technical thing accessible, and a team spotlight. Conversational tone, no corporate filler. Use when the user says \"write the engineering newsletter\", \"monthly/bi-weekly eng update for the company\", or pastes raw engineering updates to make company-readable. Use this for the broad company-wide newsletter — use team-weekly-summary for the team-internal Friday wrap-up and exec-status-update for leadership-up status.",
+      "script": null,
+      "chains_to": [
+        "team-weekly-summary",
+        "exec-status-update"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "weekly-comms",
+      "name": "exec-status-update",
+      "path": "skills/weekly-comms/exec-status-update/SKILL.md",
+      "description": "Produces a concise weekly/bi-weekly executive status update — health indicator, top-line summary, business-framed wins, severity-rated risks with mitigations, decisions needed, and next-week focus — synthesized from raw team-lead updates. Use when the user says \"write my exec update\", \"weekly status for my VP/CTO\", \"synthesize these team updates\", or pastes a mix of Slack messages, doc bullets, and Jira summaries. Use this for an internal leadership-up update across a team or org — use board-engineering-summary for investor-level board sections, and stakeholder-project-update for cross-functional PM/design/business audiences.",
+      "script": "validate",
+      "chains_to": [
+        "board-engineering-summary",
+        "team-weekly-summary"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "weekly-comms",
+      "name": "meeting-recap-action-items",
+      "path": "skills/weekly-comms/meeting-recap-action-items/SKILL.md",
+      "description": "Produces a structured meeting recap from raw, messy notes — summary, numbered decisions with rationale, an action-items table (action / owner / due), open questions, and a parking lot. Use when the user says \"turn these notes into a recap\", \"write up the meeting\", \"extract action items\", or pastes half-sentence notes, transcript fragments, or scattered bullets after a meeting. Use this for documenting a meeting that already happened — not for planning a future meeting (use engineering-all-hands-agenda for agendas).",
+      "script": null,
+      "chains_to": []
+    },
+    {
+      "type": "skill",
+      "category": "weekly-comms",
+      "name": "stakeholder-project-update",
+      "path": "skills/weekly-comms/stakeholder-project-update/SKILL.md",
+      "description": "Produces a jargon-free project status update for cross-functional stakeholders (PMs, designers, business leads) — status-at-a-glance with target date, visible progress they can verify, what's coming next, a \"what we need from you\" asks table with deadlines, and a planned-vs-actual timeline. Use when the user says \"project update for stakeholders\", \"update for the PM/design lead\", \"where's the project at\", or pastes progress notes plus blockers. Use this for the cross-functional, business-audience project update — use cross-team-dependency-update when the audience is other engineering teams you depend on, and exec-status-update for leadership-up org status.",
+      "script": null,
+      "chains_to": [
+        "cross-team-dependency-update"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "weekly-comms",
+      "name": "team-weekly-summary",
+      "path": "skills/weekly-comms/team-weekly-summary/SKILL.md",
+      "description": "Produces a Friday wrap-up for an engineering manager's own team — what shipped (with individual credit), what's carrying over (with adjusted ETAs), specific shoutouts, next-week priorities with owners, and a heads-up section. Warm-but-direct tone, technical detail welcome. Use when the user says \"write my team's weekly summary\", \"Friday wrap-up\", \"end-of-week update for my engineers\", or pastes the week's notes. Use this for the team-internal, downward update — use exec-status-update for the leadership-up version and engineering-newsletter for the company-wide non-technical version.",
+      "script": null,
+      "chains_to": [
+        "exec-status-update",
+        "engineering-newsletter"
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "system-design-document",
+      "title": "System Design Document",
+      "path": "prompts/architecture/01-system-design-document.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "api-contract-design",
+      "title": "API Contract Design",
+      "path": "prompts/architecture/02-api-contract-design.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "scalability-assessment",
+      "title": "Scalability Assessment",
+      "path": "prompts/architecture/03-scalability-assessment.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "data-model-design",
+      "title": "Data Model Design",
+      "path": "prompts/architecture/04-data-model-design.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "caching-strategy",
+      "title": "Caching Strategy",
+      "path": "prompts/architecture/05-caching-strategy.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "observability-strategy",
+      "title": "Observability Strategy",
+      "path": "prompts/architecture/06-observability-strategy.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "slo-definition",
+      "title": "SLO Definition",
+      "path": "prompts/architecture/07-slo-definition.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "architecture-review-prep",
+      "title": "Architecture Review Prep",
+      "path": "prompts/architecture/08-architecture-review-prep.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "dependency-mapping",
+      "title": "Dependency Mapping",
+      "path": "prompts/architecture/09-dependency-mapping.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "technical-vision-document",
+      "title": "Technical Vision Document",
+      "path": "prompts/architecture/10-technical-vision-document.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "technology-radar",
+      "title": "Technology Radar",
+      "path": "prompts/architecture/11-technology-radar.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "database-selection-guide",
+      "title": "Database Selection Guide",
+      "path": "prompts/architecture/12-database-selection-guide.md"
+    },
+    {
+      "type": "prompt",
+      "category": "architecture",
+      "name": "README",
+      "title": "Architecture",
+      "path": "prompts/architecture/README.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "hiring-plan",
+      "title": "Hiring Plan",
+      "path": "prompts/hiring-pipelines/01-hiring-plan.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "recruiter-kickoff-brief",
+      "title": "Recruiter Kickoff Brief",
+      "path": "prompts/hiring-pipelines/02-recruiter-kickoff-brief.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "sourcing-outreach-message",
+      "title": "Sourcing Outreach Message",
+      "path": "prompts/hiring-pipelines/03-sourcing-outreach-message.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "phone-screen-script",
+      "title": "Phone Screen Script",
+      "path": "prompts/hiring-pipelines/04-phone-screen-script.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "take-home-exercise-design",
+      "title": "Take-Home Exercise Design",
+      "path": "prompts/hiring-pipelines/05-take-home-exercise-design.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "interview-debrief-facilitation",
+      "title": "Interview Debrief Facilitation",
+      "path": "prompts/hiring-pipelines/06-interview-debrief-facilitation.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "candidate-evaluation-summary",
+      "title": "Candidate Evaluation Summary",
+      "path": "prompts/hiring-pipelines/07-candidate-evaluation-summary.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "offer-justification",
+      "title": "Offer Justification",
+      "path": "prompts/hiring-pipelines/08-offer-justification.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "candidate-closing-pitch",
+      "title": "Candidate Closing Pitch",
+      "path": "prompts/hiring-pipelines/09-candidate-closing-pitch.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "rejection-email",
+      "title": "Rejection Email",
+      "path": "prompts/hiring-pipelines/10-rejection-email.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "pipeline-analytics-review",
+      "title": "Pipeline Analytics Review",
+      "path": "prompts/hiring-pipelines/11-pipeline-analytics-review.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "interviewer-calibration-guide",
+      "title": "Interviewer Calibration Guide",
+      "path": "prompts/hiring-pipelines/12-interviewer-calibration-guide.md"
+    },
+    {
+      "type": "prompt",
+      "category": "hiring-pipelines",
+      "name": "README",
+      "title": "Hiring Pipelines",
+      "path": "prompts/hiring-pipelines/README.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "incident-commander-runbook",
+      "title": "Incident Commander Runbook",
+      "path": "prompts/incident-management/01-incident-commander-runbook.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "real-time-status-page-update",
+      "title": "Real-Time Status Page Update",
+      "path": "prompts/incident-management/02-real-time-status-page-update.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "customer-apology-email",
+      "title": "Customer Apology Email",
+      "path": "prompts/incident-management/03-customer-apology-email.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "war-room-facilitation-guide",
+      "title": "War Room Facilitation Guide",
+      "path": "prompts/incident-management/04-war-room-facilitation-guide.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "on-call-handoff",
+      "title": "On-Call Handoff",
+      "path": "prompts/incident-management/05-on-call-handoff.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "runbook-generator",
+      "title": "Runbook Generator",
+      "path": "prompts/incident-management/06-runbook-generator.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "incident-trend-analysis",
+      "title": "Incident Trend Analysis",
+      "path": "prompts/incident-management/07-incident-trend-analysis.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "remediation-tracker",
+      "title": "Remediation Tracker",
+      "path": "prompts/incident-management/08-remediation-tracker.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "severity-classification-guide",
+      "title": "Severity Classification Guide",
+      "path": "prompts/incident-management/09-severity-classification-guide.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "game-day-plan",
+      "title": "Game Day Plan",
+      "path": "prompts/incident-management/10-game-day-plan.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "escalation-policy-document",
+      "title": "Escalation Policy Document",
+      "path": "prompts/incident-management/11-escalation-policy-document.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "incident-readiness-review",
+      "title": "Incident Readiness Review",
+      "path": "prompts/incident-management/12-incident-readiness-review.md"
+    },
+    {
+      "type": "prompt",
+      "category": "incident-management",
+      "name": "README",
+      "title": "Incident Management",
+      "path": "prompts/incident-management/README.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "performance-review-draft",
+      "title": "Performance Review Draft",
+      "path": "prompts/people-management/01-performance-review-draft.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "one-on-one-prep",
+      "title": "One-on-One Prep",
+      "path": "prompts/people-management/02-one-on-one-prep.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "feedback-synthesis",
+      "title": "Feedback Synthesis",
+      "path": "prompts/people-management/03-feedback-synthesis.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "career-ladder-draft",
+      "title": "Career Ladder Draft",
+      "path": "prompts/people-management/04-career-ladder-draft.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "job-description",
+      "title": "Job Description",
+      "path": "prompts/people-management/05-job-description.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "interview-rubric",
+      "title": "Interview Rubric",
+      "path": "prompts/people-management/06-interview-rubric.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "pip-documentation",
+      "title": "PIP Documentation",
+      "path": "prompts/people-management/07-pip-documentation.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "promotion-case",
+      "title": "Promotion Case",
+      "path": "prompts/people-management/08-promotion-case.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "team-health-survey-analysis",
+      "title": "Team Health Survey Analysis",
+      "path": "prompts/people-management/09-team-health-survey-analysis.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "onboarding-plan",
+      "title": "Onboarding Plan",
+      "path": "prompts/people-management/10-onboarding-plan.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "skip-level-meeting-prep",
+      "title": "Skip-Level Meeting Prep",
+      "path": "prompts/people-management/11-skip-level-meeting-prep.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "difficult-conversation-prep",
+      "title": "Difficult Conversation Prep",
+      "path": "prompts/people-management/12-difficult-conversation-prep.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "manager-readme",
+      "title": "Manager README",
+      "path": "prompts/people-management/13-manager-readme.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "layoff-communication",
+      "title": "Layoff Communication",
+      "path": "prompts/people-management/14-layoff-communication.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "team-values-workshop",
+      "title": "Team Values Workshop",
+      "path": "prompts/people-management/15-team-values-workshop.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "staff-engineer-scope-doc",
+      "title": "Staff Engineer Scope Document",
+      "path": "prompts/people-management/16-staff-engineer-scope-doc.md"
+    },
+    {
+      "type": "prompt",
+      "category": "people-management",
+      "name": "README",
+      "title": "People Management",
+      "path": "prompts/people-management/README.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "quarterly-roadmap",
+      "title": "Quarterly Roadmap",
+      "path": "prompts/planning/01-quarterly-roadmap.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "rfc-outline",
+      "title": "RFC Outline",
+      "path": "prompts/planning/02-rfc-outline.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "sprint-retro-summary",
+      "title": "Sprint Retro Summary",
+      "path": "prompts/planning/03-sprint-retro-summary.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "tech-debt-prioritisation",
+      "title": "Tech Debt Prioritisation",
+      "path": "prompts/planning/04-tech-debt-prioritisation.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "build-vs-buy-analysis",
+      "title": "Build vs Buy Analysis",
+      "path": "prompts/planning/05-build-vs-buy-analysis.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "project-pre-mortem",
+      "title": "Project Pre-Mortem",
+      "path": "prompts/planning/06-project-pre-mortem.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "capacity-planning",
+      "title": "Capacity Planning",
+      "path": "prompts/planning/07-capacity-planning.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "migration-plan",
+      "title": "Migration Plan",
+      "path": "prompts/planning/08-migration-plan.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "okr-drafting",
+      "title": "OKR Drafting",
+      "path": "prompts/planning/09-okr-drafting.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "architecture-decision-record",
+      "title": "Architecture Decision Record (ADR)",
+      "path": "prompts/planning/10-architecture-decision-record.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "incident-postmortem",
+      "title": "Incident Postmortem",
+      "path": "prompts/planning/11-incident-postmortem.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "sprint-planning-breakdown",
+      "title": "Sprint Planning Breakdown",
+      "path": "prompts/planning/12-sprint-planning-breakdown.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "engineering-strategy-one-pager",
+      "title": "Engineering Strategy One-Pager",
+      "path": "prompts/planning/13-engineering-strategy-one-pager.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "team-offsite-agenda",
+      "title": "Team Offsite Agenda",
+      "path": "prompts/planning/14-team-offsite-agenda.md"
+    },
+    {
+      "type": "prompt",
+      "category": "planning",
+      "name": "README",
+      "title": "Planning Artifacts",
+      "path": "prompts/planning/README.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "exec-status-update",
+      "title": "Exec Status Update",
+      "path": "prompts/weekly-comms/01-exec-status-update.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "team-weekly-summary",
+      "title": "Team Weekly Summary",
+      "path": "prompts/weekly-comms/02-team-weekly-summary.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "stakeholder-project-update",
+      "title": "Stakeholder Project Update",
+      "path": "prompts/weekly-comms/03-stakeholder-project-update.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "cross-team-dependency-update",
+      "title": "Cross-Team Dependency Update",
+      "path": "prompts/weekly-comms/04-cross-team-dependency-update.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "launch-announcement-internal",
+      "title": "Internal Launch Announcement",
+      "path": "prompts/weekly-comms/05-launch-announcement-internal.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "launch-announcement-external",
+      "title": "External Launch Announcement",
+      "path": "prompts/weekly-comms/06-launch-announcement-external.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "team-wins-celebration",
+      "title": "Team Wins Celebration",
+      "path": "prompts/weekly-comms/07-team-wins-celebration.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "org-change-announcement",
+      "title": "Org Change Announcement",
+      "path": "prompts/weekly-comms/08-org-change-announcement.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "incident-stakeholder-comms",
+      "title": "Incident Stakeholder Comms",
+      "path": "prompts/weekly-comms/09-incident-stakeholder-comms.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "meeting-recap-action-items",
+      "title": "Meeting Recap & Action Items",
+      "path": "prompts/weekly-comms/10-meeting-recap-action-items.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "skip-level-update",
+      "title": "Skip-Level Update",
+      "path": "prompts/weekly-comms/11-skip-level-update.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "board-engineering-summary",
+      "title": "Board Engineering Summary",
+      "path": "prompts/weekly-comms/12-board-engineering-summary.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "engineering-newsletter",
+      "title": "Engineering Newsletter",
+      "path": "prompts/weekly-comms/13-engineering-newsletter.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "vendor-escalation-email",
+      "title": "Vendor Escalation Email",
+      "path": "prompts/weekly-comms/14-vendor-escalation-email.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "engineering-all-hands-agenda",
+      "title": "Engineering All-Hands Agenda",
+      "path": "prompts/weekly-comms/15-engineering-all-hands-agenda.md"
+    },
+    {
+      "type": "prompt",
+      "category": "weekly-comms",
+      "name": "README",
+      "title": "Weekly Comms",
+      "path": "prompts/weekly-comms/README.md"
+    }
+  ]
+}
