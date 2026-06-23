@@ -7,6 +7,7 @@ description: >
   capacity", "what do we have to drop to add X", or pastes team size, a period, absences, and
   committed work. Use this for the bandwidth math behind a quarter or cycle — use
   quarterly-roadmap for the full plan and sprint-planning-breakdown to slice an epic into tickets.
+variants: [startup, growth, enterprise]
 ---
 
 # Capacity Planning
@@ -71,6 +72,14 @@ Run the script. Fix every failure. Do not return output until the script passes.
 **Recommendation**
 [What to commit to, what to push back on, sequencing, and caveats. Buffer remaining: [N] (~[X]% of net).]
 ```
+
+## Variants
+
+Optional org-size tuning (see [`docs/VARIANTS.md`](../../../docs/VARIANTS.md)). Default to **growth** if the user doesn't state a stage.
+
+- **startup** (≤ ~15 engineers): use a 30–40% overhead factor (more context-switching), keep the plan to the Available Capacity and Recommendation tables, and skip per-engineer breakdown unless one person is a single point of failure.
+- **growth** (~15–80): the defaults above — ~20% overhead, full committed/requested tables, 10–20% buffer.
+- **enterprise** (80+): add per-team rollups, mark cross-org dependencies explicitly, and note where formal sign-off is required before committing capacity.
 
 ## Boundaries
 
