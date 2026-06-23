@@ -4,9 +4,9 @@
 
 # AI for Engineering Leaders — Prompt Library
 
-![Prompts](https://img.shields.io/badge/prompts-81-blue) ![Skills](https://img.shields.io/badge/skills-69-orange) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/AI-for-engineering-leaders?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/AI-for-engineering-leaders/commits/main)
+![Prompts](https://img.shields.io/badge/prompts-87-blue) ![Skills](https://img.shields.io/badge/skills-71-orange) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/AI-for-engineering-leaders?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/AI-for-engineering-leaders/commits/main)
 
-81 situation-specific **prompts** and 69 agent-ready **skills** for engineering managers, directors, and VPs.
+87 situation-specific **prompts** and 71 agent-ready **skills** for engineering managers, directors, and VPs.
 
 - **[Prompts](prompts/)** — copy-paste-and-fill templates for recurring leadership tasks (status updates, roadmaps, reviews, incident comms), each with placeholders, an example, and tuning notes.
 - **[Skills](skills/)** — the same expertise packaged so an agent (Claude Code, Copilot, Cursor, or any LLM) can *act*: gather inputs, apply structure, and produce the finished artifact. Portable plain-markdown files with a small YAML header.
@@ -180,7 +180,7 @@ Agent-ready versions of the highest-leverage prompts — for when you want the a
 | [engineering-strategy-one-pager](skills/planning/engineering-strategy-one-pager/SKILL.md) | What engineering is optimising for, and why, on one page |
 | [team-offsite-agenda](skills/planning/team-offsite-agenda/SKILL.md) | A substantive offsite that produces real decisions, not forced fun |
 
-### [People Management](skills/people-management/) — 16 skills
+### [People Management](skills/people-management/) — 17 skills
 | Skill | What it produces |
 |-------|------------------|
 | [performance-review-draft](skills/people-management/performance-review-draft/SKILL.md) | Scattered observations into a fair, evidence-based review |
@@ -191,6 +191,7 @@ Agent-ready versions of the highest-leverage prompts — for when you want the a
 | [interview-rubric](skills/people-management/interview-rubric/SKILL.md) | Consistent, bias-resistant evaluation criteria across an interview loop |
 | [pip-documentation](skills/people-management/pip-documentation/SKILL.md) | A fair, evidence-based PIP draft (HR-reviewed) that gives a genuine chance to succeed |
 | [promotion-case](skills/people-management/promotion-case/SKILL.md) | A case showing the person is already operating at the next level, with evidence |
+| [compensation-review](skills/people-management/compensation-review/SKILL.md) | A proposed raise positioned against band and compa ratio, with approval flags surfaced |
 | [onboarding-plan](skills/people-management/onboarding-plan/SKILL.md) | A 30/60/90 path to a new hire's first meaningful contribution |
 | [skip-level-meeting-prep](skills/people-management/skip-level-meeting-prep/SKILL.md) | A skip-level that surfaces unfiltered signal and builds trust |
 | [difficult-conversation-prep](skills/people-management/difficult-conversation-prep/SKILL.md) | Talking points so hard feedback lands clearly and kindly |
@@ -200,7 +201,7 @@ Agent-ready versions of the highest-leverage prompts — for when you want the a
 | [staff-engineer-scope-doc](skills/people-management/staff-engineer-scope-doc/SKILL.md) | What a staff engineer owns, decides, and is measured on |
 | [team-health-survey-analysis](skills/people-management/team-health-survey-analysis/SKILL.md) | Survey themes connected to root causes and concrete actions |
 
-### [Incident Management](skills/incident-management/) — 10 skills
+### [Incident Management](skills/incident-management/) — 11 skills
 | Skill | What it produces |
 |-------|------------------|
 | [incident-commander-runbook](skills/incident-management/incident-commander-runbook/SKILL.md) | A coordination playbook so anyone on rotation can run an incident calmly |
@@ -210,6 +211,7 @@ Agent-ready versions of the highest-leverage prompts — for when you want the a
 | [runbook-generator](skills/incident-management/runbook-generator/SKILL.md) | Tribal knowledge into a runbook any on-call can follow at 3am |
 | [incident-trend-analysis](skills/incident-management/incident-trend-analysis/SKILL.md) | The patterns individual postmortems miss across a quarter |
 | [remediation-tracker](skills/incident-management/remediation-tracker/SKILL.md) | Scattered postmortem action items tracked to completion with clear ownership |
+| [incident-stakeholder-comms](skills/incident-management/incident-stakeholder-comms/SKILL.md) | A short, plain-language incident update for execs with a committed next-update time |
 | [game-day-plan](skills/incident-management/game-day-plan/SKILL.md) | An incident simulation realistic enough to surface real gaps |
 | [escalation-policy-document](skills/incident-management/escalation-policy-document/SKILL.md) | A one-page reference that kills "who do I call next?" ambiguity |
 | [incident-readiness-review](skills/incident-management/incident-readiness-review/SKILL.md) | An audit of whether the team can handle incidents before a high-risk event |
