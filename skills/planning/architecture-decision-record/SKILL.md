@@ -35,6 +35,13 @@ Gather these before writing. If any are missing, ask for them in a single batche
 7. Write **revisit triggers** — concrete conditions under which the decision should be reconsidered.
 8. Adapt to context: for a controversial decision, expand the alternatives and be especially fair to them. For a reversible decision, note the reversal cost ("~2 days plus a migration script") — low reversal cost means less rigour is warranted. Keep a consistent numbering scheme and a `docs/decisions/` home; reserve full ADRs for decisions that are costly to reverse, span multiple teams, or have been debated more than once.
 9. Assemble the output in the format below.
+10. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
