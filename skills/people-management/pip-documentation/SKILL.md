@@ -36,6 +36,13 @@ Gather these before drafting. If any are missing, ask in a single batched questi
 8. State **Timeline and Outcomes** — duration and the three possible outcomes (successful completion, partial improvement/extension, insufficient improvement and next steps with HR).
 9. Adapt to context: if the user is writing this just to paper-trail a predetermined termination, name that honestly — a real PIP gives a fair shot. Recommend delivering the plan in person or video (never email), leading with care. Remind the user that employment law varies by jurisdiction and HR must review before delivery.
 10. Assemble the output in the format below.
+11. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
