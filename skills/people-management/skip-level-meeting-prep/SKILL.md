@@ -33,6 +33,13 @@ Gather these before drafting. If any are missing, ask in a single batched questi
 6. If the manager flagged something, add a private note-to-self: don't lead with it, let it surface naturally; if it doesn't, raise it with the manager as a coaching topic rather than investigating through the report.
 7. Adapt to context: for a **first skip-level ever**, spend more time setting expectations and reassuring it's not a check on their manager. For **signals of manager issues**, remember consistent concerns across multiple skip-levels are a coaching conversation with the manager, not something to fix by going around them. For a **high performer**, add retention-risk questions ("are you learning, challenged, anything that'd make you consider leaving?"), asked warmly. For a **large org**, keep notes and look for cross-team themes (3 of 8 mentioning the same problem is an org issue).
 8. Assemble the output in the format below.
+9. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
