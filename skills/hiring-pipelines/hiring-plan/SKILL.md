@@ -35,6 +35,13 @@ Gather these before planning. If any are missing, ask for them in a single batch
 8. Define **success criteria** — what "good" looks like 6 months after each hire, in observable terms.
 9. Adapt to context: for **headcount negotiation**, lead with business risk and the cost of recent incidents; for **limited-budget startups**, favor the most versatile hire first; distinguish **backfills** (urgent, no new capability) from **new roles** (change what the team can do) and prioritize accordingly; before any external search, note **internal mobility** options (cheaper, faster).
 10. Assemble the output in the format below.
+11. Run the calculator with the gathered inputs:
+   ```
+   python scripts/calculate.py --current <value> --attrition <value> --growth <value> --budget <value> --avg-salary <value>
+   ```
+   Use the printed figures verbatim — do not recalculate manually. If FLAGS are printed, surface them explicitly to the user before proceeding.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
