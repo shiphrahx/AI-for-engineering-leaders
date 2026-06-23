@@ -37,6 +37,13 @@ Gather these before analyzing. If any are missing, ask for them in a single batc
 8. Give the **top 3 (or 4) recommendations**, each with the expected impact ("recovers X candidates" or "saves Y days") and a concrete mechanism.
 9. Adapt to context: for **small samples** (<20 candidates), treat percentages as noisy and lead with qualitative patterns; for **multiple roles**, break the funnel out per role — a combined funnel masks junior-vs-senior differences; if the ATS tracks it, review **conversion by demographic group** at each stage, since uneven drop-off can indicate stage-specific bias; recommend **sharing metrics with interviewers** to motivate fast reviews.
 10. Assemble the output in the format below.
+11. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
