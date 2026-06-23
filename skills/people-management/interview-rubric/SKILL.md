@@ -29,6 +29,13 @@ Gather these before drafting. If any are missing, ask in a single batched questi
 3. Write a **Debrief Guide**: how interviewers share ratings and top observations, how to handle disagreement (focus on what the candidate demonstrated, not resolving opinions), and the explicit decision rule (e.g. Hire requires Hire+ from 3 of 4 stages with no Strong No Hire).
 4. Adapt to context: for a **junior role**, replace system design with a pair-programming exercise assessing learning speed and coachability, not depth. For a **staff+ role**, add a technical-strategy stage where the candidate evaluates a real architectural decision, assessing influence without authority. For **reducing bias**, add a calibration step (review the rubric together with an example before the loop) and require independent scoring before debrief so the first speaker doesn't anchor the room. For a **small company without dedicated interviewers**, combine stages — one well-prepared 90-minute session beats four rushed 45-minute ones.
 5. Assemble the output in the format below.
+6. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
