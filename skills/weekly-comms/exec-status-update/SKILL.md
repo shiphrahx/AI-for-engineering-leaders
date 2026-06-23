@@ -35,6 +35,13 @@ Gather these before writing. If any are missing, ask for them in a single batche
 7. State **next week focus** per team or workstream.
 8. Adapt to context: for a **board/C-suite audience**, strip technical detail and lead with metrics tied to company goals (translate "serialisation rewrite" → "backend optimisation to improve response times"). For a **skip-level**, frame more strategically with less tactical detail. For a **Slack-first culture**, cut to summary + risks only and link a doc. For a **bad week**, do not bury bad news — move Risks above Wins and lead the summary with the blocker. For **large orgs (10+ teams)**, group by theme (delivery, reliability, platform) rather than per-team.
 9. Assemble the output in the format below.
+10. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
