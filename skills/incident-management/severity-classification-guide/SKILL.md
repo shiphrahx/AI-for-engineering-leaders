@@ -35,6 +35,13 @@ Gather these before writing. If any are missing, ask for them in a SINGLE batche
 7. Add a **Quick Classification Flowchart**: a top-down decision tree that yields a level in four questions or fewer.
 8. Add a **Reclassification** note: the IC can upgrade or downgrade at any time; overclassify initially and downgrade rather than underclassify and scramble. If a debate runs past ~30 seconds, classify high.
 9. Assemble the output in the format below.
+10. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
