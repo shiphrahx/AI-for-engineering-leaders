@@ -35,6 +35,13 @@ Gather these before writing. If any are missing, ask in a SINGLE batched questio
 8. **Recommendation**: identify the owner/team carrying a disproportionate share (the bottleneck) and offer concrete unblocking options (dedicate capacity, reassign documentation-type items, bring in help).
 9. Adapt to context as a sub-step: this format works in a spreadsheet, Notion, or Jira — pick the tool the team actually checks; if there are 30+ open items, that's a prioritisation problem — force-rank and cut below the top ~15; when a high-priority item completes, recommend announcing it and tying it to the incident it prevents, to close the loop.
 10. Assemble the output in the format below.
+11. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
