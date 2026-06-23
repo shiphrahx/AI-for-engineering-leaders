@@ -33,6 +33,13 @@ Gather these before ranking. If any are missing, ask for them in a single batche
 6. Identify **quick wins** — items resolvable in under a day with outsized impact.
 7. Adapt to context: presenting to product/business — lead with the velocity-tax number and security risks, frame as "investing in delivery speed". For skeptical stakeholders, add a "cost of doing nothing" projection over 2–3 quarters. For a small team, pick only the top 3 — boiling the ocean is worse than nothing. After a debt-caused incident, lead with that incident as the leverage to get capacity approved.
 8. Assemble the output in the format below.
+9. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
