@@ -72,14 +72,20 @@ def check_counts():
     return failures
 
 
-def check_manifest():
-    r = subprocess.run([sys.executable, os.path.join(REPO, "tools", "gen_manifest.py"), "--check"],
-                       capture_output=True, text=True)
-    return [] if r.returncode == 0 else [r.stdout.strip() or "manifest.json is stale"]
+def check_generated():
+    """Every generated artifact must be in sync with its source."""
+    failures = []
+    generators = ["gen_manifest.py", "gen_crossmap.py", "gen_integrations.py"]
+    for gen in generators:
+        r = subprocess.run([sys.executable, os.path.join(REPO, "tools", gen), "--check"],
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            failures.append(r.stdout.strip() or f"{gen} output is stale")
+    return failures
 
 
 def main():
-    failures = check_links() + check_counts() + check_manifest()
+    failures = check_links() + check_counts() + check_generated()
     if failures:
         print("FAIL:")
         for f in failures:
