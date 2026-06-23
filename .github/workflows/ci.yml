@@ -1,0 +1,30 @@
+name: CI
+
+# Fully LLM-agnostic: only static checks and stdlib Python. No API keys, no model calls.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Compile all scripts (syntax)
+        run: |
+          find skills tools -name '*.py' -print0 | xargs -0 python -m py_compile
+
+      - name: Lint skill structure
+        run: python tools/lint_skills.py
+
+      - name: Check links, counts, and manifest freshness
+        run: python tools/check_repo.py
+
+      - name: Run skill-script golden fixtures
+        run: python tools/run_script_tests.py
