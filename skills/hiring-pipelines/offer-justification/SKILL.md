@@ -34,6 +34,13 @@ Gather these before writing. If any are missing, ask for them in a single batche
 6. Write the **risk if we don't act**: concrete consequences of losing the candidate (project at risk, pipeline depth, weeks to find a comparable hire).
 7. Adapt to context: for **above-band comp**, justify explicitly — above-band without justification erodes comp integrity; for a **competing offer you can't match**, don't try — compete on opportunity (equity, scope, growth); with **no competing offer**, still pay fairly for the level — don't anchor to the band's bottom; for **counter-offer risk**, recommend a short decision window.
 8. Assemble the output in the format below.
+9. Run the calculator with the gathered inputs:
+   ```
+   python scripts/calculate.py --base <value> --band-min <value> --band-max <value> --bonus <value> --equity <value> --start-date <YYYY-MM-DD>
+   ```
+   Use the printed figures verbatim — do not recalculate manually. If FLAGS are printed, surface them explicitly to the user before proceeding.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
