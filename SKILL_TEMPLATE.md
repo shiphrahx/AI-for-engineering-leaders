@@ -44,6 +44,12 @@ Show the exact structure expected — headers, tables, whatever applies.
 | ...    | ...    |
 ```
 
+## Variants
+
+_Optional._ If the skill tunes for org size, declare `variants: [startup, growth, enterprise]`
+in the front-matter and add one bullet per stage here. See [`docs/VARIANTS.md`](docs/VARIANTS.md).
+Omit this section entirely if the skill is stage-agnostic.
+
 ## Boundaries
 
 What the skill must never do.
