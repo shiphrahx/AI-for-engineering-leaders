@@ -33,6 +33,13 @@ Gather these before writing. If any are missing, ask for them in a single batche
 6. Derive **action items** that prevent recurrence. Make each one specific, owned, and prioritized (P0/P1/P2). Mark owner/date **Unknown** if not provided rather than assigning someone.
 7. Adapt to context: for a customer-facing version, cut internal detail to what-happened / impact / what-we-did / prevention. For a recurring incident type, add a "History" section of similar past incidents. For a P3, scale down to summary, root cause, and action items only. For regulated industries, add a compliance-notification section.
 8. Assemble the output in the format below.
+9. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
