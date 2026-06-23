@@ -34,6 +34,13 @@ Gather these before drafting. If any are missing, ask in a single batched questi
 7. Write **Potential Concerns** — pre-empt the objections the committee will raise (scope, tenure) and answer each with evidence.
 8. Adapt to context: for a **conservative committee**, front-load the strongest, most clearly-mapped example and include quotes from respected peers. For a **skip-level promotion** (e.g. L3→L5), note it's extremely rare and check feasibility with your skip-level first. If the **org has no formal committee**, this still works as an alignment doc for your manager before you tell the engineer.
 9. Assemble the output in the format below.
+10. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
