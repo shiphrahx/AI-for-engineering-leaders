@@ -33,6 +33,13 @@ Gather these before calculating. If any are missing, ask for them in a single ba
 6. Write a **recommendation** — what to commit to, what to push back on, suggested sequencing (smaller/higher-confidence work first), and the caveats (e.g. "if X overruns by 3 weeks, Y slips"). Leave an explicit buffer (10–20%) for unplanned work rather than allocating to 100%.
 7. Adapt to context: for individual-level planning, break capacity down per engineer when work needs specific expertise ("only two engineers can do the API integration" changes the math). For stakeholder presentation, keep the math visible — accounting for holidays, overhead, and on-call earns more trust than pretending at 100% utilisation.
 8. Assemble the output in the format below.
+9. Run the calculator with the gathered inputs:
+   ```
+   python scripts/calculate.py --engineers <value> --sprint-days <value> --leave-days <value> --ceremony-hours <value> --velocity <value>
+   ```
+   Use the printed figures verbatim — do not recalculate manually. If FLAGS are printed, surface them explicitly to the user before proceeding.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
