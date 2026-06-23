@@ -34,6 +34,13 @@ Gather these before writing. If any are missing, ask in a SINGLE batched questio
 5. **After-Hours Policy** (nights, weekends, holidays): what changes by severity — P0/P1 unchanged; P2 acknowledged and assessed, deferrable if no customer impact; P3 next business day, page no one. Note the one deliberate difference: escalate to Tier 2 sooner after hours (night debugging is slower — get help earlier).
 6. Adapt to context as a sub-step: a small startup (<15 eng) may have just two tiers (on-call engineer and CTO) — that's fine, the document still sets expectations and contact methods; recommend printing it / pinning it (people don't search the wiki under stress); recommend testing phone numbers quarterly; and link the live PagerDuty schedule rather than listing names that go stale.
 7. Assemble the output in the format below.
+8. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
