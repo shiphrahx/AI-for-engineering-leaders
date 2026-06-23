@@ -35,6 +35,13 @@ Gather these before drafting. If any are missing, ask in a single batched questi
 6. Write the **Hiring Process** — the stages, so candidates know what to expect and roughly how long it takes; commit to feedback.
 7. Adapt to context: for a **junior role**, cut must-haves to 2-3 and emphasise learning, mentorship, and growth. For a **remote role**, be explicit about timezone expectations, communication norms, and how the team bonds — "here's how we make remote work" is a selling point. For a **competitive market**, lead with what makes the role unique, not "we're growing fast". For an **internal JD** (levelling/backfill), skip the marketing and keep "what you'll work on" and "what we're looking for".
 8. Assemble the output in the format below.
+9. Run the validator:
+   ```
+   python scripts/validate.py "$(cat draft.md)"
+   ```
+   Fix every listed failure. Re-run until PASS. Do not return output to the user until the script exits 0.
+
+Run the script. Fix every failure. Do not return output until the script passes.
 
 ## Output format
 
