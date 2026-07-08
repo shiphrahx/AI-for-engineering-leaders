@@ -246,15 +246,15 @@ Agent-ready versions of the highest-leverage prompts — for when you want the a
 | [interviewer-calibration-guide](skills/hiring-pipelines/interviewer-calibration-guide/SKILL.md) | A hands-on session that aligns interviewers and reduces bias |
 | [pipeline-analytics-review](skills/hiring-pipelines/pipeline-analytics-review/SKILL.md) | A diagnosis of where candidates are lost and whether to fix speed or quality |
 
-### [Technical Practice](skills/technical-practice/) — 5 skills
+### [Technical Leadership](skills/technical-leadership/) — 5 skills
 For the hands-on leader who still codes — now more of them, with AI assistants. The intersection of leadership judgment and real code: reviewing a report's work, getting oriented fast, de-risking a call with a spike, and translating code up the chain.
 | Skill | What it produces |
 |-------|------------------|
-| [pr-review-for-leaders](skills/technical-practice/pr-review-for-leaders/SKILL.md) | A report's PR reviewed for correctness plus scope, risk, and mentoring — comments + a private coaching note |
-| [codebase-orientation-brief](skills/technical-practice/codebase-orientation-brief/SKILL.md) | An unfamiliar repo mapped into what it does, its shape, hot paths, risks, and the questions to ask the team |
-| [prototype-spike-plan](skills/technical-practice/prototype-spike-plan/SKILL.md) | A throwaway spike framed by one question, smallest build, hard timebox, and kill/success criteria |
-| [code-to-exec-translation](skills/technical-practice/code-to-exec-translation/SKILL.md) | A diff or PR translated into the business framing a non-technical audience acts on |
-| [ai-coding-guidelines](skills/technical-practice/ai-coding-guidelines/SKILL.md) | Tool-neutral team norms for AI-assisted coding: when, review bar, secrets, security, licensing, accountability |
+| [pr-review-for-leaders](skills/technical-leadership/pr-review-for-leaders/SKILL.md) | A report's PR reviewed for correctness plus scope, risk, and mentoring — comments + a private coaching note |
+| [codebase-orientation-brief](skills/technical-leadership/codebase-orientation-brief/SKILL.md) | An unfamiliar repo mapped into what it does, its shape, hot paths, risks, and the questions to ask the team |
+| [prototype-spike-plan](skills/technical-leadership/prototype-spike-plan/SKILL.md) | A throwaway spike framed by one question, smallest build, hard timebox, and kill/success criteria |
+| [code-to-exec-translation](skills/technical-leadership/code-to-exec-translation/SKILL.md) | A diff or PR translated into the business framing a non-technical audience acts on |
+| [ai-coding-guidelines](skills/technical-leadership/ai-coding-guidelines/SKILL.md) | Tool-neutral team norms for AI-assisted coding: when, review bar, secrets, security, licensing, accountability |
 
 ## Installation
 

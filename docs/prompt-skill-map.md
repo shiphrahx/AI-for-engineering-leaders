@@ -79,11 +79,11 @@ Every leadership task is available as a **prompt** (paste-and-fill), a **skill**
 | planning | sprint-retro-summary | ✅ | ✅ |
 | planning | team-offsite-agenda | ✅ | ✅ |
 | planning | tech-debt-prioritisation | ✅ | ✅ |
-| technical-practice | ai-coding-guidelines | — | ✅ |
-| technical-practice | code-to-exec-translation | — | ✅ |
-| technical-practice | codebase-orientation-brief | — | ✅ |
-| technical-practice | pr-review-for-leaders | — | ✅ |
-| technical-practice | prototype-spike-plan | — | ✅ |
+| technical-leadership | ai-coding-guidelines | — | ✅ |
+| technical-leadership | code-to-exec-translation | — | ✅ |
+| technical-leadership | codebase-orientation-brief | — | ✅ |
+| technical-leadership | pr-review-for-leaders | — | ✅ |
+| technical-leadership | prototype-spike-plan | — | ✅ |
 | weekly-comms | README | ✅ | — |
 | weekly-comms | board-engineering-summary | ✅ | ✅ |
 | weekly-comms | cross-team-dependency-update | ✅ | ✅ |
