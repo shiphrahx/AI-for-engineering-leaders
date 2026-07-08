@@ -15,7 +15,7 @@
 
 ## Getting Started
 
-New to this and to Claude? Start here. Two ways to use this library — pick the one that matches how you already use Claude.
+New to this? Start here. Everything works with **any AI assistant** — ChatGPT, Claude, Gemini, Copilot, Cursor, or whatever you use. There are two ways in; pick the one that matches how you already work.
 
 ### The idea in one line
 
@@ -23,40 +23,37 @@ This repo is a big collection of ready-made instructions for common engineering-
 
 There are two flavours of the same thing:
 
-- **Prompts** — a block of text you copy, paste into Claude, and edit. *You* drive.
-- **Skills** — the same task, but Claude does the work: it asks you for what it needs, then produces the finished document. *Claude* drives.
+- **Prompts** — a block of text you copy, paste into your AI, and edit. *You* drive.
+- **Skills** — the same task, but the AI does the work: it asks you for what it needs, then produces the finished document. *The agent* drives.
 
 ### Option 1 — Just chat (easiest, no setup)
 
-Best if you use Claude at [claude.ai](https://claude.ai) in your browser.
+Works with any chat AI (ChatGPT, Claude, Gemini, Copilot Chat, …).
 
 1. Open the **[`prompts/`](prompts/)** folder and find your task — e.g. a Monday update for your boss is [`weekly-comms/01-exec-status-update.md`](prompts/weekly-comms/01-exec-status-update.md).
 2. Copy the text under the **"The Prompt"** heading.
-3. Paste it into Claude. Replace the `[BITS_IN_BRACKETS]` with your real information.
+3. Paste it into your AI. Replace the `[BITS_IN_BRACKETS]` with your real information.
 4. Send. If the result isn't quite right, read the **"Tuning Notes"** at the bottom of the file — they tell you how to adjust.
 
 That's the whole loop. Nothing to install.
 
-### Option 2 — Claude Code (more powerful, one-time setup)
+### Option 2 — Coding agent (more powerful, one-time setup)
 
-Best if you use Claude Code (the terminal/CLI tool). Here Claude can run the **skills** for you.
+Works with any agent that can read files in your project (Claude Code, Cursor, Copilot, and others). Here the AI runs the **skills** for you.
 
 1. Download the repo:
    ```
    git clone https://github.com/shiphrahx/AI-for-engineering-leaders.git
    ```
-2. Add this one line to your `CLAUDE.md` file so Claude knows where the skills live:
-   ```
-   skillsDir: skills/
-   ```
-3. Now just ask in plain English. Claude picks the right skill automatically:
+2. Point your agent at the `skills/` folder — the one-line setup differs per tool. See [Installation](#installation) below for your agent (Claude Code, Copilot, Cursor, or any LLM).
+3. Now just ask in plain English. The agent picks the right skill automatically:
    - *"write my exec update — here are the team's notes: …"*
    - *"review this PR for me"*
    - *"can we take on this project next quarter?"*
 
-   Claude will ask for anything it's missing (it won't make up numbers), then hand you the finished artifact.
+   The agent will ask for anything it's missing (it won't make up numbers), then hand you the finished artifact.
 
-**Not sure what's available?** Browse from the terminal:
+**Not sure what's available?** Browse from the terminal (stdlib Python, no install):
 ```
 python tools/skills_cli.py list           # see everything
 python tools/skills_cli.py search hiring   # find by keyword
@@ -66,13 +63,13 @@ python tools/skills_cli.py show one-on-one-prep   # read one
 ### Which do I pick — prompt or skill?
 
 - Grab a **prompt** when you want something fast and want to steer it yourself.
-- Use a **skill** when you'd rather answer a few questions and let Claude build the whole thing.
+- Use a **skill** when you'd rather answer a few questions and let the agent build the whole thing.
 
 They cover the same tasks. The full map of what exists as a prompt, a skill, or both is in [`docs/prompt-skill-map.md`](docs/prompt-skill-map.md).
 
 ### Your first week
 
-Try **one** thing in chat this week. Suggestions:
+Try **one** thing in your AI this week. Suggestions:
 
 | When | Reach for |
 |------|-----------|
@@ -82,7 +79,7 @@ Try **one** thing in chat this week. Suggestions:
 | Planning the quarter | [Capacity Planning](prompts/planning/07-capacity-planning.md) |
 | Friday wrap-up | [Team Weekly Summary](prompts/weekly-comms/02-team-weekly-summary.md) |
 
-Once a prompt clicks, set up Claude Code (Option 2) and let the skills do the heavy lifting.
+Once a prompt clicks, set up a coding agent (Option 2) and let the skills do the heavy lifting.
 
 ## Prompt Categories
 
