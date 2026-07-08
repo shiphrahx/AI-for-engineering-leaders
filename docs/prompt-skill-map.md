@@ -79,6 +79,11 @@ Every leadership task is available as a **prompt** (paste-and-fill), a **skill**
 | planning | sprint-retro-summary | ✅ | ✅ |
 | planning | team-offsite-agenda | ✅ | ✅ |
 | planning | tech-debt-prioritisation | ✅ | ✅ |
+| technical-practice | ai-coding-guidelines | — | ✅ |
+| technical-practice | code-to-exec-translation | — | ✅ |
+| technical-practice | codebase-orientation-brief | — | ✅ |
+| technical-practice | pr-review-for-leaders | — | ✅ |
+| technical-practice | prototype-spike-plan | — | ✅ |
 | weekly-comms | README | ✅ | — |
 | weekly-comms | board-engineering-summary | ✅ | ✅ |
 | weekly-comms | cross-team-dependency-update | ✅ | ✅ |
@@ -97,4 +102,4 @@ Every leadership task is available as a **prompt** (paste-and-fill), a **skill**
 | weekly-comms | team-wins-celebration | ✅ | — |
 | weekly-comms | vendor-escalation-email | ✅ | — |
 
-**Totals:** 69 as both · 18 prompt-only · 3 skill-only.
+**Totals:** 69 as both · 18 prompt-only · 8 skill-only.

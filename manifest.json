@@ -1,10 +1,10 @@
 {
   "schema": "ai-for-engineering-leaders/manifest@1",
   "counts": {
-    "skills": 72,
+    "skills": 77,
     "prompts": 87,
-    "categories": 6,
-    "skills_with_scripts": 24
+    "categories": 7,
+    "skills_with_scripts": 27
   },
   "categories": [
     "architecture",
@@ -12,6 +12,7 @@
     "incident-management",
     "people-management",
     "planning",
+    "technical-practice",
     "weekly-comms"
   ],
   "skills": [
@@ -756,6 +757,66 @@
       "script": "validate",
       "chains_to": [
         "quarterly-roadmap"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "technical-practice",
+      "name": "ai-coding-guidelines",
+      "path": "skills/technical-practice/ai-coding-guidelines/SKILL.md",
+      "description": "Drafts a team's norms for AI-assisted coding — tool-neutral across any assistant — covering when to use it and when not to, the review and verification bar, secrets and data handling, security, licensing/attribution, and accountability for merged code. Use when the user says \"write our AI coding policy\", \"team guidelines for using coding assistants\", \"how should my team use AI to code\", or wants norms now that reports code with AI tools. Use this to set team norms for AI-assisted development — use pr-review-for-leaders to apply the bar to one PR, and build-vs-buy-analysis to choose a specific tool.",
+      "script": "validate",
+      "chains_to": [
+        "pr-review-for-leaders",
+        "team-values-workshop"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "technical-practice",
+      "name": "code-to-exec-translation",
+      "path": "skills/technical-practice/code-to-exec-translation/SKILL.md",
+      "description": "Turns a concrete code change — a diff, PR, merged feature, or migration — into the business framing a non-technical audience acts on: what changed in plain terms, why it matters (customer, revenue, risk, cost), and what (if anything) is needed from them. Bridges the hands-on leader's code reality and the stakeholder/exec narrative. Use when the user says \"explain this PR to my VP\", \"what do I tell stakeholders about this change\", \"translate this diff for non-engineers\", or pastes a technical change they must communicate upward. Use this to translate a specific change upward — use exec-summarizer to compress any dense document, and exec-status-update for a recurring weekly team status.",
+      "script": "validate",
+      "chains_to": [
+        "exec-status-update",
+        "exec-summarizer"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "technical-practice",
+      "name": "codebase-orientation-brief",
+      "path": "skills/technical-practice/codebase-orientation-brief/SKILL.md",
+      "description": "Turns a walk of an unfamiliar repo or module into a leader's orientation brief — what the system does, its shape and entry points, the risky and load-bearing parts, how work flows, and the questions to ask the team — so a leader can speak to it credibly in a review, incident, or planning meeting. Use when the user says \"help me understand this codebase\", \"I inherited this repo\", \"orient me on this service before the meeting\", or points an agent at a directory/repo they don't know. Use this to get oriented in code you don't own — use legacy-code-assessment to decide invest/rewrite/leave, and incident-code-triage to chase a live failure.",
+      "script": null,
+      "chains_to": [
+        "legacy-code-assessment",
+        "prototype-spike-plan"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "technical-practice",
+      "name": "pr-review-for-leaders",
+      "path": "skills/technical-practice/pr-review-for-leaders/SKILL.md",
+      "description": "Reviews a report's pull request with a leadership lens — correctness and design, but also scope creep, risk, mentoring feedback, and an explicit call on what to fix now versus delegate or teach. Produces prioritised review comments plus a short private coaching note for the author's growth. Use when the user says \"review this PR for me\", \"my report opened this PR\", \"give feedback on this diff\", or pastes a diff/PR link they need to respond to as the author's manager or tech lead. Use this for reviewing another engineer's code as their leader — use code-to-exec-translation to summarise a change upward, and incident-code-triage to read a failing code path under pressure.",
+      "script": null,
+      "chains_to": [
+        "code-to-exec-translation",
+        "feedback-synthesis"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "technical-practice",
+      "name": "prototype-spike-plan",
+      "path": "skills/technical-practice/prototype-spike-plan/SKILL.md",
+      "description": "Turns a fuzzy technical question into a disciplined throwaway-prototype plan — the single question the spike must answer, the smallest thing to build to answer it, a hard timebox, and explicit kill/success criteria so the spike ends in a decision instead of quietly becoming production. Use when the user says \"let me spike this\", \"build a quick prototype to test X\", \"de-risk this before we commit\", or is a hands-on leader about to code an experiment to inform a call. Use this to plan a time-boxed experiment — use build-vs-buy-analysis for the full vendor decision and rfc-outline once the answer justifies a real proposal.",
+      "script": "validate",
+      "chains_to": [
+        "build-vs-buy-analysis",
+        "rfc-outline"
       ]
     },
     {

@@ -4,9 +4,9 @@
 
 # AI for Engineering Leaders — Prompt Library
 
-![Prompts](https://img.shields.io/badge/prompts-87-blue) ![Skills](https://img.shields.io/badge/skills-72-orange) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/AI-for-engineering-leaders?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/AI-for-engineering-leaders/commits/main)
+![Prompts](https://img.shields.io/badge/prompts-87-blue) ![Skills](https://img.shields.io/badge/skills-77-orange) ![Categories](https://img.shields.io/badge/categories-7-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/AI-for-engineering-leaders?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/AI-for-engineering-leaders/commits/main)
 
-87 situation-specific **prompts** and 72 agent-ready **skills** for engineering managers, directors, and VPs.
+87 situation-specific **prompts** and 77 agent-ready **skills** for engineering managers, directors, and VPs.
 
 - **[Prompts](prompts/)** — copy-paste-and-fill templates for recurring leadership tasks (status updates, roadmaps, reviews, incident comms), each with placeholders, an example, and tuning notes.
 - **[Skills](skills/)** — the same expertise packaged so an agent (Claude Code, Copilot, Cursor, or any LLM) can *act*: gather inputs, apply structure, and produce the finished artifact. Portable plain-markdown files with a small YAML header.
@@ -245,6 +245,16 @@ Agent-ready versions of the highest-leverage prompts — for when you want the a
 | [offer-justification](skills/hiring-pipelines/offer-justification/SKILL.md) | Interview performance connected to a specific level and comp, defensibly |
 | [interviewer-calibration-guide](skills/hiring-pipelines/interviewer-calibration-guide/SKILL.md) | A hands-on session that aligns interviewers and reduces bias |
 | [pipeline-analytics-review](skills/hiring-pipelines/pipeline-analytics-review/SKILL.md) | A diagnosis of where candidates are lost and whether to fix speed or quality |
+
+### [Technical Practice](skills/technical-practice/) — 5 skills
+For the hands-on leader who still codes — now more of them, with AI assistants. The intersection of leadership judgment and real code: reviewing a report's work, getting oriented fast, de-risking a call with a spike, and translating code up the chain.
+| Skill | What it produces |
+|-------|------------------|
+| [pr-review-for-leaders](skills/technical-practice/pr-review-for-leaders/SKILL.md) | A report's PR reviewed for correctness plus scope, risk, and mentoring — comments + a private coaching note |
+| [codebase-orientation-brief](skills/technical-practice/codebase-orientation-brief/SKILL.md) | An unfamiliar repo mapped into what it does, its shape, hot paths, risks, and the questions to ask the team |
+| [prototype-spike-plan](skills/technical-practice/prototype-spike-plan/SKILL.md) | A throwaway spike framed by one question, smallest build, hard timebox, and kill/success criteria |
+| [code-to-exec-translation](skills/technical-practice/code-to-exec-translation/SKILL.md) | A diff or PR translated into the business framing a non-technical audience acts on |
+| [ai-coding-guidelines](skills/technical-practice/ai-coding-guidelines/SKILL.md) | Tool-neutral team norms for AI-assisted coding: when, review bar, secrets, security, licensing, accountability |
 
 ## Installation
 
