@@ -15,71 +15,21 @@
 
 ## Getting Started
 
-New to this? Start here. Everything works with **any AI assistant** — ChatGPT, Claude, Gemini, Copilot, Cursor, or whatever you use. There are two ways in; pick the one that matches how you already work.
+Ready-made instructions for common leadership tasks. Works with **any AI** — ChatGPT, Claude, Gemini, Copilot, Cursor. Two ways in:
 
-### The idea in one line
+- **Prompt** — copy, paste, fill the `[BLANKS]`. You drive.
+- **Skill** — describe the task; the agent asks what it needs and builds it. The agent drives.
 
-This repo is a big collection of ready-made instructions for common engineering-leadership tasks (writing a status update, reviewing a PR, planning a quarter). You don't have to figure out how to ask — someone already wrote a good version. You just fill in your details.
+**Option 1 — Chat (no setup).** Find your task in [`prompts/`](prompts/) → copy the text under **"The Prompt"** → paste into your AI → replace the `[BLANKS]` → send. Read the **Tuning Notes** at the bottom if you want to adjust.
 
-There are two flavours of the same thing:
+**Option 2 — Coding agent.** Clone the repo, point your agent at `skills/` (see [Installation](#installation) for your tool), then ask in plain English — *"write my exec update from these notes…"*, *"review this PR"*, *"can we take this on next quarter?"*. It asks for what's missing, then hands you the artifact.
 
-- **Prompts** — a block of text you copy, paste into your AI, and edit. *You* drive.
-- **Skills** — the same task, but the AI does the work: it asks you for what it needs, then produces the finished document. *The agent* drives.
-
-### Option 1 — Just chat (easiest, no setup)
-
-Works with any chat AI (ChatGPT, Claude, Gemini, Copilot Chat, …).
-
-1. Open the **[`prompts/`](prompts/)** folder and find your task — e.g. a Monday update for your boss is [`weekly-comms/01-exec-status-update.md`](prompts/weekly-comms/01-exec-status-update.md).
-2. Copy the text under the **"The Prompt"** heading.
-3. Paste it into your AI. Replace the `[BITS_IN_BRACKETS]` with your real information.
-4. Send. If the result isn't quite right, read the **"Tuning Notes"** at the bottom of the file — they tell you how to adjust.
-
-That's the whole loop. Nothing to install.
-
-### Option 2 — Coding agent (more powerful, one-time setup)
-
-Works with any agent that can read files in your project (Claude Code, Cursor, Copilot, and others). Here the AI runs the **skills** for you.
-
-1. Download the repo:
-   ```
-   git clone https://github.com/shiphrahx/AI-for-engineering-leaders.git
-   ```
-2. Point your agent at the `skills/` folder — the one-line setup differs per tool. See [Installation](#installation) below for your agent (Claude Code, Copilot, Cursor, or any LLM).
-3. Now just ask in plain English. The agent picks the right skill automatically:
-   - *"write my exec update — here are the team's notes: …"*
-   - *"review this PR for me"*
-   - *"can we take on this project next quarter?"*
-
-   The agent will ask for anything it's missing (it won't make up numbers), then hand you the finished artifact.
-
-**Not sure what's available?** Browse from the terminal (stdlib Python, no install):
+Browse from the terminal:
 ```
-python tools/skills_cli.py list           # see everything
-python tools/skills_cli.py search hiring   # find by keyword
-python tools/skills_cli.py show one-on-one-prep   # read one
+python tools/skills_cli.py list | search <word> | show <name>
 ```
 
-### Which do I pick — prompt or skill?
-
-- Grab a **prompt** when you want something fast and want to steer it yourself.
-- Use a **skill** when you'd rather answer a few questions and let the agent build the whole thing.
-
-They cover the same tasks. The full map of what exists as a prompt, a skill, or both is in [`docs/prompt-skill-map.md`](docs/prompt-skill-map.md).
-
-### Your first week
-
-Try **one** thing in your AI this week. Suggestions:
-
-| When | Reach for |
-|------|-----------|
-| Monday morning | [Exec Status Update](prompts/weekly-comms/01-exec-status-update.md) — turn weekend team notes into a crisp update for your boss |
-| Reviewing a teammate's code | [PR Review for Leaders](prompts/technical-leadership/01-pr-review-for-leaders.md) |
-| "Should we build it or buy it?" | [Build vs Buy Analysis](prompts/planning/05-build-vs-buy-analysis.md) |
-| Planning the quarter | [Capacity Planning](prompts/planning/07-capacity-planning.md) |
-| Friday wrap-up | [Team Weekly Summary](prompts/weekly-comms/02-team-weekly-summary.md) |
-
-Once a prompt clicks, set up a coding agent (Option 2) and let the skills do the heavy lifting.
+**First thing to try:** open [Exec Status Update](prompts/weekly-comms/01-exec-status-update.md), paste it into your AI, fill the blanks. That's the whole loop.
 
 ## Prompt Categories
 
