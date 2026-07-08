@@ -79,11 +79,18 @@ Every leadership task is available as a **prompt** (paste-and-fill), a **skill**
 | planning | sprint-retro-summary | ✅ | ✅ |
 | planning | team-offsite-agenda | ✅ | ✅ |
 | planning | tech-debt-prioritisation | ✅ | ✅ |
+| technical-leadership | ai-agent-workflow-design | — | ✅ |
 | technical-leadership | ai-coding-guidelines | — | ✅ |
 | technical-leadership | code-to-exec-translation | — | ✅ |
+| technical-leadership | codebase-health-check | — | ✅ |
 | technical-leadership | codebase-orientation-brief | — | ✅ |
+| technical-leadership | estimation-sanity-check | — | ✅ |
+| technical-leadership | incident-code-triage | — | ✅ |
+| technical-leadership | legacy-code-assessment | — | ✅ |
 | technical-leadership | pr-review-for-leaders | — | ✅ |
 | technical-leadership | prototype-spike-plan | — | ✅ |
+| technical-leadership | spike-readout | — | ✅ |
+| technical-leadership | tech-evaluation-spike | — | ✅ |
 | weekly-comms | README | ✅ | — |
 | weekly-comms | board-engineering-summary | ✅ | ✅ |
 | weekly-comms | cross-team-dependency-update | ✅ | ✅ |
@@ -102,4 +109,4 @@ Every leadership task is available as a **prompt** (paste-and-fill), a **skill**
 | weekly-comms | team-wins-celebration | ✅ | — |
 | weekly-comms | vendor-escalation-email | ✅ | — |
 
-**Totals:** 69 as both · 18 prompt-only · 8 skill-only.
+**Totals:** 69 as both · 18 prompt-only · 15 skill-only.
