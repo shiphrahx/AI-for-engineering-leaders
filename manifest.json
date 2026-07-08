@@ -2,7 +2,7 @@
   "schema": "ai-for-engineering-leaders/manifest@1",
   "counts": {
     "skills": 84,
-    "prompts": 87,
+    "prompts": 100,
     "categories": 7,
     "skills_with_scripts": 31
   },
@@ -1502,6 +1502,97 @@
       "name": "README",
       "title": "Planning Artifacts",
       "path": "prompts/planning/README.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "pr-review-for-leaders",
+      "title": "PR Review for Leaders",
+      "path": "prompts/technical-leadership/01-pr-review-for-leaders.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "codebase-orientation-brief",
+      "title": "Codebase Orientation Brief",
+      "path": "prompts/technical-leadership/02-codebase-orientation-brief.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "codebase-health-check",
+      "title": "Codebase Health Check",
+      "path": "prompts/technical-leadership/03-codebase-health-check.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "prototype-spike-plan",
+      "title": "Prototype Spike Plan",
+      "path": "prompts/technical-leadership/04-prototype-spike-plan.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "spike-readout",
+      "title": "Spike Readout",
+      "path": "prompts/technical-leadership/05-spike-readout.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "tech-evaluation-spike",
+      "title": "Tech Evaluation Spike",
+      "path": "prompts/technical-leadership/06-tech-evaluation-spike.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "legacy-code-assessment",
+      "title": "Legacy Code Assessment",
+      "path": "prompts/technical-leadership/07-legacy-code-assessment.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "estimation-sanity-check",
+      "title": "Estimation Sanity Check",
+      "path": "prompts/technical-leadership/08-estimation-sanity-check.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "incident-code-triage",
+      "title": "Incident Code Triage",
+      "path": "prompts/technical-leadership/09-incident-code-triage.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "code-to-exec-translation",
+      "title": "Code to Exec Translation",
+      "path": "prompts/technical-leadership/10-code-to-exec-translation.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "ai-coding-guidelines",
+      "title": "AI Coding Guidelines",
+      "path": "prompts/technical-leadership/11-ai-coding-guidelines.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "ai-agent-workflow-design",
+      "title": "AI Agent Workflow Design",
+      "path": "prompts/technical-leadership/12-ai-agent-workflow-design.md"
+    },
+    {
+      "type": "prompt",
+      "category": "technical-leadership",
+      "name": "README",
+      "title": "Technical Leadership",
+      "path": "prompts/technical-leadership/README.md"
     },
     {
       "type": "prompt",

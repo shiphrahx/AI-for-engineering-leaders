@@ -4,9 +4,9 @@
 
 # AI for Engineering Leaders — Prompt Library
 
-![Prompts](https://img.shields.io/badge/prompts-87-blue) ![Skills](https://img.shields.io/badge/skills-84-orange) ![Categories](https://img.shields.io/badge/categories-7-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/AI-for-engineering-leaders?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/AI-for-engineering-leaders/commits/main)
+![Prompts](https://img.shields.io/badge/prompts-100-blue) ![Skills](https://img.shields.io/badge/skills-84-orange) ![Categories](https://img.shields.io/badge/categories-7-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/AI-for-engineering-leaders?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/AI-for-engineering-leaders/commits/main)
 
-87 situation-specific **prompts** and 84 agent-ready **skills** for engineering managers, directors, and VPs.
+100 situation-specific **prompts** and 84 agent-ready **skills** for engineering managers, directors, and VPs.
 
 - **[Prompts](prompts/)** — copy-paste-and-fill templates for recurring leadership tasks (status updates, roadmaps, reviews, incident comms), each with placeholders, an example, and tuning notes.
 - **[Skills](skills/)** — the same expertise packaged so an agent (Claude Code, Copilot, Cursor, or any LLM) can *act*: gather inputs, apply structure, and produce the finished artifact. Portable plain-markdown files with a small YAML header.
@@ -131,6 +131,24 @@ The end-to-end process of finding, evaluating, and closing engineering candidate
 | 10 | [Rejection Email](prompts/hiring-pipelines/10-rejection-email.md) | Delivering a respectful, useful no |
 | 11 | [Pipeline Analytics Review](prompts/hiring-pipelines/11-pipeline-analytics-review.md) | Analysing funnel metrics to improve hiring |
 | 12 | [Interviewer Calibration Guide](prompts/hiring-pipelines/12-interviewer-calibration-guide.md) | Training interviewers for consistency |
+
+### [Technical Leadership](prompts/technical-leadership/) - 12 prompts
+For the hands-on leader who still codes — increasingly with AI assistants. Where leadership judgment meets real code: reviewing, orienting, de-risking, estimating, and translating up the chain.
+
+| # | Prompt | When to Use |
+|---|--------|-------------|
+| 01 | [PR Review for Leaders](prompts/technical-leadership/01-pr-review-for-leaders.md) | Reviewing a report's pull request |
+| 02 | [Codebase Orientation Brief](prompts/technical-leadership/02-codebase-orientation-brief.md) | Getting up to speed on unfamiliar code |
+| 03 | [Codebase Health Check](prompts/technical-leadership/03-codebase-health-check.md) | A periodic read on a system you own |
+| 04 | [Prototype Spike Plan](prompts/technical-leadership/04-prototype-spike-plan.md) | Framing a throwaway experiment before you build it |
+| 05 | [Spike Readout](prompts/technical-leadership/05-spike-readout.md) | Converting a finished spike into a decision |
+| 06 | [Tech Evaluation Spike](prompts/technical-leadership/06-tech-evaluation-spike.md) | Judging a library/framework/vendor by running it |
+| 07 | [Legacy Code Assessment](prompts/technical-leadership/07-legacy-code-assessment.md) | Deciding invest / rewrite / leave on inherited code |
+| 08 | [Estimation Sanity Check](prompts/technical-leadership/08-estimation-sanity-check.md) | Before committing a date you didn't produce |
+| 09 | [Incident Code Triage](prompts/technical-leadership/09-incident-code-triage.md) | Reading a failing code path under pressure |
+| 10 | [Code to Exec Translation](prompts/technical-leadership/10-code-to-exec-translation.md) | Explaining a technical change to non-engineers |
+| 11 | [AI Coding Guidelines](prompts/technical-leadership/11-ai-coding-guidelines.md) | Setting team norms for AI-assisted coding |
+| 12 | [AI Agent Workflow Design](prompts/technical-leadership/12-ai-agent-workflow-design.md) | Wiring AI agents into the dev loop deliberately |
 
 ---
 
