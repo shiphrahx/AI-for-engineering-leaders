@@ -85,6 +85,7 @@ Every leadership task is available as a **prompt** (paste-and-fill), a **skill**
 | weekly-comms | engineering-all-hands-agenda | ✅ | ✅ |
 | weekly-comms | engineering-newsletter | ✅ | ✅ |
 | weekly-comms | exec-status-update | ✅ | ✅ |
+| weekly-comms | exec-summarizer | — | ✅ |
 | weekly-comms | incident-stakeholder-comms | ✅ | — |
 | weekly-comms | launch-announcement-external | ✅ | — |
 | weekly-comms | launch-announcement-internal | ✅ | — |
@@ -96,4 +97,4 @@ Every leadership task is available as a **prompt** (paste-and-fill), a **skill**
 | weekly-comms | team-wins-celebration | ✅ | — |
 | weekly-comms | vendor-escalation-email | ✅ | — |
 
-**Totals:** 69 as both · 18 prompt-only · 2 skill-only.
+**Totals:** 69 as both · 18 prompt-only · 3 skill-only.

@@ -4,9 +4,9 @@
 
 # AI for Engineering Leaders — Prompt Library
 
-![Prompts](https://img.shields.io/badge/prompts-87-blue) ![Skills](https://img.shields.io/badge/skills-71-orange) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/AI-for-engineering-leaders?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/AI-for-engineering-leaders/commits/main)
+![Prompts](https://img.shields.io/badge/prompts-87-blue) ![Skills](https://img.shields.io/badge/skills-72-orange) ![Categories](https://img.shields.io/badge/categories-6-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey) [![GitHub Last Commit](https://img.shields.io/github/last-commit/shiphrahx/AI-for-engineering-leaders?style=flat-square&color=8b5cf6)](https://github.com/shiphrahx/AI-for-engineering-leaders/commits/main)
 
-87 situation-specific **prompts** and 71 agent-ready **skills** for engineering managers, directors, and VPs.
+87 situation-specific **prompts** and 72 agent-ready **skills** for engineering managers, directors, and VPs.
 
 - **[Prompts](prompts/)** — copy-paste-and-fill templates for recurring leadership tasks (status updates, roadmaps, reviews, incident comms), each with placeholders, an example, and tuning notes.
 - **[Skills](skills/)** — the same expertise packaged so an agent (Claude Code, Copilot, Cursor, or any LLM) can *act*: gather inputs, apply structure, and produce the finished artifact. Portable plain-markdown files with a small YAML header.
@@ -150,7 +150,7 @@ Each file follows the same format:
 
 Agent-ready versions of the highest-leverage prompts — for when you want the agent to *do the task*, not just draft text. Each skill lives at `skills/<category>/<name>/SKILL.md` and follows a portable spec (folded trigger description, Inputs to gather, Steps, Output format, Boundaries, Chaining). See [`SKILL_TEMPLATE.md`](SKILL_TEMPLATE.md) to contribute one.
 
-### [Weekly Comms](skills/weekly-comms/) — 8 skills
+### [Weekly Comms](skills/weekly-comms/) — 9 skills
 | Skill | What it produces |
 |-------|------------------|
 | [exec-status-update](skills/weekly-comms/exec-status-update/SKILL.md) | Synthesise messy team-lead updates into a crisp leadership update an exec reads in two minutes |
@@ -161,6 +161,7 @@ Agent-ready versions of the highest-leverage prompts — for when you want the a
 | [board-engineering-summary](skills/weekly-comms/board-engineering-summary/SKILL.md) | Translate a quarter of engineering progress into board-level language and outcomes |
 | [engineering-newsletter](skills/weekly-comms/engineering-newsletter/SKILL.md) | Turn raw updates into a company-wide newsletter product, design, and sales actually read |
 | [engineering-all-hands-agenda](skills/weekly-comms/engineering-all-hands-agenda/SKILL.md) | A tight all-hands agenda that respects people's time and drives real discussion |
+| [exec-summarizer](skills/weekly-comms/exec-summarizer/SKILL.md) | Compress any dense technical material into a headline-first exec summary: bottom line, what matters, what's needed |
 
 ### [Planning](skills/planning/) — 14 skills
 | Skill | What it produces |

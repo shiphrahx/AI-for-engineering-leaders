@@ -1,10 +1,10 @@
 {
   "schema": "ai-for-engineering-leaders/manifest@1",
   "counts": {
-    "skills": 71,
+    "skills": 72,
     "prompts": 87,
     "categories": 6,
-    "skills_with_scripts": 23
+    "skills_with_scripts": 24
   },
   "categories": [
     "architecture",
@@ -813,6 +813,18 @@
       "chains_to": [
         "board-engineering-summary",
         "team-weekly-summary"
+      ]
+    },
+    {
+      "type": "skill",
+      "category": "weekly-comms",
+      "name": "exec-summarizer",
+      "path": "skills/weekly-comms/exec-summarizer/SKILL.md",
+      "description": "Compresses any dense technical material — a postmortem, RFC, design doc, long Slack/email thread, dashboard dump, or vendor report — into a headline-first executive summary: bottom line up front, the few points that actually matter, and what (if anything) is needed from the reader. Use when the user says \"summarize this for my VP/CTO\", \"TL;DR this\", \"make this exec- ready\", \"too long, cut it down\", or pastes a wall of technical text. Use this to compress an existing artifact of any shape — use exec-status-update for a structured weekly team status, and board-engineering-summary for an investor-level board section.",
+      "script": "validate",
+      "chains_to": [
+        "exec-status-update",
+        "board-engineering-summary"
       ]
     },
     {
