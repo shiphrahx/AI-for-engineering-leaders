@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/ai-robot.png" width="140" alt="AI for Engineering Leaders" />
+<img src="01.png" alt="AI for Engineering Leaders" />
 
 # AI for Engineering Leaders — Prompt Library
 
